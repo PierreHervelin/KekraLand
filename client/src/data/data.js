@@ -16,3 +16,72 @@ export const ImgCarouselSrc = [
         src : '../asset/kekracarousel4.png',
     }
 ]
+export const TrackListContent = {
+    vrealite:[
+        {
+            id : '01' , 
+            track : 'Téléphone maison',
+            temps : '3:04'
+        },
+        {
+            id : '02', 
+            track : 'Lights Out',
+            temps : '3:11'
+        },
+        {
+            id : '03', 
+            track : 'COD',
+            temps : '3:18'
+        },
+        {
+            id : '04', 
+            track : 'Vréalité',
+            temps : '3:34'
+        },
+        {
+            id : '05', 
+            track : 'CLS',
+            temps : '3:02'
+        },
+        {
+            id : '06', 
+            track : 'Chut',
+            temps : '2:57'
+        },
+        {
+            id : '07', 
+            track : 'Doré (Interlude)',
+            temps : '2:56'
+        },
+        {
+            id : '08', 
+            track : 'Korda',
+            temps : '2:58'
+        },
+        {
+            id : '09', 
+            track : 'Violation',
+            temps : '3:03'
+        },
+        {
+            id : '10', 
+            track : 'OSMS',
+            temps : '2:58'
+        },
+        {
+            id : '11', 
+            track : 'Aznavour',
+            temps : '3:26'
+        },
+        {
+            id : '12', 
+            track : 'Sans les thunes',
+            temps : '4:17'
+        },
+        {
+            id : '13', 
+            track : 'Vrai-alité - Bonus Track',
+            temps : '3:34'
+        }
+    ]
+}

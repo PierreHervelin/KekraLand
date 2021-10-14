@@ -4,6 +4,7 @@ import '../styles/index.css';
 
 
 const Shop = () => {
+    
     return (
         <main>
             <motion.div

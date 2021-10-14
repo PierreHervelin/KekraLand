@@ -38,6 +38,31 @@
     width: 30%;
     display: flex;
     justify-content: center;
-   
+}
+
+.tracklist-container{
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    width: 35%;
+    height: 500px;
+    overflow: hidden;
+}
+.tracklist{
+    margin-top:-500px;
+}
+.track{
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    padding: 5px;
+}
+.trackname{
+    width: 200px;
+    margin-left: 10px;
+    text-align: left;
 }
 
