@@ -1,0 +1,43 @@
+.vrealite{
+    width: 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-position: center;
+    background-size:cover;
+    align-self: flex-start;
+    background-image: url('../asset/img/vrealitefond.jpg');
+   
+}
+.batiment{
+   width: 100%;
+   height: 100%;
+   position: relative;
+   z-index: 99;
+   background-image: url('../asset/img/immeublevrealite.png');
+   top: 0;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   
+   
+}
+.cover{
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.coverVrealite{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+   
+}
+
