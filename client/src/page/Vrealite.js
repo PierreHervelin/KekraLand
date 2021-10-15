@@ -27,16 +27,15 @@ const Vrealite = () => {
                     className = "coverVrealite"
                     src={cover} alt=''
                     animate={{
-                        transform:'translate(-120%,-20%)',
+                        top:0,
+                        left:'20%',
                         width:25+'%',
                     }}
                     transition={{
-                        duration:2.5
+                       duration:2.5
                     }}
                 />
-            </div>
-            <div className="batiment"></div>
-            <div className="tracklist-container">
+                  <div className="tracklist-container">
                 <div className='col'>
                     <motion.ul
                         className="tracklist"
@@ -53,6 +52,9 @@ const Vrealite = () => {
                     </motion.ul>
                 </div>
             </div>
+            </div>
+            <div className="batiment"></div>
+          
         </div>
     );
 };
