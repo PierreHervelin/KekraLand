@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/index.css';
 import cover from '../asset/img/cover1.jpeg'
 import { motion } from 'framer-motion';
 import Tracklist from '../components/Tracklist';
