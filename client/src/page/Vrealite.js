@@ -6,20 +6,6 @@ import Tracklist from '../components/Tracklist';
 
 
 const Vrealite = () => {
-
-   /* const variants = {
-        visible: {opacity: 1,
-        transition:{
-            when:"beforeChildren",
-            staggerChildren: 0.3,
-        }},
-        hidden: {opacity: 0,
-         transition:{
-            when:"afterChildren",
-        }}
-    }
-    */
-
     return (
         <div className="vrealite">
             <div className="cover"> 
@@ -27,15 +13,16 @@ const Vrealite = () => {
                     className = "coverVrealite"
                     src={cover} alt=''
                     animate={{
-                        top:0,
+                        //top:5,
                         left:'20%',
                         width:25+'%',
                     }}
                     transition={{
-                       duration:2.5
+                        delay:1,
+                        duration:2.5
                     }}
                 />
-                  <div className="tracklist-container">
+                <div className="tracklist-container">
                 <div className='col'>
                     <motion.ul
                         className="tracklist"
@@ -44,7 +31,7 @@ const Vrealite = () => {
                             marginTop:0
                         }}
                         transition={{
-                            delay:3,
+                            delay:4,
                             duration:3
                         }}
                     >
@@ -54,7 +41,17 @@ const Vrealite = () => {
             </div>
             </div>
             <div className="batiment"></div>
-          
+            <motion.div
+                className='fullblack'
+                animate={{
+                    opacity:0
+                }}
+                transition={{
+                    duration:1
+                }}
+            >
+                
+            </motion.div>
         </div>
     );
 };

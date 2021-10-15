@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { ImgCarouselSrc } from '../data/data'; 
 
 const Carousel = () => {
-    console.log(ImgCarouselSrc);
     const [imgs]=useState(ImgCarouselSrc);
     
     const list=imgs.map(
