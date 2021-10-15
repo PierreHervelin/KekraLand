@@ -4,7 +4,7 @@
     height: 100%;
     overflow: hidden;
 }
-.background, .plateforme{
+.background, .plateforme, .police, .lights{
     position: absolute;
     top: 0;
     left: 0;
@@ -19,6 +19,15 @@
 }
 #vreel3 .plateforme{
     background-image: url('../asset/img/vreel3/plateforme.png');
+}
+.police{
+    background-image: url('../asset/img/vreel3/police.png');
+    left: -100%;
+}
+.lights{
+    background-image: url('../asset/img/vreel3/light1.png');
+    transition: all 1s;
+    opacity: 0;
 }
 
 .nuages{
