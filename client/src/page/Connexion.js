@@ -1,14 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from "axios";
+import '../styles/index.css';
 
 const Connexion = () => {
+
+    const [login, setLogin] = useState("");
+    const [password, setPassword] = useState("");
+
+    const Login =() => {
+        const data = {login: login, password: password};
+        axios.post("http://localhost:3001/api/users/login", data).then((response) => {
+            console.log(response.data);
+        });
+    };
+
     return (
-        <div class = "container">
-            <div class = "form">
+        <div className= "container">
+            <div className = "form">
                 <h1>Se connecter</h1>
-                <input type = "text" id="name" name="name" placeholder = "Login" required/>
+                <input type = "text" onChange={(event) => {
+                    setLogin(event.target.value);
+                }}  placeholder = "Login" required/>
                 <br/>
-                <input type = "text" id="name" name="name" placeholder = "Password" required/>
-                <input type = "submit" id="name" name="name"/>
+                <input type = "password" onChange={(event) => {
+                    setPassword(event.target.value);
+                }} placeholder = "Password" required/>
+                <button onClick={Login}>Se connecter</button>
             </div>
         </div>
     );

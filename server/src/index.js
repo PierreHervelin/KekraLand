@@ -1,6 +1,11 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const cors = require("cors");
+const port = 3001
+
+app.use(express.json());
+app.use(cors());
+
 
 const db=require('../config/database')
 
@@ -10,11 +15,6 @@ db.authenticate()
 const {Users, Themes, Produits, LigneCommandes, Commandes, Commentaires}=require('./models/index')
 const {UsersAPI, CommandesAPI, LigneCommandesAPI, ProduitsAPI, CommentairesAPI, ThemesAPI}=require('./routes/index')
 db.sync()
-
-
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
 
 Users.hasOne(Commentaires)
 Themes.hasOne(Commentaires)
