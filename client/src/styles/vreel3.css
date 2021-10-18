@@ -4,7 +4,7 @@
     height: 100%;
     overflow: hidden;
 }
-.background,.panneau-light, .plateforme, .police, .lights, .panneau,.panneau-content, .panneau-back{
+.background,.panneau-light, .plateforme, .police, .lights, .lights2, .panneau,.panneau-content, .panneau-back{
     position: absolute;
     top: 0;
     left: 0;
@@ -23,11 +23,15 @@
 .police{
     background-image: url('../asset/img/vreel3/police.png');
     left: -100%;
+    bottom: -10%;
 }
 .lights{
     background-image: url('../asset/img/vreel3/light1.png');
     transition: all 1s;
     opacity: 0;
+}
+.lights2{
+    background-image: url('../asset/img/vreel3/light2.png');
 }
 .panneau{
     background-image: url('../asset/img/vreel3/panneau.png');

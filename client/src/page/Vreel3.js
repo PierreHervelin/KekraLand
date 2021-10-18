@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
 
 const Vreel3 = () => {
     let leftNuage=0,
@@ -98,6 +96,7 @@ const Vreel3 = () => {
                     repeat:Infinity
                 }}
             ></motion.div>
+            <div className='lights2'></div>
             <div className='lights'></div>
         </main>
     );
