@@ -1,25 +1,10 @@
 import React from 'react';
-import '../styles/index.css';
 import cover from '../asset/img/cover1.jpeg'
 import { motion } from 'framer-motion';
 import Tracklist from '../components/Tracklist';
 
 
 const Vrealite = () => {
-
-   /* const variants = {
-        visible: {opacity: 1,
-        transition:{
-            when:"beforeChildren",
-            staggerChildren: 0.3,
-        }},
-        hidden: {opacity: 0,
-         transition:{
-            when:"afterChildren",
-        }}
-    }
-    */
-
     return (
         <div className="vrealite">
             <div className="cover"> 
@@ -27,16 +12,16 @@ const Vrealite = () => {
                     className = "coverVrealite"
                     src={cover} alt=''
                     animate={{
-                        transform:'translate(-120%,-20%)',
+                        //top:5,
+                        left:'20%',
                         width:25+'%',
                     }}
                     transition={{
+                        delay:1,
                         duration:2.5
                     }}
                 />
-            </div>
-            <div className="batiment"></div>
-            <div className="tracklist-container">
+                <div className="tracklist-container">
                 <div className='col'>
                     <motion.ul
                         className="tracklist"
@@ -45,7 +30,7 @@ const Vrealite = () => {
                             marginTop:0
                         }}
                         transition={{
-                            delay:3,
+                            delay:4,
                             duration:3
                         }}
                     >
@@ -53,6 +38,19 @@ const Vrealite = () => {
                     </motion.ul>
                 </div>
             </div>
+            </div>
+            <div className="batiment"></div>
+            <motion.div
+                className='fullblack'
+                animate={{
+                    opacity:0
+                }}
+                transition={{
+                    duration:1
+                }}
+            >
+                
+            </motion.div>
         </div>
     );
 };

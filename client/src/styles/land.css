@@ -1,0 +1,40 @@
+.land-container{
+    background-image: url("../asset/img/land/Arrière-plan.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+.bulle-container{
+    width: 100%;
+    height: 50%;
+    
+}
+.bulle{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.grosse-bulle, .petite-bulle, .moyenne-bulle{
+    background-image: url("../asset/img/land/bulle.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.grosse-bulle{
+    width: 600px;
+    height: 600px;
+}
+.petite-bulle{
+    width: 300px;
+    height: 300px;
+}
+.moyenne-bulle{
+    width: 400px;
+    height: 400px;
+}
+
+
