@@ -4,7 +4,7 @@
     height: 100%;
     overflow: hidden;
 }
-.background, .plateforme, .police, .lights{
+.background,.panneau-light, .plateforme, .police, .lights, .panneau,.panneau-content, .panneau-back{
     position: absolute;
     top: 0;
     left: 0;
@@ -28,6 +28,24 @@
     background-image: url('../asset/img/vreel3/light1.png');
     transition: all 1s;
     opacity: 0;
+}
+.panneau{
+    background-image: url('../asset/img/vreel3/panneau.png');
+}
+#vreel3 #cover{
+    background-image: url('../asset/img/vreel3/cover.png');
+}
+.panneau-back{
+    background-image: url('../asset/img/vreel3/panneau-back.png');
+}
+#vreel3 #tracklist{
+    background-image: url('../asset/img/vreel3/tracklist.png');
+}
+.panneau-light{
+    background-image: url('../asset/img/vreel3/panneau-light1.png');
+}
+.panneau-light#panneau-light2{
+    background-image: url('../asset/img/vreel3/panneau-light2.png');
 }
 
 .nuages{
