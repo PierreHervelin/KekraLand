@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/index.css';
 import Carousel from '../components/Carousel';
 
 
@@ -9,10 +8,12 @@ const Home = () => {
     
     let numSlide=0;
     let pos=0;
+    let interval;
 
     const suivant=()=>{
+        clearInterval(interval)
         numSlide++;
-
+        
         if(numSlide>3){
             numSlide=0;
             pos=0;
@@ -21,8 +22,12 @@ const Home = () => {
         }
 
         document.querySelector('.slide-container').style.transform=`translate(${pos}vw)`;
+        interval = setInterval(() => {
+            suivant();
+        }, 8000);
     }
     const precedent=()=>{
+        clearInterval(interval)
         numSlide--;
 
         if(numSlide<0){
@@ -33,11 +38,11 @@ const Home = () => {
         }
 
         document.querySelector('.slide-container').style.transform=`translate(${pos}vw)`;
+        interval = setInterval(() => {
+            suivant();
+        }, 8000);
     }
 
-    setInterval(() => {
-        suivant();
-    }, 8000);
 
     return (
         <div className = 'home'>
