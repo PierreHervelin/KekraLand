@@ -29,14 +29,34 @@
         position: absolute;
         right: 20px;
 
+        input{
+            position: absolute;
+            left: -150px;
+
+            width: 140px;
+            height: 15px;
+            border-radius: 7px;
+            border: none;
+            outline: none;
+            padding-left: 10px;
+
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform ease .5s;
+
+            &.active{
+                transform: scaleX(1);
+            }
+        }
+
         div{
             color: white;
-            font-size: 19px;
+            font-size: 18px;
             transform: rotate(0deg);
             transition: transform ease 1s;
 
             &:last-child{
-                font-size: 22px;
+                font-size: 21px;
             }
 
             &:hover{

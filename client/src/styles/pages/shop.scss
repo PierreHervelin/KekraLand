@@ -10,6 +10,15 @@
 
         &.active{
             transform: translate(0,0);
+
+            .title-container{
+                opacity: 1;
+                transition: opacity ease .5s .2s;
+            }
+            .content{
+                opacity: 1;
+                transition: opacity ease .5s .5s;
+            }
         }
 
     }

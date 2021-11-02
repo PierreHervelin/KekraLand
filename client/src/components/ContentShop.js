@@ -53,6 +53,9 @@ const ContentShop = () => {
     const contentLeave=()=>{
         const content=document.querySelector('.ContentShop')
         const navbar=document.querySelector('.Navbar')
+        const input=document.querySelector('.Navbar .container input')
+
+        input.classList.remove('active')
         content.classList.remove('active')
         navbar.classList.remove('active')
     }
