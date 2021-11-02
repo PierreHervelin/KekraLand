@@ -5,16 +5,16 @@
     background: black;
     position: relative;
     
-    z-index: 99;
+    z-index: 98;
 
-    h1{
-        font-size: 30px;
-        font-family: 'montserrat';
-        color: white;
+    img{
+        width: 250px;
 
         @extend %mid;
 
         padding: 0;
         margin: 0;
+
+        z-index: 99;
     }
 }

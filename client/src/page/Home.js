@@ -1,8 +1,6 @@
 import React from 'react';
 import Carousel from '../components/Carousel';
-
-
-
+import Logo from '../asset/svg/kekratitle.svg'
 
 const Home = () => {
     
@@ -46,7 +44,7 @@ const Home = () => {
 
     return (
         <div className = 'home'>
-            <h1>KEKRA</h1>
+            <img src={Logo} alt=''/>
             <div className="slider" id="slider">
                 <div className='row slide-container'>
                     <Carousel/>
