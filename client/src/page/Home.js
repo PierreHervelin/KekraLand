@@ -1,6 +1,6 @@
 import React from 'react';
 import Carousel from '../components/Carousel';
-import Logo from '../asset/svg/kekratitle.svg'
+import Logo from '../asset/img/kekratitle.png'
 
 const Home = () => {
     
@@ -49,9 +49,9 @@ const Home = () => {
                 <div className='row slide-container'>
                     <Carousel/>
                 </div>
-                <div className ="precedent icon-arrow-left" id = "precedent" onClick={precedent}> 
+                <div className ="precedent icon-cheveron-left" id = "precedent" onClick={precedent}> 
                 </div>
-                <div className ="suivant icon-arrow-right" id="suivant" onClick={suivant}> 
+                <div className ="suivant icon-cheveron-right" id="suivant" onClick={suivant}> 
                 </div>
                 <div className='degrade'></div>
             </div>

@@ -17,4 +17,32 @@
 
         z-index: 99;
     }
+
+    .container{
+        @extend %row;
+        justify-content: space-around;
+        align-items: center;
+
+        height: 50px;
+        width: 10%;
+
+        position: absolute;
+        right: 20px;
+
+        div{
+            color: white;
+            font-size: 19px;
+            transform: rotate(0deg);
+            transition: transform ease 1s;
+
+            &:last-child{
+                font-size: 22px;
+            }
+
+            &:hover{
+                cursor: pointer;
+                transform: rotate(360deg);
+            }
+        }
+    }
 }
