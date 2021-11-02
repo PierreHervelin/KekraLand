@@ -1,0 +1,52 @@
+.Panier{
+    @extend %col;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 30%;
+    position: absolute;
+    background: black;
+
+    top: 0;
+    right: 0;
+
+    height: 100vh;
+
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform ease .5s;
+
+    z-index: 99;
+
+    &.active{
+        transform: scaleX(1);
+    }
+
+    h3{
+        color: white;
+        font-family: 'montserrat';
+    }
+    .content-container{
+        .content{
+            color: white;
+            font-family: 'montserrat';
+            font-size: 15px;
+        }
+    }
+
+    .cross{
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: white;
+        font-size: 18px;
+        padding: 10px;
+
+        transition: color ease .5s;
+
+        &:hover{
+            color: #aaa;
+            cursor: pointer;
+        }
+    }
+}

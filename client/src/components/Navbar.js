@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from '../asset/img/kekratitle.png'
 
+
 const Navbar = () => {
+
     const activeContentShop=(e)=>{
         const content=document.querySelector('.ContentShop')
         const navbar=document.querySelector('.Navbar')
@@ -9,22 +11,26 @@ const Navbar = () => {
         content.classList.add('active')
         navbar.classList.add('active')
     }
-
-    const activeSearch=()=>{
-        const input=document.querySelector('.Navbar .container input')
-
-        input.classList.add('active')
+    const openPanier=()=>{
+        const panier=document.querySelector('.Panier')
+        panier.classList.add('active')
     }
+
     return (
         <div className='Navbar' onMouseEnter={activeContentShop}>
             <img src={Logo} alt='KEKRA'/>
             <div className='container'>
-                <input
-                    type='text'
-                />
-                <div className='icon-search' onClick={activeSearch}></div>
-                <div className='icon-user'></div>
-                <div className='icon-shopping-cart'></div>
+                <div className='search-container'>
+                    <input
+                        type='text'
+                    />
+                    <div className='icon icon-search'></div>
+                </div>
+                <div className='icon icon-user'></div>
+                <div 
+                    className='icon icon-shopping-cart'
+                    onClick={openPanier}
+                ></div>
             </div>
         </div>
     );
