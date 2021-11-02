@@ -1,0 +1,20 @@
+.Navbar{
+    width: 100%;
+    height: fit-content;
+    min-height: 50px;
+    background: black;
+    position: relative;
+    
+    z-index: 99;
+
+    h1{
+        font-size: 30px;
+        font-family: 'montserrat';
+        color: white;
+
+        @extend %mid;
+
+        padding: 0;
+        margin: 0;
+    }
+}

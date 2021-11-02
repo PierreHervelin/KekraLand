@@ -1,0 +1,59 @@
+.ContentShop{
+    @extend %col;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 100%;
+    height: fit-content;
+    position: relative;
+
+    background: black;
+
+    .title{
+        @extend %row;
+        justify-content: space-around;
+        align-items: center;
+
+        color: white;
+        padding-top: 20px;
+
+        width: 100%;
+
+        h2{
+            font-family: 'montserrat';
+            border-bottom: 1px solid black;
+            transition: border-bottom .5s;
+            cursor: default;
+
+            padding: 0;
+            margin: 0;
+
+            &.active{
+                border-bottom: 1px solid white;
+            }
+        }
+    }
+    .content{
+        margin-top: 50px;
+
+        @extend %row;
+        justify-content: space-evenly;
+        align-items: center;
+
+        color: white;
+
+        width: 100%;
+        padding-bottom: 50px;
+
+        div{
+            font-family: 'montserrat';
+            border-bottom: 1px solid black;
+            transition: border-bottom .5s;
+            cursor: default;
+
+            &:hover{
+                border-bottom: 1px solid white;
+            }
+        }
+    }
+}

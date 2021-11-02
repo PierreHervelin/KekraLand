@@ -1,0 +1,16 @@
+.Shop{
+    width: 100%;
+    height: fit-content;
+
+    position: relative;
+
+    .ContentShop{
+        transform: translate(0,-150%);
+        transition: transform ease .5s;
+
+        &.active{
+            transform: translate(0,0);
+        }
+
+    }
+}

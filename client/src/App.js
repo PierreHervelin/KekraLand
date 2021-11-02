@@ -14,6 +14,7 @@ const App = () => {
       <Route exact path="/vrealite" component={Vrealite} />
       <Route exact path="/shop" component={Shop} />
       <Route exact path="/inscription" component={Inscription} />
+      
       <Route exact path="/vreel3" component={Vreel3} />
       <Route exact path="/land" component={Land} />
       <Redirect to="/" />

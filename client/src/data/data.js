@@ -16,6 +16,38 @@ export const ImgCarouselSrc = [
         src : '../asset/kekracarousel4.png',
     }
 ]
+
+export const CategorieShop=[
+    {
+        id:0,
+        title:'Albums CD',
+        content:[
+            'Kekra',
+            'Freebase, vol. 04',
+            'Vréalité',
+            'Land'
+        ]
+    },
+    {
+        id:1,
+        title:'Vêtements',
+        content:[
+            'Hoodies',
+            'T-shirts'
+        ]
+    },
+    {
+        id:2,
+        title:'Concerts',
+        content:[
+            'La défense',
+            'Nantes',
+            'Bercy',
+            'AccorHotels Arena'
+        ]
+    }
+]
+
 export const TrackListContent = {
     vrealite:[
         {
