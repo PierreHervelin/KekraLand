@@ -7,7 +7,7 @@ const Connexion = () => {
     const [password, setPassword] = useState("");
 
     const Login =() => {
-        const data = {login: login, password: password};
+        const data = {login,password};
         axios.post("http://localhost:3001/api/users/login", data).then((response) => {
             console.log(response.data);
         });

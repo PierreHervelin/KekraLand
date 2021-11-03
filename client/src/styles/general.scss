@@ -13,3 +13,24 @@
     top: 50%; left: 50%;
     transform: translate(-50%,-50%);
 }
+
+.black-bottom{
+    @extend %mid;
+    position: fixed;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(black,.8);
+
+
+    pointer-events: none;
+
+    opacity: 0;
+    transition: opacity ease .5s;
+
+    &.active{
+        pointer-events: auto;
+        opacity: 1;
+    }
+}
