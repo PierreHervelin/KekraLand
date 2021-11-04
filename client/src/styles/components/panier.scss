@@ -31,10 +31,25 @@
         align-items: center;
 
         width: 100%;
+        height: 75%;
+        padding-top: 10px;
+
+        overflow-y: scroll;
 
         color: white;
         font-family: 'montserrat';
         font-size: 15px;
+    }
+
+    .total{
+        position: absolute;
+        bottom: 50px;
+
+        color: white;
+        font-family: 'montserrat';
+        
+        width: 100%;
+        text-align: center;
     }
 
     .cross{
@@ -64,13 +79,17 @@
     width: 80%;
     position: relative;
     background: white;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 10px;
 
     transition: transform ease .5s;
 
     @media (max-width:1100px) {
         flex-direction: column;
+
+        div{
+            width: 100%;
+        }
 
         span{
             &.image{
@@ -94,10 +113,27 @@
         align-items: center;
 
         width: 80%;
+        position: relative;
+
+        span{
+            flex-grow: 1;
+            width: 20%;
+            text-align: center;
+            align-self: center;
+            
+            &:first-child{
+                flex-grow: 2;
+
+                padding-left: 10px;
+                width: 40%;
+                text-align: start;
+            }
+        }
     }
 
     span{
         color: black;
+        cursor: default;
 
         &.image{
             width: 80px;
@@ -120,5 +156,13 @@
         border: none;
         outline: none;
         background: none;
+
+        font-family: 'montserrat';
+        width: 20%;
+        text-align: center;
+
+        &.error{
+            border: 1px solid red;
+        }
     }
 }

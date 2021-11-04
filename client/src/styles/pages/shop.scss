@@ -48,7 +48,8 @@
         position: relative;
 
         video{
-            width: 100%;
+            object-fit: cover;
+            object-position: center;
             pointer-events: none;
         }
         .content{

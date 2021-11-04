@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { motion } from "framer-motion";
+import React from 'react';
 import Video from '../asset/video/shophomevideo.mp4'
 import ShopNavbar from '../components/ShopNavbar';
 

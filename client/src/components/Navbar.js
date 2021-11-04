@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Logo from '../asset/img/kekratitle.png'
-import { Panier } from '../class/Panier';
 import CompPanier, { UserPanier } from './CompPanier';
 
 const Navbar = () => {

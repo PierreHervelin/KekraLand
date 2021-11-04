@@ -1,5 +1,4 @@
 import React from 'react';
-import CompPanier, { UserPanier } from './CompPanier';
 import ContentShop from './ContentShop';
 import Navbar from './Navbar';
 

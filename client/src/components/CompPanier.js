@@ -1,44 +1,54 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Panier } from '../class/Panier';
 import ProduitCard from './ProduitCard';
 
 export const UserPanier=new Panier()
 
-const CompPanier = (props) => {
-    const [produits,setProduits]=useState([])
+class CompPanier extends React.Component{
+    state={
+        total:UserPanier.getTotalPrice()
+    }
 
-    useEffect(()=>{
-        let pos=0
-        const html=[]
-        if(!props.panier.length){
-            html.push('Le panier est vide.')
-            setProduits(html)
-            return
-        }
-        for(let produit of props.panier){
-            html.push(
-                <ProduitCard produit={produit} pos={pos} key={pos}/>
+    constructor(props){
+        super(props)
+
+        this.changeTotal=this.changeTotal.bind(this)
+    }
+
+    changeTotal(total){
+        console.log(total);
+        this.setState({total})
+    }
+
+    render(){
+        const produits=[]
+        for(let produit of UserPanier.produits){
+            produits.push(
+                <ProduitCard key={produit.id} produit={produit} changeTotal={this.changeTotal}/>
             )
-            pos++
         }
-        setProduits(html)
-    },[props.panier])
-
-    return (
-        <div className='Panier'>
-            <h3>Panier</h3>
-            <div className='content'>
-                {produits}
+        if(!produits.length){
+            produits.push('Le panier est vide.')
+        }
+        return(
+            <div className='Panier'>
+                <h3>Panier</h3>
+                <div className='content'>
+                    {produits}
+                </div>
+                <div className='total'>
+                    {`Total : ${this.state.total}€`}
+                </div>
+                <div 
+                    className='cross icon-cross'
+                    onClick={(e)=>{
+                        e.target.parentNode.classList.remove('active')
+                        document.querySelector('.black-bottom').classList.remove('active')
+                    }}
+                ></div>
             </div>
-            <div 
-                className='cross icon-cross'
-                onClick={(e)=>{
-                    e.target.parentNode.classList.remove('active')
-                    document.querySelector('.black-bottom').classList.remove('active')
-                }}
-            ></div>
-        </div>
-    );
-};
+        )
+    }
+}
 
 export default CompPanier;
