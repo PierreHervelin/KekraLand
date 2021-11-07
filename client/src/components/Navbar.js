@@ -2,6 +2,16 @@ import React, { useEffect, useState } from 'react';
 import Logo from '../asset/img/kekratitle.png'
 import CompPanier, { UserPanier } from './CompPanier';
 
+export const unactiveNavBar=()=>{
+    const content=document.querySelector('.ContentShop')
+    const navbar=document.querySelector('.Navbar')
+
+    navbar.dataset.visible=false
+
+    content.classList.remove('active')
+    navbar.classList.remove('active')
+}
+
 const Navbar = () => {
     const [panier,setPanier]=useState([])
     const [prevScrollPos,setPrevScrollPos]=useState(window.scrollY)
@@ -21,7 +31,7 @@ const Navbar = () => {
         setPrevScrollPos(currentScrollPos)
         setVisible(prevScrollPos>currentScrollPos)
         if(!prevScrollPos>currentScrollPos){
-            document.querySelector('.ContentShop').classList.remove('active')
+            unactiveNavBar()
         }
     }
 
