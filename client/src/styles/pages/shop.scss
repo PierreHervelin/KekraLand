@@ -149,7 +149,7 @@
         }
 
         &>.title{
-            transition: opacity ease 1s;
+            transition: opacity ease 2s;
             
             &:hover{
                 p{
@@ -180,6 +180,7 @@
                 color: black;
     
                 font-size: 35px;
+                padding: 20px;
 
                 transform: translate(-50%,-50%) scale(0.9);
                 transition: transform ease .2s;
