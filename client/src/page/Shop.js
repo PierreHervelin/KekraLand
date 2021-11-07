@@ -24,7 +24,7 @@ const Shop = () => {
                     }
                     window.scrollTo(config)
                 }
-            }, 10);
+            }, 300);
         }
     }
 
