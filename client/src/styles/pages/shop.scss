@@ -183,7 +183,7 @@
             p{
                 font-family: 'montserrat medium';
                 @extend %mid;
-                top: 56%;
+                top: calc(50% + 45px);
 
                 opacity: 0;
                 transition: opacity ease .4s;
