@@ -1,5 +1,4 @@
 import React from 'react';
-import Carousel from '../components/Carousel';
 import Logo from '../asset/img/kekratitle.png'
 
 const Home = () => {
@@ -47,7 +46,6 @@ const Home = () => {
             <img src={Logo} alt=''/>
             <div className="slider" id="slider">
                 <div className='row slide-container'>
-                    <Carousel/>
                 </div>
                 <div className ="precedent icon-cheveron-left" id = "precedent" onClick={precedent}> 
                 </div>

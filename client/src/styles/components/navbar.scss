@@ -4,9 +4,18 @@
     min-height: 50px;
     background: black;
     position: relative;
+    transform: translate(0,0);
+
+    pointer-events: auto;
+
+    transition: transform ease .5s;
+
+    &[data-active=false]{
+        transform: translate(0,-80px);
+    }
 
     img{
-        width: 230px;
+        width: 150px;
 
         @extend %mid;
 
@@ -54,6 +63,10 @@
                 transform: scaleX(0);
                 transform-origin: bottom right;
                 transition: transform ease .5s;
+
+                &:focus-visible{
+                    transform: scaleX(1);
+                }
     
                 &.active{
                     transform: scaleX(1);

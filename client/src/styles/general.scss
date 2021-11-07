@@ -14,12 +14,18 @@
     transform: translate(-50%,-50%);
 }
 
+%cover{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .black-bottom{
     @extend %mid;
     position: fixed;
 
     width: 100vw;
-    height: 100vh;
+    height: 400vh;
 
     background: rgba(black,.8);
 
@@ -32,5 +38,23 @@
     &.active{
         pointer-events: auto;
         opacity: 1;
+    }
+}
+
+::-webkit-scrollbar{
+    width: 6px;
+}
+::-webkit-scrollbar-track{
+    background: black;
+}
+::-webkit-scrollbar-thumb{
+    background: #777;
+    border-radius: 3px;
+}
+
+@supports (scrollbar-color: #777 blue){
+    *{
+        scrollbar-color: #777 black;
+        scrollbar-width: auto;
     }
 }

@@ -7,7 +7,57 @@
     @extend %col;
     justify-content: flex-start;
     align-items: center;
+
+    overflow-x: hidden;
     //margin-top: 50px;
+
+    button{
+        background: transparent;
+        position: relative;
+
+        margin-top: 20px;
+
+        overflow: hidden;
+
+        color: white;
+        font-family: 'montserrat medium';
+        font-size: 15px;
+
+        padding: 15px;
+        pointer-events: auto;
+
+        border: 2px solid white;
+
+        transition: all ease .8s;
+
+        &:hover{
+            background: white;
+            color: black;
+            cursor: pointer;
+
+            &::after{
+                transform: translate(-50%,-50%) scale(1);
+            }
+        }
+
+        &::after{
+            content: '';
+            
+            @extend %mid;
+
+            width: 200%;
+            padding-top: 200%;
+
+            border-radius: 50%;
+
+            background: white;
+
+            transform: translate(-50%,-50%) scale(0);
+            transition: transform ease .8s;
+
+            z-index: -1;
+        }
+    }
 
     .shopNavbar{
 
@@ -18,14 +68,20 @@
         position: fixed;
         top: 0;
 
+        pointer-events: none;
+
         z-index: 98;
 
         .ContentShop{
             transform: translate(0,-150%);
             transition: transform ease .5s, height .5s;
+
+            pointer-events: none;
     
             &.active{
                 transform: translate(0,0);
+
+                pointer-events: auto;
     
                 .title-container{
                     opacity: 1;
@@ -59,6 +115,7 @@
             @extend %mid;
 
             h2{
+                font-family: 'montserrat bold';
                 font-size: 5vw;
 
                 color: white;
@@ -67,57 +124,258 @@
                 padding: 0;
             }
             button{
-                background: none;
+                width: 40%;
+                font-size: 18px;
+            }
+        }
+    }
+    .new-cloth{
+        width: 100vw;
+        height: 100vh;
+        position: relative;
 
-                border: none;
-                outline: none;
+        overflow: hidden;
 
-                pointer-events: auto;
-
-                font-size: 1vw;
-                font-weight: lighter;
-
-                padding: 10px 5px 10px 5px;
-
-                width: 14vw;
-
-                border-radius: 8px;
-
-                overflow: hidden;
-                position: relative;
-
-                color: black;
-
-                transition: color ease 1s;
-
-                &:hover{
-                    color: white;
-                    background: transparent;
-                    cursor: pointer;
-
-                    &::after{
+        &.started{
+            &>.title{
+                opacity: 0;
+                pointer-events: none;
+                h2{
+                    &:first-child::after,&:first-child::before{
                         transform: translate(-50%,-50%) scale(1);
                     }
                 }
+            }
+        }
 
-                &::after,&::before{
+        &>.title{
+            transition: opacity ease 1s;
+            
+            &:hover{
+                p{
+                    animation: blink 2s infinite ease;
+                    cursor: none;
+                }
+                h2{
+                    transform: translate(-50%,-50%) scale(1);
+                }
+                h2:last-child{
+                    cursor: none;
+                    opacity: 1;
+                }
+            }
+
+            p{
+                font-family: 'montserrat medium';
+                @extend %mid;
+                top: 56%;
+
+                opacity: 0;
+                transition: opacity ease .4s;
+                animation: none;
+            }
+
+            h2{
+                font-family: 'montserrat bold';
+                color: black;
+    
+                font-size: 35px;
+
+                transform: translate(-50%,-50%) scale(0.9);
+                transition: transform ease .2s;
+    
+                @extend %mid;
+
+                &:first-child{
+                    &::before,&::after{
+                        content: '';
+                        width: 5000px;
+                        height: 5000px;
+
+                        pointer-events: none;
+
+                        @extend %mid;
+                        transform: translate(-50%,-50%) scale(0);
+
+                        border-radius: 50%;
+
+                        background: red;
+                        transition: transform ease 2s,opacity ease 2s;
+
+                        z-index: -1;
+                    }
+                    
+                    &::after{
+                        background: white;
+                        transition: transform ease 2s .1s,opacity ease 2s;
+                    }
+                }
+    
+                &:last-child{
+                    opacity: 0;
+    
+                    color: red;
+    
+                    clip-path: circle(20% at 100px);
+    
+                    white-space: nowrap;
+    
+                    transition: opacity ease .2s;
+                }
+            }
+        }
+    }
+    .news{
+        @extend %col;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+
+        overflow: hidden;
+
+        position: relative;
+
+        &>div{
+            background: black;
+            z-index: 2;
+        }
+        .concert{
+            width: 70%;
+            height: 40%;
+            min-height: 300px;
+
+            position: relative;
+            overflow: hidden;
+
+            transition: transform ease .5s;
+
+            &:hover{
+                z-index: 3;
+                transform: scale(1.05);
+            }
+
+            &>div{
+                width: 100%;
+                height: 100%;
+                position: relative;
+
+                background-image: url('../../asset/img/kekraconcert2.jpg');
+                @extend %cover;
+
+                &::after{
                     content: '';
-                    width: 500px;
-                    height: 500px;
+                    position: absolute;
 
+                    top: 0;
+                    left: 0;
+
+                    width: 100%;
+                    height: 100%;
+
+                    background: rgba(black, .4)
+                }
+
+                .infos{
+                    @extend %col;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+
+                    width: fit-content;
+                    height: fit-content;
+
+                    position: absolute;
+                    top: 50%;
+                    transform: translate(0,-50%);
+                    right: 100px;
+
+                    z-index: 4;
+
+                    &>h2{
+                        margin: 0;
+
+                        color: white;
+                        font-family: 'montserrat bold';
+                        font-size: 35px;
+                        margin: 0;
+                    }
+
+                    h3{
+                        color: white;
+                        font-size: 25px;
+                        margin: 0;
+
+                        font-family: 'montserrat medium';
+                    }
+                    p{
+                        color: white;
+                        margin: 0;
+                        margin-left: 30px;
+                        font-size: 18px;
+
+                        font-family: 'montserrat';
+
+                        &+p{
+                            font-size: 15px;
+                        }
+                    }
+                }
+                .title{
                     @extend %mid;
 
-                    border-radius: 50%;
+                    @extend %row;
+                    justify-content: space-between;
+                    align-items: center;
 
-                    background: black;
-                    transform: translate(-50%,-50%) scale(0);
-                    transition: transform ease .8s;
+                    width: 100%;
+                    height: 100%;
 
-                    z-index: -1;
+                    pointer-events: none;
+
+                    z-index: 4;
+
+                    h4{
+                        color: white;
+                        writing-mode: vertical-rl;
+                        text-orientation: upright;
+
+                        font-size: 25px;
+                        font-family: 'montserrat bold';
+                        margin: 0;
+
+                        letter-spacing: 10px;
+                        
+                        &:first-child{
+                            margin-left: 10px;
+                        }
+                        &:last-child{
+                            margin-right: 10px;
+                        }
+                    }
                 }
-                &::before{
-                    background: white;
-                    transform: translate(-50%,-50%) scale(1);
+            }
+        }
+        .CD{
+            @extend %row;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            width: 70%;
+            height: 40%;
+            min-height: 300px;
+            position: relative;
+
+            background: none;
+
+            .album{
+                width: 30%;
+                padding-top: 30%;
+                background: black;
+
+                transition: all ease .5s;
+
+                &:hover{
+                   transform: scale(1.05); 
                 }
             }
         }

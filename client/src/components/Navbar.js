@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Logo from '../asset/img/kekratitle.png'
 import CompPanier, { UserPanier } from './CompPanier';
 
 const Navbar = () => {
     const [panier,setPanier]=useState([])
+    const [prevScrollPos,setPrevScrollPos]=useState(window.scrollY)
+    const [visible,setVisible]=useState(true)
+
     const activeContentShop=(e)=>{
         const content=document.querySelector('.ContentShop')
         const navbar=document.querySelector('.Navbar')
@@ -12,8 +15,30 @@ const Navbar = () => {
         navbar.classList.add('active')
     }
 
+    const handleScroll=()=>{
+        const currentScrollPos=window.scrollY
+        
+        setPrevScrollPos(currentScrollPos)
+        setVisible(prevScrollPos>currentScrollPos)
+        if(!prevScrollPos>currentScrollPos){
+            document.querySelector('.ContentShop').classList.remove('active')
+        }
+    }
+
+    useEffect(()=>{
+        window.addEventListener('scroll',handleScroll)
+    
+        return ()=>{
+            window.removeEventListener('scroll',handleScroll)
+        } 
+    })
+
     return (
-        <div className='Navbar' onMouseEnter={activeContentShop}>
+        <div 
+            className='Navbar'
+            data-active={visible}
+            onMouseEnter={activeContentShop}
+        >
             <img src={Logo} alt='KEKRA'/>
             <div className='container'>
                 <div className='search-container'>
@@ -29,6 +54,7 @@ const Navbar = () => {
                         setPanier(UserPanier.produits.slice())
                         document.querySelector('.Panier').classList.add('active')
                         document.querySelector('.black-bottom').classList.add('active')
+                        document.body.style.overflow='hidden'
                     }}
                 ></div>
             </div>

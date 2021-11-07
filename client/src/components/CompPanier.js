@@ -44,6 +44,9 @@ class CompPanier extends React.Component{
                     onClick={(e)=>{
                         e.target.parentNode.classList.remove('active')
                         document.querySelector('.black-bottom').classList.remove('active')
+                        setTimeout(() => {
+                            document.body.style.overflow='initial'
+                        }, 500);
                     }}
                 ></div>
             </div>

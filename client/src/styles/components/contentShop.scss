@@ -28,15 +28,15 @@
             justify-content: center;
             align-items: center;
 
-            width: 12%;
+            width: 10%;
 
             h2{
-                font-family: 'montserrat';
+                font-family: 'montserrat medium';
                 border-bottom: 1px solid black;
                 transition: border-bottom .5s;
                 cursor: default;
 
-                font-size: 15px;
+                font-size: 14px;
 
                 width: fit-content;
                 position: relative;
@@ -88,7 +88,7 @@
             justify-content: center;
             align-items: center;
 
-            width: 10%;
+            width: 8%;
             position: relative;
 
             span{
@@ -103,7 +103,7 @@
                 color: #aaa;
                 transition: color ease .5s;
 
-                font-size: 15px;
+                font-size: 14px;
 
                 &:hover{
                     color: white;
