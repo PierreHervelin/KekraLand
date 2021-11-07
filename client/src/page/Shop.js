@@ -63,6 +63,10 @@ const Shop = () => {
                     onClick={
                         (e)=>{
                             e.target.parentNode.parentNode.classList.add('started')
+                            window.scrollTo({
+                                top:window.innerHeight,
+                                behavior:'smooth'
+                            })
                         }
                     }         
                 >
