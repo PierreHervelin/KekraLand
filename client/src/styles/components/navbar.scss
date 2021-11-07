@@ -10,10 +10,6 @@
 
     transition: transform ease .5s;
 
-    &[data-active=false]{
-        transform: translate(0,-80px);
-    }
-
     img{
         width: 150px;
 

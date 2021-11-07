@@ -17,14 +17,14 @@ const Shop = () => {
 
             setPrevScrollPos(currentScrollPos)
             setTimeout(() => {
-                if(currentScrollPos===window.scrollY){
+                if(down && currentScrollPos===window.scrollY){
                     const config={
                         top:(down)?window.innerHeight:0,
                         behavior:'smooth'
                     }
                     window.scrollTo(config)
                 }
-            }, 500);
+            }, 10);
         }
     }
 
@@ -67,6 +67,9 @@ const Shop = () => {
                                 top:window.innerHeight,
                                 behavior:'smooth'
                             })
+                            setTimeout(() => {
+                                document.querySelector('.Navbar').dataset.active=false
+                            }, 200);
                         }
                     }         
                 >

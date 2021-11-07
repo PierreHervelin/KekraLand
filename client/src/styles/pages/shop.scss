@@ -72,6 +72,20 @@
 
         z-index: 98;
 
+        .Navbar{
+            &[data-active=false]{
+                transform: translate(0,-80px);
+        
+                &+div{
+                    transform: translate(0,-150%);
+        
+                    &.active{
+                        transform: translate(0,-150%);
+                    }
+                }
+            }
+        }
+
         .ContentShop{
             transform: translate(0,-150%);
             transition: transform ease .5s, height .5s;
@@ -149,7 +163,7 @@
         }
 
         &>.title{
-            transition: opacity ease 2s;
+            transition: opacity ease 2s .2s;
             
             &:hover{
                 p{
@@ -183,6 +197,8 @@
                 font-size: 35px;
                 padding: 30px;
 
+                white-space: nowrap;
+
                 transform: translate(-50%,-50%) scale(0.9);
                 transition: transform ease .2s;
     
@@ -202,14 +218,14 @@
                         border-radius: 50%;
 
                         background: red;
-                        transition: transform ease 2s,opacity ease 2s;
+                        transition: transform ease 2s .2s,opacity ease 2s .2s;
 
                         z-index: -1;
                     }
                     
                     &::after{
                         background: white;
-                        transition: transform ease 2s .1s,opacity ease 2s;
+                        transition: transform ease 2s .3s,opacity ease 2s .2s;
                     }
                 }
     
@@ -219,8 +235,6 @@
                     color: red;
     
                     clip-path: circle(20% at 100px);
-    
-                    white-space: nowrap;
     
                     transition: opacity ease .2s;
                 }
