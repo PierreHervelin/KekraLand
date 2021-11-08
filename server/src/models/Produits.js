@@ -10,14 +10,17 @@ const Produits=db.define('Produits',{
 
     nomProduit:{
         type:Sequelize.STRING(100),
+        allowNull: false
     },
 
     description:{
         type:Sequelize.STRING(100),
+        allowNull: false
     },
 
     prix:{
         type:Sequelize.FLOAT,
+        allowNull: false
     }
 })
 

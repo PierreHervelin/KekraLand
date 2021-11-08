@@ -1,4 +1,5 @@
 const Sequelize=require('sequelize')
+const Sequelize=require('sequelize')
 const db=require('../../config/database')
 
 const Commentaires=db.define('Commentaires',{
@@ -10,15 +11,13 @@ const Commentaires=db.define('Commentaires',{
 
     dateCommentaire:{
         type:Sequelize.DATE,
+        allowNull: false
     },
 
     description:{
         type:Sequelize.STRING(500),
+        allowNull: false
     },
-
-    login:{
-        type:Sequelize.STRING(50),
-    }
 })
 
 module.exports=Commentaires

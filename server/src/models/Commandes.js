@@ -10,10 +10,7 @@ const Commandes=db.define('Commandes',{
 
     dateCommande:{
         type:Sequelize.DATEONLY,
-    },
-
-    quantite:{
-        type:Sequelize.BIGINT(11),
+        allowNull: false
     },
 })
 
