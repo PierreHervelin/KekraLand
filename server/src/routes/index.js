@@ -5,4 +5,7 @@ module.exports = {
     ProduitsAPI: require('./produits.api'),
     CommentairesAPI: require('./commentaires.api'),
     ThemesAPI: require('./themes.api'),
+    ConcertsAPI: require('./concerts.api'),
+    AlbumsAPI: require('./albums.api'),
+    VetementsAPI: require('./vetements.api'),
   }

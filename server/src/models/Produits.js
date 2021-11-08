@@ -8,20 +8,10 @@ const Produits=db.define('Produits',{
         primaryKey:true
     },
 
-    nomProduit:{
-        type:Sequelize.STRING(100),
+    categorie:{
+        type:Sequelize.STRING,
         allowNull: false
     },
-
-    description:{
-        type:Sequelize.STRING(100),
-        allowNull: false
-    },
-
-    prix:{
-        type:Sequelize.FLOAT,
-        allowNull: false
-    }
 })
 
 module.exports=Produits

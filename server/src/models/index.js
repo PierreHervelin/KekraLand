@@ -5,4 +5,7 @@ module.exports={
     Commentaires:require('./Commentaires'),
     LigneCommandes:require('./LigneCommandes'),
     Commandes:require('./Commandes'),
+    Vetements:require('./Vetements'),
+    Concerts:require('./Concerts'),
+    Albums:require('./Albums'),
 }
