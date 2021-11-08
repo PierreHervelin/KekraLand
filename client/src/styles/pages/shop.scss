@@ -122,6 +122,13 @@
             object-position: center;
             pointer-events: none;
         }
+
+        @media (min-width:1920px) {
+            video{
+                width: 100%;
+            }
+        }
+
         .content{
             @extend %col;
             justify-content: center;
