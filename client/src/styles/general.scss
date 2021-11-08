@@ -20,6 +20,10 @@
     background-size: cover;
 }
 
+#root{
+    scroll-behavior: auto;
+}
+
 .black-bottom{
     @extend %mid;
     position: fixed;
