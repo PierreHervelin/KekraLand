@@ -6,6 +6,7 @@ import Shop from './page/Shop';
 import Inscription from './page/Inscription';
 import Vreel3 from './page/Vreel3';
 import Land from './page/Land';
+import BackOffice from './page/BackOffice';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Route exact path="/vrealite" component={Vrealite} />
       <Route exact path="/shop" component={Shop} />
       <Route exact path="/inscription" component={Inscription} />
+      <Route exact path="/admin" component={BackOffice}/>
       
       <Route exact path="/vreel3" component={Vreel3} />
       <Route exact path="/land" component={Land} />
