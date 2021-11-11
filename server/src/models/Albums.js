@@ -7,7 +7,7 @@ const Albums=db.define('Albums',{
         autoIncrement:true,
         primaryKey:true
     },
-
+    
     nom:{
         type:Sequelize.STRING,
         allowNull: false

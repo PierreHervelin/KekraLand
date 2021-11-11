@@ -19,7 +19,7 @@ db.sync()
 Users.hasOne(Commentaires)
 Themes.hasOne(Commentaires)
 Users.hasOne(Commandes)
-Produits.hasOne(Vetements,{foreignKey:'id'})
+Produits.hasOne(Vetements)
 Produits.hasOne(Albums)
 Produits.hasOne(Concerts)
 

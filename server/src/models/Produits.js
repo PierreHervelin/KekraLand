@@ -3,8 +3,7 @@ const db=require('../../config/database')
 
 const Produits=db.define('Produits',{
     id:{
-        type:Sequelize.BIGINT(11),
-        autoIncrement:true,
+        type:Sequelize.STRING,
         primaryKey:true
     },
 

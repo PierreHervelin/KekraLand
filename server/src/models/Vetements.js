@@ -2,6 +2,12 @@ const Sequelize=require('sequelize')
 const db=require('../../config/database')
 
 const Vetements=db.define('Vetements',{
+    id:{
+        type:Sequelize.BIGINT(11),
+        autoIncrement:true,
+        primaryKey:true
+    },
+    
     description:{
         type:Sequelize.STRING,
         allowNull: false

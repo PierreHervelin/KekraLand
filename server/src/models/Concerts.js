@@ -7,7 +7,7 @@ const Concerts=db.define('Concerts',{
         autoIncrement:true,
         primaryKey:true
     },
-
+    
     nom:{
         type:Sequelize.STRING,
         allowNull: false

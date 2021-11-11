@@ -58,7 +58,7 @@ const ClothForm = () => {
             await axios.post('http://localhost:3001/api/produits/create',{id,categorie:'vetement'})
             for(let field of fields){
                 const data={
-                    id,
+                    ProduitId: id,
                     description,
                     prix:price,
                     stock:field.stock,

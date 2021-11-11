@@ -4,6 +4,7 @@ import {Switch,Route,Redirect} from 'react-router-dom';
 import Vrealite from './page/Vrealite';
 import Shop from './page/Shop';
 import Inscription from './page/Inscription';
+import Connexion from './page/Connexion';
 import Vreel3 from './page/Vreel3';
 import Land from './page/Land';
 import BackOffice from './page/BackOffice';
@@ -15,6 +16,7 @@ const App = () => {
       <Route exact path="/vrealite" component={Vrealite} />
       <Route exact path="/shop" component={Shop} />
       <Route exact path="/inscription" component={Inscription} />
+      <Route exact path="/connexion" component={Connexion} />
       <Route exact path="/admin" component={BackOffice}/>
       
       <Route exact path="/vreel3" component={Vreel3} />
