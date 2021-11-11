@@ -1,0 +1,77 @@
+.backoffice{
+    @extend %col;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 50px;
+
+    hr{
+        background: black;
+        border: none;
+        height: 1px;
+        margin-block: 10px;
+    }
+    &>hr{
+        width: 50vw;
+    }
+    form{
+        @extend %col;
+        justify-content: center;
+        align-items: center;
+
+        position: relative;
+
+        h2{
+            margin-block: 20px;
+            font-size: 25px;
+        }
+        input,textarea{
+            margin-block: 10px;
+
+            &.error{
+                border: 2px solid red;
+            }
+        }
+
+        input{
+            align-self: flex-start;
+            min-width: 200px;
+            width: fit-content;
+        }
+
+        textarea{
+            min-width: 300px;
+            min-height: 100px;
+            resize: vertical;
+        }
+        &>div{
+            @extend %col;
+            justify-content: flex-start;
+            align-items: center;
+
+            position: absolute;
+            transform: translate(110%);
+            top: 70px;
+            right: 0;
+
+            border: 1px solid black;
+            padding: 10px;
+
+            width: 200px;
+
+            button{
+                width: 20px;
+                height: 20px;
+            }
+
+            .size{
+
+                input{
+                    width: 50px;
+                    min-width: 50px;
+                    align-self: center;
+                }
+            }
+        }
+    }
+}

@@ -31,13 +31,14 @@ const BackOffice = () => {
     },[option])
 
     return (
-        <div className='form'>
+        <div className='backoffice'>
             <select onChange={(e)=>setOption(e.target.value)} value={option}>
                 <option value=''>---Choisir une option---</option>
                 <option value='cloth'>Vêtements</option>
                 <option value='album'>Albums</option>
                 <option value='concert'>Concerts</option>
             </select>
+            <hr/>
             {form}
         </div>
     );
