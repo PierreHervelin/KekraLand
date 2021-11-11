@@ -24,7 +24,7 @@ router.get('/destroy', (req, res) => {
 });
 
 router.post('/create', (req, res) => {
-  Users.create()
+  Users.create(req.body)
     .then(users => {
       console.log(users)
       res.sendStatus(200).json(users);
@@ -42,5 +42,34 @@ router.post('/login', async (req, res) => {
 
   res.json({ error: "Vous etes bien connecté"});
 });
+
+router.post('/checkLogin', async (req, res) => {
+  const {login} = req.body
+
+  const user = await Users.findOne({where: req.body });
+
+  if(!user) {
+    console.log('login doesnt exist');
+    res.json({exist: false})
+  }else{
+    console.log('login exist');
+    res.json({exist: true})
+  }
+
+});
+
+router.post('/checkEmail', async (req, res) => {
+  const user = await Users.findOne({where: req.body });
+
+  if(!user) {
+    console.log('email doesnt exist');
+    res.json({exist: false})
+  }else{
+    console.log('email exist');
+    res.json({exist: true})
+  }
+
+});
+
 
 module.exports = router 

@@ -1,0 +1,93 @@
+.formInscription{
+    @extend %col;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 80vh;
+
+
+
+    h1{
+        margin-block: 10px;
+
+        font-family: 'montserrat medium';
+        font-weight: normal;
+        font-size: 25px;
+
+        transition: transform ease .5s;
+
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+    
+    input{
+        margin-block: 10px;
+
+        width: 300px;
+        height: 25px;
+
+        border: none;
+        border-bottom: 1px solid #555;
+        font-size: 15px;
+
+        transition: border-color ease .5s;
+
+        &:hover{
+            border-bottom: 1px solid black;
+        }
+
+        &:focus-visible{
+            border-bottom: 1px solid black;
+            outline: none;
+        }
+
+        &.error{
+            border-bottom: 1px solid red;
+        }
+    }
+    
+    button{
+        margin-block: 10px;
+        background: transparent;
+
+        width: 100px;
+        height: 50px;
+
+        border: 2px solid black;
+
+        overflow: hidden;
+
+        position: relative;
+
+        transition: color ease .5s;
+
+        &:hover{
+            color: white;
+            cursor: pointer;
+
+            &::after{
+                transform: translate(-50%,-50%) scale(1);
+            }
+        }
+
+        &::after{
+            content: '';
+
+            @extend %mid;
+
+            background: black;
+            width: 500px;
+            height: 500px;
+
+            border-radius: 50%;
+
+            transform: translate(-50%,-50%) scale(0);
+            transition: transform ease .5s;
+
+            z-index: -1;
+        }
+
+    }
+}

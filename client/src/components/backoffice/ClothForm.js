@@ -53,8 +53,8 @@ const ClothForm = () => {
         setFields(temp)
     }
 
-    useEffect(async()=>{
-        if(id){
+    useEffect(()=>{
+        const putData=async()=>{
             await axios.post('http://localhost:3001/api/produits/create',{id,categorie:'vetement'})
             for(let field of fields){
                 const data={
@@ -69,6 +69,10 @@ const ClothForm = () => {
                 const reponse=await axios.post('http://localhost:3001/api/vetements/create',data)
                 console.log(reponse.data);
             }
+        }
+
+        if(id){
+            putData()
         }
     },[id])
 
