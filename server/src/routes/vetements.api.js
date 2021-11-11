@@ -23,8 +23,8 @@ router.get('/destroy', (req, res) => {
   .catch(err => console.log(err))
 });
 
-router.get('/create', (req, res) => {
-  Vetements.create()
+router.post('/create', (req, res) => {
+  Vetements.create(req.body)
     .then(vetements => {
       console.log(vetements)
       res.sendStatus(200).json(vetements);

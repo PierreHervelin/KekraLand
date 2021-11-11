@@ -12,17 +12,25 @@ const Vetements=db.define('Vetements',{
         allowNull: false
     },
 
-    quantite:{
+    stock:{
         type:Sequelize.INTEGER,
         allowNull: false
     },
 
     taille:{
-        type:Sequelize.INTEGER,
+        type:Sequelize.STRING,
         allowNull: false
     },
 
+    nom:{
+        type:Sequelize.STRING,
+        allowNull: false
+    },
 
+    image:{
+        type:Sequelize.STRING,
+        allowNull: false
+    },
 })
 
 module.exports=Vetements

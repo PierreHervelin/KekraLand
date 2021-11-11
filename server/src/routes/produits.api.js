@@ -23,11 +23,12 @@ router.get('/destroy', (req, res) => {
   .catch(err => console.log(err))
 });
 
-router.get('/create', (req, res) => {
-  Produits.create()
-    .then(themes => {
-      console.log(produits)
-      res.sendStatus(200).json(produits);
+router.post('/create', (req, res) => {
+  console.log(req.body);
+  Produits.create(req.body)
+    .then(produit => {
+      console.log(produit)
+      res.sendStatus(200).json(produit);
     })
     .catch(err => console.log(err))
 })

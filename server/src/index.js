@@ -19,7 +19,7 @@ db.sync()
 Users.hasOne(Commentaires)
 Themes.hasOne(Commentaires)
 Users.hasOne(Commandes)
-Produits.hasOne(Vetements)
+Produits.hasOne(Vetements,{foreignKey:'id'})
 Produits.hasOne(Albums)
 Produits.hasOne(Concerts)
 
@@ -32,9 +32,9 @@ app.use('/api/themes', ThemesAPI)
 app.use('/api/ligneCommandes', LigneCommandesAPI)
 app.use('/api/commentaires', CommentairesAPI)
 app.use('/api/commandes', CommandesAPI)
-app.use('/api/album', AlbumsAPI)
-app.use('/api/commandes', ConcertsAPI)
-app.use('/api/commandes', VetementsAPI)
+app.use('/api/albums', AlbumsAPI)
+app.use('/api/concerts', ConcertsAPI)
+app.use('/api/vetements', VetementsAPI)
 
 
 app.listen(port, () => {
