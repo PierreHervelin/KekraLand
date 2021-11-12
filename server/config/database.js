@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize');
+const env=require('../../env-config')
 
-module.exports = new Sequelize('kekradb', 'root', 'root1234', {
-    host:'localhost',
+module.exports = new Sequelize(env.DB_name, env.DB_user, env.DB_mdp, {
+    host:env.DB_host,
     dialect:'mysql',
     operatorsAliases:false,
 
