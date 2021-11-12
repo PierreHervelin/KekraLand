@@ -4,12 +4,12 @@
     align-items: center;
 
     width: 100vw;
-    height: 80vh;
+    height: 85vh;
 
 
 
     h1{
-        margin-block: 10px;
+        margin-block: 30px;
 
         font-family: 'montserrat medium';
         font-weight: normal;
@@ -23,13 +23,13 @@
     }
     
     input{
-        margin-block: 10px;
+        margin-block: 20px;
 
-        width: 300px;
+        width: 350px;
         height: 25px;
 
         border: none;
-        border-bottom: 1px solid #555;
+        border-bottom: 1px solid #aaa;
         font-size: 15px;
 
         transition: border-color ease .5s;
@@ -49,7 +49,7 @@
     }
     
     button{
-        margin-block: 10px;
+        margin-block: 30px;
         background: transparent;
 
         width: 100px;
@@ -78,13 +78,13 @@
             @extend %mid;
 
             background: black;
-            width: 500px;
-            height: 500px;
+            width: 300px;
+            height: 300px;
 
             border-radius: 50%;
 
             transform: translate(-50%,-50%) scale(0);
-            transition: transform ease .5s;
+            transition: transform ease .8s;
 
             z-index: -1;
         }
