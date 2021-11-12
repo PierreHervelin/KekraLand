@@ -14,7 +14,7 @@ const Albums=db.define('Albums',{
     },
 
     prix:{
-        type:Sequelize.INTEGER,
+        type:Sequelize.FLOAT,
         allowNull: false
     },
 

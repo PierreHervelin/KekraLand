@@ -14,7 +14,7 @@ const Vetements=db.define('Vetements',{
     },
 
     prix:{
-        type:Sequelize.INTEGER,
+        type:Sequelize.FLOAT,
         allowNull: false
     },
 
