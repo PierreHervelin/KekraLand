@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 const db = require('../../config/database');
+const { hashPassword } = require('../core/utils');
 const {Users} = require('../models');
 
-router.get('/', async (req, res, next) => {
-    await Users.findAll()
+router.get('/', (req, res, next) => {
+    Users.findAll()
         .then(users => {
             res.send(users);
             res.sendStatus(200).json(users);
@@ -24,24 +25,20 @@ router.get('/destroy', (req, res) => {
 });
 
 router.post('/create', (req, res) => {
-    Users.create(req.body)
+    const user=req.body
+
+    const {hash,key}=hashPassword(user.password,user.login)
+
+    user.key=key
+    user.password=hash
+
+    Users.create(user)
         .then(users => {
             console.log(users)
-            res.sendStatus(200).json(users);
+            res.sendStatus(200);
         })
         .catch(err => console.log(err))
 })
-
-router.post('/login', async (req, res) => {
-    const {login, password } = req.body
-
-    const user = await Users.findOne({where: { login: login } });
-
-    if(!user) res.json({ error: "L'utilisateur n'existe pas"});
-    if(user.password !== password) res.json({ error: "Erreur de mot de passe"});
-
-    res.json({ error: "Vous etes bien connecté"});
-});
 
 router.post('/checkLogin', async (req, res) => {
     const user = await Users.findOne({where: req.body });
@@ -54,6 +51,35 @@ router.post('/checkLogin', async (req, res) => {
         res.json({exist: true})
     }
 });
+
+router.post('/connexion', async (req, res) => {
+    const where={}
+    
+    if(req.body.email){
+        where.email=req.body.email
+    }else{
+        where.login=req.body.login
+    }
+
+    const user=await Users.findOne({
+        where
+    })
+
+    if(!user){
+        res.json({exist:false});
+    }else{
+        const {hash,key}=hashPassword(req.body.password,user.login,user.key)
+
+        if(user.password===hash){
+            res.json({exist:true});
+        }else{
+            res.json({exist:false});
+        }
+    }
+
+    
+});
+
 
 router.post('/checkEmail', async (req, res) => {
     const user = await Users.findOne({where: req.body });

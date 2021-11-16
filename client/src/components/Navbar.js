@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Logo from '../asset/img/kekratitle.png'
 import CompPanier, { UserPanier } from './CompPanier';
+import FormConnexion from './FormConnexion';
 
 export const unactiveNavBar=()=>{
     const content=document.querySelector('.ContentShop')
@@ -57,7 +58,10 @@ const Navbar = () => {
                     />
                     <div className='icon icon-search'></div>
                 </div>
-                <div className='icon icon-user'></div>
+                <div>
+                    <div className='icon icon-user'></div>
+                    <FormConnexion/>
+                </div>
                 <div 
                     className='icon icon-shopping-cart'
                     onClick={()=>{

@@ -42,8 +42,7 @@ const FormInscription = () => {
                 axios.post('http://localhost:3001/api/users/create',data)
             }
         }
-
-
+        
     }
 
     useEffect(()=>{

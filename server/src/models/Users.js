@@ -32,7 +32,10 @@ const Users=db.define('Users',{
         type:Sequelize.STRING(100),
         allowNull: false
     },
-
+    key:{
+        type:Sequelize.STRING(255),
+        allowNull: false
+    },
     grade:{
         type:Sequelize.BIGINT(11),
         allowNull: false

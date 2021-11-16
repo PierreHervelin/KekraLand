@@ -11,7 +11,6 @@ const Shop = () => {
 
     const ref=useRef({})
 
-
     const handleScroll=()=>{
         if(window.scrollY&&window.scrollY<window.innerHeight){
             const currentScrollPos=window.scrollY
