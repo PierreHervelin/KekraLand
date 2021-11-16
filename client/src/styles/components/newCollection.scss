@@ -1,0 +1,24 @@
+.NewCollection{
+    @extend %row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    width: 100%;
+    position: relative;
+
+    .image{
+        box-sizing: border-box;
+
+        width: 33%;
+        padding: 20px;
+
+        overflow: hidden;
+
+        img{
+            width: 100%;
+            object-fit: fill;
+            object-position: center;
+        }
+    }
+}

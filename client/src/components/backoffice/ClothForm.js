@@ -66,12 +66,22 @@ const ClothForm = () => {
                     nom:name,
                     image
                 }
-                const reponse=await axios.post('http://localhost:3001/api/vetements/create',data)
+                const reponse=await axios.post('http://localhost:3001/api/vetement/create',data)
                 console.log(reponse.data);
+                if(reponse.data=='OK'){
+                    console.log('oui');
+
+                }
             }
         }
 
         if(id){
+            setId(null)
+            setName('')
+            setImage('')
+            setPrice('')
+            setDescription('')
+            setFields([])
             putData()
         }
     },[id])

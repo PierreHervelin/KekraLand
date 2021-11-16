@@ -1,11 +1,15 @@
 import { motion, useAnimation } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Video from '../asset/video/shophomevideo.mp4'
+import NewCollection from '../components/NewCollection';
 import ShopNavbar from '../components/ShopNavbar';
 
 const Shop = () => {
     const [prevScrollPos,setPrevScrollPos]=useState(window.scrollY)
+    const [newCollection,setNewCollection]=useState([])
     const controls=useAnimation()
+
+    const ref=useRef({})
 
 
     const handleScroll=()=>{
@@ -47,7 +51,8 @@ const Shop = () => {
                     <button>ACHETER MAINTENANT</button>
                 </div>
             </div>
-            <div className='new-cloth'>
+            <div ref={el=>ref.current['container_newCollection']=el} className='new-cloth'>
+                {newCollection}
                 <div
                     className='title'
                     onMouseMove={
@@ -62,18 +67,20 @@ const Shop = () => {
                     } 
                     onClick={
                         (e)=>{
-                            e.target.parentNode.parentNode.classList.add('started')
+                            ref.current['container_newCollection'].classList.add('started')
                             window.scrollTo({
                                 top:window.innerHeight,
                                 behavior:'smooth'
                             })
+                            setNewCollection(
+                                <NewCollection/>
+                            )
                             setTimeout(() => {
                                 document.querySelector('.Navbar').dataset.active=false
                             }, 200);
                         }
                     }         
                 >
-                    
                     <h2>NOUVELLE COLLECTION</h2>
                     <p>clic pour voir</p>
                     <h2>NOUVELLE COLLECTION</h2>

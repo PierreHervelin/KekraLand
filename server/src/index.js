@@ -32,9 +32,9 @@ app.use('/api/themes', ThemesAPI)
 app.use('/api/ligneCommandes', LigneCommandesAPI)
 app.use('/api/commentaires', CommentairesAPI)
 app.use('/api/commandes', CommandesAPI)
-app.use('/api/albums', AlbumsAPI)
-app.use('/api/concerts', ConcertsAPI)
-app.use('/api/vetements', VetementsAPI)
+app.use('/api/album', AlbumsAPI)
+app.use('/api/concert', ConcertsAPI)
+app.use('/api/vetement', VetementsAPI)
 
 
 app.listen(port, () => {

@@ -192,7 +192,7 @@
     
                     clip-path: circle(20% at 100px);
     
-                    transition: opacity ease .2s;
+                    transition: all ease .1s, opacity ease .2s;
                 }
             }
         }
