@@ -1,13 +1,14 @@
 import { useAnimation } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
 import Video from '../asset/video/shophomevideo.mp4'
+import Navbar from '../components/Navbar';
 import NewCollection from '../components/NewCollection';
-import ShopNavbar from '../components/ShopNavbar';
 
 const Home = () => {
-    const [prevScrollPos,setPrevScrollPos]=useState(window.scrollY)
     const [newCollection,setNewCollection]=useState([])
     const controls=useAnimation()
+
+    let prevScrollPos=window.scrollY
 
     const ref=useRef({})
 
@@ -18,7 +19,7 @@ const Home = () => {
             let down=false
             if(currentScrollPos>prevScrollPos) down=true
 
-            setPrevScrollPos(currentScrollPos)
+            prevScrollPos=currentScrollPos
             setTimeout(() => {
                 if(down && currentScrollPos===window.scrollY){
                     const config={
@@ -36,11 +37,11 @@ const Home = () => {
         return ()=>{
             window.removeEventListener('scroll',handleScroll)
         }
-    })
+    },[])
 
     return (
         <main className='Shop'>
-            <ShopNavbar/>
+            <Navbar/>
             <div className='video'>
                 <video muted autoPlay loop>
                     <source src={Video} type='video/mp4'/>

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { CategorieShop } from '../data/data';
 
-const ContentShop = () => {
+const ContentShop = (props) => {
     const [content,setContent]=useState([])
 
     const titles=[]
@@ -67,7 +67,10 @@ const ContentShop = () => {
     }
 
     return (
-        <div className='ContentShop' onMouseLeave={contentLeave}>
+        <div 
+            className={`ContentShop ${props.active?'active':''}`} 
+            onMouseLeave={()=>{props.outFunction()}}
+        >
             <div className='title-container'>
                 {titles}
             </div>

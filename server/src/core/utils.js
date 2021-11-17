@@ -8,6 +8,18 @@ const hash=(password,login,key='')=>{
     return {hash:shasum.digest('hex'),key}
 }
 
+const newToken=()=>{
+    return crypto.randomBytes(48).toString('hex')
+}
+
+const hashToken=(token)=>{
+    let shasum = crypto.createHash('sha256')
+    shasum.update(token+token)
+    return shasum.digest('hex')
+}
+
 module.exports={
-    hashPassword:hash
+    hashPassword:hash,
+    newToken,
+    hashToken
 }

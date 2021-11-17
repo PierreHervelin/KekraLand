@@ -1,4 +1,4 @@
-export class Panier{
+export class UserPanier{
     produits
 
     constructor(){

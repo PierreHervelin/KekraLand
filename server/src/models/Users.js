@@ -36,6 +36,10 @@ const Users=db.define('Users',{
         type:Sequelize.STRING(255),
         allowNull: false
     },
+    token:{
+        type:Sequelize.STRING(255),
+        allowNull:true
+    },
     grade:{
         type:Sequelize.BIGINT(11),
         allowNull: false

@@ -1,49 +1,49 @@
-import React from 'react';
-import { UserPanier } from './CompPanier';
+import React, { useEffect, useState } from 'react';
+import { User } from '../data/data';
 
-class ProduitCard extends React.Component{
-    produit
-    state={
-        quantite:0
-    }
-    constructor(props){
-        super(props)
-        this.produit=this.props.produit
-    }
-    componentDidMount(){
-        this.setState({quantite:this.produit.quantite})
-    }
-    render(){
-        return(
-            <div className='ProduitCard'>
-                <span className='image'/>
-                <div>
-                    <span>{this.produit.nom}</span>
-                    <span>{`${this.produit.prix}€`}</span>
-                    <input
-                        type='number'
-                        onChange={(e)=>{
-                            if(Number.isInteger(parseInt(e.target.value))){
-                                e.target.classList.remove('error')
-                                UserPanier.changeQuantite(this.produit.id,e.target.value)
-                                this.props.changeTotal(UserPanier.getTotalPrice())
-                            }else{
-                                e.target.classList.add('error')
-                            }
-                            this.setState({quantite:e.target.value})
-                        }}
-                        value={this.state.quantite}
-                    />
-                    <span 
-                        onClick={(e)=>{
-                            UserPanier.deleteProduit(this.produit.id)
-                            this.props.changeTotal(UserPanier.getTotalPrice())
-                        }}
-                    >+</span>
-                </div>
-            </div>
+const ProduitCard=(props)=>{
+    const [quantity,setQuantity]=useState(props.produit.quantite?props.produit.quantite:null)
+
+    useEffect(()=>{
+        if(Number.isInteger(quantity)){
+            User.panier.changeQuantite(
+                props.produit.id,
+                quantity
+            )
+            props.update()
+        }
+    },[quantity])
+
+    if(props.produit==='Le panier est vide'){
+        return (
+            <div>Le panier est vide</div>
         )
     }
+
+    return(
+        <div className='ProduitCard'>
+            <span className='image'/>
+            <div>
+                <span>{props.produit.nom}</span>
+                <span>{`${props.produit.prix}€`}</span>
+                <input
+                    type='number'
+                    onChange={(e)=>
+                        setQuantity(
+                            parseInt(e.target.value)?parseInt(e.target.value):''
+                        )
+                    }
+                    value={quantity}
+                />
+                <span 
+                    onClick={()=>{
+                        User.panier.deleteProduit(props.produit.id)
+                        props.update()
+                    }}
+                >+</span>
+            </div>
+        </div>
+    )
 }
 
 export default ProduitCard;

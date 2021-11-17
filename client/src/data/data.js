@@ -1,3 +1,5 @@
+import { UserPanier } from "../class/UserPanier"
+
 export const ImgCarouselSrc = [ 
     {
         id : 0,
@@ -116,4 +118,10 @@ export const TrackListContent = {
             temps : '3:34'
         }
     ]
+}
+
+export const User={
+    panier:new UserPanier(),
+    token:sessionStorage.getItem('token')?sessionStorage.getItem('token'):null,
+    login:sessionStorage.getItem('userLogin')?sessionStorage.getItem('userLogin'):null
 }

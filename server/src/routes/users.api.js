@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const db = require('../../config/database');
-const { hashPassword } = require('../core/utils');
+const { hashPassword, newToken, hashToken } = require('../core/utils');
 const {Users} = require('../models');
 
 router.get('/', (req, res, next) => {
@@ -14,6 +14,18 @@ router.get('/', (req, res, next) => {
         .catch(err => console.log(err))
 });
 
+router.get('/:login',async(req,res)=>{
+    const user=await Users.findOne({
+        where:{
+            login:req.params.login
+        }
+    })
+    if(user){
+        res.send(user)
+    }else{
+        res.sendStatus(403)
+    }
+})
 
 router.get('/destroy', (req, res) => { 
     Users.destroy()
@@ -71,13 +83,19 @@ router.post('/connexion', async (req, res) => {
         const {hash,key}=hashPassword(req.body.password,user.login,user.key)
 
         if(user.password===hash){
-            res.json({exist:true});
+            const token=newToken()
+            user.token=token
+            await user.save()
+            
+            res.json({
+                exist:true,
+                user,
+                token:hashToken(token)
+            });
         }else{
             res.json({exist:false});
         }
     }
-
-    
 });
 
 
