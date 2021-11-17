@@ -21,6 +21,7 @@
     }
 
     h3{
+        margin-top: 20px;
         color: white;
         font-family: 'montserrat';
         margin-bottom: 50px;
@@ -54,11 +55,12 @@
 
     .cross{
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 10px;
+        right: 20px;
         color: white;
-        font-size: 18px;
-        padding: 10px;
+        font-size: 25px;
+
+        transform: rotate(45deg);
 
         transition: color ease .5s;
 
@@ -145,6 +147,8 @@
         }
         &:last-child{
             transition: color ease .5s;
+            font-size: 25px;
+            transform: rotate(45deg);
 
             &:hover{
                 cursor: pointer;

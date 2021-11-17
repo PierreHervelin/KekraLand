@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react'
 import Logo from '../asset/img/kekratitle.png'
-import CompPanier, { UserPanier } from './CompPanier';
-import FormConnexion from './FormConnexion';
+import CompPanier, { UserPanier } from './CompPanier'
+import FormConnexion from './FormConnexion'
+
+import { ReactComponent as LogoSearch } from '../asset/svg/search.svg'
+import { ReactComponent as LogoShop } from '../asset/svg/shop.svg'
+import { ReactComponent as LogoUser } from '../asset/svg/user.svg'
 
 export const unactiveNavBar=()=>{
     const content=document.querySelector('.ContentShop')
@@ -16,7 +20,10 @@ export const unactiveNavBar=()=>{
 const Navbar = () => {
     const [panier,setPanier]=useState([])
     const [prevScrollPos,setPrevScrollPos]=useState(window.scrollY)
+    const [userActive,setUserActive]=useState(false)
     const [visible,setVisible]=useState(true)
+
+    const ref=useRef({})
 
     const activeContentShop=(e)=>{
         const content=document.querySelector('.ContentShop')
@@ -56,21 +63,30 @@ const Navbar = () => {
                     <input
                         type='text'
                     />
-                    <div className='icon icon-search'></div>
+                    <LogoSearch className='icon' fill='white'/>
                 </div>
-                <div>
-                    <div className='icon icon-user'></div>
-                    <FormConnexion/>
+                <div className='login-container'>
+                    <LogoUser 
+                        className='icon' 
+                        id='LogoUser' 
+                        fill='white'
+                        onClick={(e)=>{
+                            setUserActive(!userActive)
+                        }}
+                    />
+                    <FormConnexion active={userActive}/>
                 </div>
-                <div 
-                    className='icon icon-shopping-cart'
+                <LogoShop 
+                    className='icon'
+                    id='LogoShop'
+                    fill='white'
                     onClick={()=>{
                         setPanier(UserPanier.produits.slice())
                         document.querySelector('.Panier').classList.add('active')
                         document.querySelector('.black-bottom').classList.add('active')
                         document.body.style.overflow='hidden'
                     }}
-                ></div>
+                />
             </div>
             <div className='black-bottom'/>
             <CompPanier panier={panier}/>

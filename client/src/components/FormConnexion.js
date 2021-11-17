@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
-const FormConnexion = () => {
+const FormConnexion = (props) => {
 
     const [login,setLogin]=useState('')
     const [password,setPassword]=useState('')
-    
-
 
     const onConfirm=async(e)=>{
         e.preventDefault()
@@ -20,25 +18,24 @@ const FormConnexion = () => {
         if((/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(login))){
             data.email=login
         }else{
-            data.login=login;
+            data.login=login
         }
 
-        const isValide=await userExist();
+        const isValide=await userExist()
 
         if(!isValide){
-            console.log('erreur');
+            console.log('erreur')
         }else{
-            console.log('valide');
+            sessionStorage.setItem('user',login)
         }
     }
 
 
     return (
-        <form className="formConnexion">
-            <h1>Connexion</h1>
+        <form className={`formConnexion ${props.active?'active':''}`}>
+            <h3>Connexion</h3>
             <input 
                 type="text" 
-                id="text" 
                 placeholder="Login" 
                 required
                 onChange={(e)=>setLogin(e.target.value)}
@@ -46,7 +43,6 @@ const FormConnexion = () => {
             />
             <input 
                 type="password" 
-                id="text" 
                 placeholder="Mot de passe"
                 onChange={(e)=>setPassword(e.target.value)}
                 value={password}

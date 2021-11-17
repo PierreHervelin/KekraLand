@@ -13,7 +13,6 @@ router.get('/', (req,res)=>{
         .catch(err => console.log(err))
 });
 
-
 router.get('/destroy',(req, res)=>{
     Vetements.destroy()
         .then(vetements=>{

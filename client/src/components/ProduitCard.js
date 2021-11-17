@@ -35,12 +35,11 @@ class ProduitCard extends React.Component{
                         value={this.state.quantite}
                     />
                     <span 
-                        className='icon-cross'
                         onClick={(e)=>{
                             UserPanier.deleteProduit(this.produit.id)
                             this.props.changeTotal(UserPanier.getTotalPrice())
                         }}
-                    />
+                    >+</span>
                 </div>
             </div>
         )

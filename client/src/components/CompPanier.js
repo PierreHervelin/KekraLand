@@ -2,6 +2,8 @@ import React from 'react';
 import { Panier } from '../class/Panier';
 import ProduitCard from './ProduitCard';
 
+import { ReactComponent as LogoCross } from '../asset/svg/cross.svg'
+
 export const UserPanier=new Panier()
 
 class CompPanier extends React.Component{
@@ -40,7 +42,9 @@ class CompPanier extends React.Component{
                     {`Total : ${this.state.total}€`}
                 </div>
                 <div 
-                    className='cross icon-cross'
+                    className='cross'
+                    fill='white'
+                    stroke='white'
                     onClick={(e)=>{
                         e.target.parentNode.classList.remove('active')
                         document.querySelector('.black-bottom').classList.remove('active')
@@ -48,7 +52,7 @@ class CompPanier extends React.Component{
                             document.body.style.overflow='initial'
                         }, 500);
                     }}
-                ></div>
+                >+</div>
             </div>
         )
     }

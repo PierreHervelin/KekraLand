@@ -1,17 +1,27 @@
+@import "./font.scss";
+@import "./icon.scss";
+
+// ---- Main :
+
 @import './general.scss';
 @import './anim.scss';
-@import "./body.scss";
-//@import "./home.scss";
-@import "./icon.scss";
+
+// ---- Easter eggs :
+
 @import "./vrealite.scss";
-@import "./font.scss";
 @import "./vreel3.scss";
 @import "./land.scss";
+
+// ---- Pages :
+
+@import './pages/home.scss';
+@import './pages/backoffice.scss';
+
+// ---- Components :
+
 @import './components/shopNavBar.scss';
-@import './pages/shop.scss';
 @import './components/contentShop.scss';
 @import './components/navbar.scss';
 @import './components/panier.scss';
-@import './pages/backoffice.scss';
 @import './components/formInscription.scss';
 @import './components/newCollection.scss';
