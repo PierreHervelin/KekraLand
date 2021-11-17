@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
-const FormInscription = () => {
+const FormInscription = (props) => {
     const [nom,setNom]=useState('')
     const [prenom,setPrenom]=useState('')
     const [login,setLogin]=useState('')
@@ -40,6 +40,8 @@ const FormInscription = () => {
                     grade:1
                 }
                 axios.post('http://localhost:3001/api/users/create',data)
+                props.data.history.push('/')
+
             }
         }
         

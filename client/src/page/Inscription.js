@@ -2,10 +2,10 @@
 import React from 'react';
 import FormInscription from '../components/FormInscription';
 
-const Inscription = () => {
+const Inscription = (props) => {
     return (
         <div className>
-          <FormInscription/>
+          <FormInscription data={props}/>
         </div>
     );
 };

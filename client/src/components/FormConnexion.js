@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { User } from '../data/data';
 import { BrowserRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const FormConnexion = (props) => {
     const [login,setLogin]=useState('')
@@ -72,24 +73,29 @@ const FormConnexion = (props) => {
         )
     }else{
         return (
-            <form className={`formConnexion ${props.active?'active':''}`}>
-                <h3>Connexion</h3>
-                <input 
-                    type="text" 
-                    placeholder="Login" 
-                    required
-                    onChange={(e)=>setLogin(e.target.value)}
-                    value={login}
-                />
-                <input 
-                    type="password" 
-                    placeholder="Mot de passe"
-                    onChange={(e)=>setPassword(e.target.value)}
-                    value={password}
-                    required
-                />
-                <button onClick={onConfirm}>Valider</button>
-            </form>
+            <div className={`formConnexion ${props.active?'active':''}`}> {/* Add Div !! */}
+                <form>
+                    <h3>Connexion</h3>
+                    <input 
+                        type="text" 
+                        placeholder="Login" 
+                        required
+                        onChange={(e)=>setLogin(e.target.value)}
+                        value={login}
+                    />
+                    <input 
+                        type="password" 
+                        placeholder="Mot de passe"
+                        onChange={(e)=>setPassword(e.target.value)}
+                        value={password}
+                        required
+                    />
+                    <button onClick={onConfirm}>Valider</button>
+                </form>
+                <p>Tu n'as pas de compte ? 
+                    <Link className="simpleLink" to="/Inscription"> Inscription</Link>
+                </p>
+            </div>
         );
     }
 };
