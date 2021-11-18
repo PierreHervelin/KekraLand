@@ -89,8 +89,13 @@ router.post('/connexion', async (req, res) => {
             
             res.json({
                 exist:true,
-                user,
-                token:hashToken(token)
+                user:{
+                    token:hashToken(token),
+                    login:user.login,
+                    nom:user.nom,
+                    prenom:user.prenom,
+                    email:user.email
+                }
             });
         }else{
             res.json({exist:false});

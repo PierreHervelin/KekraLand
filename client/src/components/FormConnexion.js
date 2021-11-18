@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { User } from '../data/data';
-import { BrowserRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { UserPanier } from '../class/UserPanier';
 
 const FormConnexion = (props) => {
     const [login,setLogin]=useState('')
@@ -10,7 +10,12 @@ const FormConnexion = (props) => {
     const [isLogin,setIsLogin]=useState(false)
     const [user,setUser]=useState(null)
 
-    const onConfirm=async(e)=>{
+    const getUser=async()=>{
+        const user=await axios.get(`http://localhost:3001/api/users/${login}`)
+        setUser(user.data)
+    }
+
+    const loginFunction=async(e)=>{
         e.preventDefault()
 
         const userExist=async()=>{
@@ -30,44 +35,44 @@ const FormConnexion = (props) => {
         if(!reponse.exist){
             console.log('erreur')
         }else{
-            sessionStorage.setItem('userLogin',login)
-            sessionStorage.setItem('token',reponse.token)
-            User.login=login
-            User.token=reponse.token
+            console.log(reponse);
             setUser(reponse.user)
-            setIsLogin(true)
-            console.log('oui');
         }
+    }
+    const logoutFunction=()=>{
+        User.token=null
+        User.login=null
+        User.panier=new UserPanier()
+        sessionStorage.removeItem('token')
+        sessionStorage.removeItem('userLogin')
+        setUser(null)
     }
 
     useEffect(()=>{
-        setIsLogin(false)
-    },[])
-
-    useEffect(()=>{
-        if(user){
-            setIsLogin(true)
-        }
-    },[user])
-
-    useEffect(()=>{
-        const getUser=async(login)=>{
-            const user=await axios.get(`http://localhost:3001/api/users/${login}`)
-            setUser(user.data)
-        }
         if(User.token&&User.login){
-            console.log('oui');
             if(!user){
                 getUser(User.login)
             }
+        }else{
+            if(user){
+                sessionStorage.setItem('userLogin',user.login)
+                sessionStorage.setItem('token',user.token)
+                User.login=user.login
+                User.token=user.token
+            }
         }
-    },[isLogin])
+    },[user])
 
 
-    if(isLogin){
+    if(user){
         return (
-            <div className={`formConnexion ${props.active?'active':''}`}>
-                <h3>Bonjour {user?.nom} {user?.prenom}</h3>
+            <div className={`formConnexion login ${props.active?'active':''}`}>
+                <h3>Bonjour {user?.login}</h3>
+                <div className='options'>
+                    <a>Mon compte</a>
+                    <a>Paramètres</a>
+                </div>
+                <button onClick={logoutFunction}>Déconnexion</button>
             </div>
         )
     }else{
@@ -91,7 +96,7 @@ const FormConnexion = (props) => {
                 <p>Tu n'as pas de compte ? 
                     <Link to="/Inscription">inscris toi</Link>
                 </p>
-                <button onClick={onConfirm}>Valider</button>
+                <button onClick={loginFunction}>Valider</button>
             </form>
         );
     }

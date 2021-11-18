@@ -79,8 +79,6 @@
             justify-content: flex-start;
             align-items: center;
 
-            position: relative;
-
 
             .formConnexion{
                 @extend %col;
@@ -89,12 +87,13 @@
 
                 position: absolute;
 
-                top:100%;
+                top: 20px;
+                right: 0;
                 width: fit-content;
 
                 margin-right: 30px;
 
-                border-radius: 20px;
+                border-radius: 30px;
                 background: black;
                 padding: 20px;
 
@@ -102,11 +101,69 @@
                 transform-origin: top;
                 transition: transform ease .5s;
 
+                z-index: -1;
+
+                &.login{
+                    width: 169px;
+                    text-align: center;
+
+                    .options{
+                        @extend %col;
+                        justify-content: center;
+                        align-items: center;
+                        margin-block: 10px;
+
+                        opacity: 0;
+                        transition: opacity ease .5s;
+
+                        a{
+                            cursor: pointer;
+                            margin-block: 3px;
+                            font-size: 15px;
+                            color: white;
+
+                            position: relative;
+
+                            &:hover{
+                                &::after{
+                                    transform: scaleX(1);
+                                    transform-origin: bottom left;
+                                }
+                            }
+
+                            &::after{
+                                content: '';
+                                width: 100%;
+                                height: 1px;
+
+                                position: absolute;
+                                bottom: -1px;
+                                left: 0;
+
+                                transform: scaleX(0);
+                                transform-origin: bottom right;
+                                transition: transform ease .5s;
+
+                                background: white;
+                            }
+                        }
+                    }
+                    button{
+                        width: 150px;
+                    }
+                }
+
                 &.active{
                     transform: scaleY(1);
+
+                    input,p,button,h3,.options{
+                        opacity: 1;
+                    }
                 }
 
                 input{
+                    font-family: 'montserrat medium';
+                    font-size: 15px;
                     margin-block: 10px;
                     background: transparent;
                     border: none;
@@ -116,6 +173,8 @@
                     padding-bottom: 5px;
                     color: white;
                     min-width: 169px;
+
+                    opacity: 0;
 
                     transition: all ease .5s;
 
@@ -131,11 +190,19 @@
                     width: 100px;
                     padding: 10px;
                     border:1px solid white;
+
+                    opacity: 0;
                 }
 
                 h3{
                     margin-block: 10px;
                     color: white;
+                    font-family: 'montserrat semibold';
+                    font-weight: normal;
+                    font-size: 18px;
+
+                    opacity: 0;
+                    transition: opacity ease .5s;
                 }
                 
                 p{
@@ -145,16 +212,22 @@
 
                     margin-block: 10px;
                     color: white;
+                    font-family: 'montserrat medium';
 
-                    font-size: 14px;
+                    font-size: 15px;
+                    min-width: 185px;
+
+                    opacity: 0;
+                    transition: opacity ease .5s;
 
                     a{
+                        font-family: 'montserrat medium';
                         align-self: flex-start;
                         color:orangered;
                         outline: none;
                         text-decoration: none;
 
-                        transition: color ease .2s;
+                        transition: color ease .5s;
 
                         &:hover{
                             color: #ff7f50;
