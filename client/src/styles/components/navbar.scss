@@ -83,19 +83,20 @@
 
 
             .formConnexion{
+                @extend %col;
+                justify-content: center;
+                align-items: center;
+
                 position: absolute;
 
                 top:100%;
+                width: fit-content;
 
                 margin-right: 30px;
 
                 border-radius: 20px;
                 background: black;
                 padding: 20px;
-
-                @extend %col;
-                justify-content: center;
-                align-items: center;
 
                 transform: scaleY(0);
                 transform-origin: top;
@@ -114,6 +115,7 @@
                     border-bottom: 1px solid #888;
                     padding-bottom: 5px;
                     color: white;
+                    min-width: 169px;
 
                     transition: all ease .5s;
 
@@ -135,17 +137,29 @@
                     margin-block: 10px;
                     color: white;
                 }
-
-                .simpleLink{
-                    margin-block: 10px;
-                    color:red;
-                    outline: none;
-                    text-decoration: none;
-                }
                 
                 p{
+                    @extend %col;
+                    justify-content: center;
+                    align-items: center;
+
                     margin-block: 10px;
                     color: white;
+
+                    font-size: 14px;
+
+                    a{
+                        align-self: flex-start;
+                        color:orangered;
+                        outline: none;
+                        text-decoration: none;
+
+                        transition: color ease .2s;
+
+                        &:hover{
+                            color: #ff7f50;
+                        }
+                    }
                 }
             }
         }

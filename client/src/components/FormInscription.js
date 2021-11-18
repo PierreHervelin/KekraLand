@@ -62,9 +62,18 @@ const FormInscription = (props) => {
             }
         }
     },[password,confPassword,login])
+
+    useEffect(()=>{
+        setTimeout(() => {
+            ref.current['title'].classList.remove('init')
+        }, 500);
+    },[])
     
     return (
-        <form className="formInscription">
+        <form 
+            className="formInscription init"
+            ref={el=>{ref.current['title']=el}}
+        >
             <h1>Inscription</h1>
             <input 
                 type="text" 

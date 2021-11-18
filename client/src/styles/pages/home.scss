@@ -173,7 +173,7 @@
 
                         border-radius: 50%;
 
-                        background: red;
+                        background: orangered;
                         transition: transform ease 2s .2s,opacity ease 2s .2s;
 
                         z-index: -1;
@@ -188,7 +188,7 @@
                 &:last-child{
                     opacity: 0;
     
-                    color: red;
+                    color: orangered;
     
                     clip-path: circle(20% at 100px);
     

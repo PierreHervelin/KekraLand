@@ -10,7 +10,6 @@ const FormConnexion = (props) => {
     const [isLogin,setIsLogin]=useState(false)
     const [user,setUser]=useState(null)
 
-
     const onConfirm=async(e)=>{
         e.preventDefault()
 
@@ -73,29 +72,27 @@ const FormConnexion = (props) => {
         )
     }else{
         return (
-            <div className={`formConnexion ${props.active?'active':''}`}> {/* Add Div !! */}
-                <form>
-                    <h3>Connexion</h3>
-                    <input 
-                        type="text" 
-                        placeholder="Login" 
-                        required
-                        onChange={(e)=>setLogin(e.target.value)}
-                        value={login}
-                    />
-                    <input 
-                        type="password" 
-                        placeholder="Mot de passe"
-                        onChange={(e)=>setPassword(e.target.value)}
-                        value={password}
-                        required
-                    />
-                    <button onClick={onConfirm}>Valider</button>
-                </form>
+            <form className={`formConnexion ${props.active?'active':''}`}> 
+                <h3>Connexion</h3>
+                <input 
+                    type="text" 
+                    placeholder="Login" 
+                    required
+                    onChange={(e)=>setLogin(e.target.value)}
+                    value={login}
+                />
+                <input 
+                    type="password" 
+                    placeholder="Mot de passe"
+                    onChange={(e)=>setPassword(e.target.value)}
+                    value={password}
+                    required
+                />
                 <p>Tu n'as pas de compte ? 
-                    <Link className="simpleLink" to="/Inscription"> Inscription</Link>
+                    <Link to="/Inscription">inscris toi</Link>
                 </p>
-            </div>
+                <button onClick={onConfirm}>Valider</button>
+            </form>
         );
     }
 };

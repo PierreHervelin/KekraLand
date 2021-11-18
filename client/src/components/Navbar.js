@@ -44,6 +44,7 @@ const Navbar = () => {
         }
         if(bool){
             setUserActive(false)
+            setNavActive(false)
         }
     }
 
@@ -55,6 +56,13 @@ const Navbar = () => {
             window.removeEventListener('scroll',handleScroll)
         } 
     },[])
+
+    useEffect(()=>{
+        if(!visible){
+            setUserActive(false)
+            setNavActive(false)
+        }
+    },[visible])
 
     return (
         <div className='shopNavbar'>
