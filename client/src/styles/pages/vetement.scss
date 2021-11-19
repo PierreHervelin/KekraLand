@@ -1,0 +1,48 @@
+.Containers-vetements{
+    width: 100%;
+    height: 100%;
+    .Container-vetement{
+
+        @extend %row;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        margin-top: 100px ;
+        flex-wrap: wrap;
+        
+
+
+        .image{
+            width: 25%;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            &:hover{
+               .content{
+                   opacity: 1;
+               }
+            }
+            .content{
+                opacity: 0;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: transparent;
+                backdrop-filter: blur(3px);
+                transition: opacity ease .5s;
+                color: black;
+
+            }
+
+
+            &>img {
+                object-fit: cover;
+                object-position: center;
+                
+            }
+        }
+        
+    }
+}
