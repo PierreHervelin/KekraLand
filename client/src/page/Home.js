@@ -4,6 +4,9 @@ import Video from '../asset/video/shophomevideo.mp4'
 import Navbar from '../components/Navbar';
 import NewCollection from '../components/NewCollection';
 
+import IMGnewCollection from '../asset/img/nouvellecollection.jpg'
+import News from '../components/News';
+
 const Home = () => {
     const [newCollection,setNewCollection]=useState([])
     const controls=useAnimation()
@@ -52,7 +55,8 @@ const Home = () => {
                 </div>
             </div>
             <div ref={el=>ref.current['container_newCollection']=el} className='new-cloth'>
-                {newCollection}
+                <div className='back'></div>
+                <img src={IMGnewCollection} alt=''/>
                 <div
                     className='title'
                     onMouseMove={
@@ -87,36 +91,7 @@ const Home = () => {
                     
                 </div>
             </div>
-            <div className='news'>
-                <div className='concert'>
-                    <div>
-                        <div className='infos'>
-                            <h2>
-                                KEKRA
-                            </h2>
-                            <h3>PARIS, La défense</h3>
-                            <p>22 janvier 2022</p>
-                            <p>20h-01h</p>
-                            <button>PRENDS TA PLACE</button>
-                        </div>
-                        <div className='title'>
-                            <h4>CONCERT</h4>
-                            <h4>CONCERT</h4>
-                        </div>
-                    </div>
-                </div>
-                <div className='CD'>
-                    <div className='album'>
-                        
-                    </div>
-                    <div className='album'>
-
-                    </div>
-                    <div className='album'>
-
-                    </div>
-                </div>
-            </div>
+            <News/>
         </main>
     );
 };

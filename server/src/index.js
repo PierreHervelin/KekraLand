@@ -12,8 +12,8 @@ const db=require('../config/database')
 db.authenticate()
     .then(()=>console.log('Database connected...'))
     .catch(err=>console.log('Error: '+err))
-const {Users, Themes, Produits, LigneCommandes, Commandes, Commentaires, Albums, Concerts, Vetements}=require('./models/index')
-const {UsersAPI, CommandesAPI, LigneCommandesAPI, ProduitsAPI, CommentairesAPI, ThemesAPI, AlbumsAPI, ConcertsAPI, VetementsAPI}=require('./routes/index')
+const {Users, Themes, Produits, LigneCommandes, Commandes, Commentaires, Albums, Concerts, Vetements, Tracklists}=require('./models/index')
+const {UsersAPI, CommandesAPI, LigneCommandesAPI, ProduitsAPI, CommentairesAPI, ThemesAPI, AlbumsAPI, ConcertsAPI, VetementsAPI, TracklistsAPI}=require('./routes/index')
 db.sync()
 
 Users.hasOne(Commentaires)
@@ -22,6 +22,7 @@ Users.hasOne(Commandes)
 Produits.hasOne(Vetements)
 Produits.hasOne(Albums)
 Produits.hasOne(Concerts)
+Produits.hasOne(Tracklists)
 
 Commandes.belongsToMany(Produits, { through: LigneCommandes })
 Produits.belongsToMany(Commandes, { through: LigneCommandes })
@@ -35,6 +36,7 @@ app.use('/api/commandes', CommandesAPI)
 app.use('/api/album', AlbumsAPI)
 app.use('/api/concert', ConcertsAPI)
 app.use('/api/vetement', VetementsAPI)
+app.use('/api/tracklist', TracklistsAPI)
 
 
 app.listen(port, () => {

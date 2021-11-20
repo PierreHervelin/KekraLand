@@ -93,10 +93,10 @@ const FormConnexion = (props) => {
                     value={password}
                     required
                 />
+                <button onClick={loginFunction}>Valider</button>
                 <p>Tu n'as pas de compte ? 
                     <Link to="/Inscription">inscris toi</Link>
                 </p>
-                <button onClick={loginFunction}>Valider</button>
             </form>
         );
     }

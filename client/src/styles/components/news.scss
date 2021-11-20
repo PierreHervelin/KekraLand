@@ -1,0 +1,14 @@
+.news{
+    @extend %col;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+
+    height: fit-content;
+
+    overflow: hidden;
+
+    position: relative;
+
+    
+}

@@ -8,4 +8,5 @@ module.exports={
     Vetements:require('./Vetements'),
     Concerts:require('./Concerts'),
     Albums:require('./Albums'),
+    Tracklists:require('./Tracklists'),
 }

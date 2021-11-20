@@ -8,4 +8,5 @@ module.exports = {
     ConcertsAPI: require('./concerts.api'),
     AlbumsAPI: require('./albums.api'),
     VetementsAPI: require('./vetements.api'),
+    TracklistsAPI: require('./tracklists.api'),
   }

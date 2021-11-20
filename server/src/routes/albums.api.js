@@ -2,34 +2,45 @@ const express = require('express');
 const router = express.Router();
 
 const db = require('../../config/database');
-const {Albums} = require('../models');
+const {Albums, Tracklists} = require('../models');
 
-router.get('/', (req, res, next) => {
-  Albums.findAll()
-    .then(albums => {
-      res.send(commandes);
-      res.sendStatus(200).json(commandes);
-    })
-    .catch(err => console.log(err))
+router.get('/', (req, res) => {
+    Albums.findAll({
+        include: [{
+            model: Tracklists,
+            where:{
+                id:Tracklists.AlbumId
+            }
+        }]
+    }).then(albums => {
+        if(albums){
+            res.send(albums)
+        }else{
+            res.sendStatus(403)
+        }
+    });
 });
 
 
 router.get('/destroy', (req, res) => { 
-  Commandes.destroy()
-  .then(commandes => {
-    res.send(commandes);
-    res.sendStatus(200).json(commandes);
+  Albums.destroy()
+  .then(albums => {
+    res.send(albums);
+    res.sendStatus(200).json(albums);
   })
   .catch(err => console.log(err))
 });
 
-router.get('/create', (req, res) => {
-  Commandes.create()
-    .then(commandes => {
-      console.log(commandes)
-      res.sendStatus(200).json(commandes);
-    })
-    .catch(err => console.log(err))
+router.post('/create', (req, res) => {
+    console.log(req.body);
+    Albums.create(req.body)
+        .then(() => {
+            res.sendStatus(200)
+        })
+        .catch(err => {
+            console.log(err)
+            res.sendStatus(500)
+        })
 })
 
 module.exports = router

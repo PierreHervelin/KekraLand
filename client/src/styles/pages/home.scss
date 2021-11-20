@@ -110,16 +110,28 @@
             &>.title{
                 opacity: 0;
                 pointer-events: none;
-                h2{
-                    &:first-child::after,&:first-child::before{
-                        transform: translate(-50%,-50%) scale(1);
-                    }
-                }
             }
+        }
+
+        .back{
+            @extend %mid;
+
+            height: 400px;
+            width: 100%;
+
+            background: black;
+        }
+
+        &>img{
+            @extend %mid;
+
+            width: 70%;
         }
 
         &>.title{
             transition: opacity ease 2s .2s;
+
+            cursor: none;
             
             &:hover{
                 p{
@@ -144,18 +156,20 @@
                 opacity: 0;
                 transition: opacity ease .4s;
                 animation: none;
+
+                color: white;
             }
 
             h2{
                 font-family: 'montserrat bold';
-                color: black;
+                color: white;
     
                 font-size: 35px;
                 padding: 30px;
 
                 white-space: nowrap;
 
-                transform: translate(-50%,-50%) scale(0.9);
+                transform: translate(-50%,-50%) scale(1);
                 transition: transform ease .2s;
     
                 @extend %mid;
@@ -186,168 +200,14 @@
                 }
     
                 &:last-child{
+                    cursor: none;
                     opacity: 0;
     
                     color: orangered;
     
                     clip-path: circle(20% at 100px);
     
-                    transition: all ease .1s, opacity ease .2s;
-                }
-            }
-        }
-    }
-    .news{
-        @extend %col;
-        justify-content: space-evenly;
-        align-items: center;
-        width: 100vw;
-        height: 100vh;
-
-        overflow: hidden;
-
-        position: relative;
-
-        &>div{
-            background: black;
-            z-index: 2;
-        }
-        .concert{
-            width: 70%;
-            height: 40%;
-            min-height: 300px;
-
-            position: relative;
-            overflow: hidden;
-
-            transition: transform ease .5s;
-
-            &:hover{
-                z-index: 3;
-                transform: scale(1.05);
-            }
-
-            &>div{
-                width: 100%;
-                height: 100%;
-                position: relative;
-
-                background-image: url('../../asset/img/kekraconcert2.jpg');
-                @extend %cover;
-
-                &::after{
-                    content: '';
-                    position: absolute;
-
-                    top: 0;
-                    left: 0;
-
-                    width: 100%;
-                    height: 100%;
-
-                    background: rgba(black, .4)
-                }
-
-                .infos{
-                    @extend %col;
-                    justify-content: flex-start;
-                    align-items: flex-start;
-
-                    width: fit-content;
-                    height: fit-content;
-
-                    position: absolute;
-                    top: 50%;
-                    transform: translate(0,-50%);
-                    right: 100px;
-
-                    z-index: 4;
-
-                    &>h2{
-                        margin: 0;
-
-                        color: white;
-                        font-family: 'montserrat bold';
-                        font-size: 35px;
-                        margin: 0;
-                    }
-
-                    h3{
-                        color: white;
-                        font-size: 25px;
-                        margin: 0;
-
-                        font-family: 'montserrat medium';
-                    }
-                    p{
-                        color: white;
-                        margin: 0;
-                        margin-left: 30px;
-                        font-size: 18px;
-
-                        font-family: 'montserrat';
-
-                        &+p{
-                            font-size: 15px;
-                        }
-                    }
-                }
-                .title{
-                    @extend %mid;
-
-                    @extend %row;
-                    justify-content: space-between;
-                    align-items: center;
-
-                    width: 100%;
-                    height: 100%;
-
-                    pointer-events: none;
-
-                    z-index: 4;
-
-                    h4{
-                        color: white;
-                        writing-mode: vertical-rl;
-                        text-orientation: upright;
-
-                        font-size: 25px;
-                        font-family: 'montserrat bold';
-                        margin: 0;
-
-                        letter-spacing: 10px;
-                        
-                        &:first-child{
-                            margin-left: 10px;
-                        }
-                        &:last-child{
-                            margin-right: 10px;
-                        }
-                    }
-                }
-            }
-        }
-        .CD{
-            @extend %row;
-            justify-content: space-between;
-            align-items: flex-end;
-
-            width: 70%;
-            height: 40%;
-            min-height: 300px;
-            position: relative;
-
-            background: none;
-
-            .album{
-                width: 30%;
-                padding-top: 30%;
-                background: black;
-
-                transition: all ease .5s;
-
-                &:hover{
-                   transform: scale(1.05); 
+                    transition: opacity ease .2s;
                 }
             }
         }

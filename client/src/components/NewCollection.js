@@ -16,6 +16,7 @@ const NewCollection = () => {
         const vetement=await axios.get(
             `http://localhost:3001/api/vetement/${produit.data[0].id}`
         )
+
         setContent([
             vetement.data,
             vetement.data,

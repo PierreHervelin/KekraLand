@@ -57,7 +57,7 @@
             border: 1px solid black;
             padding: 10px;
 
-            width: 200px;
+            width: 400px;
 
             button{
                 width: 20px;
@@ -70,6 +70,24 @@
                     width: 50px;
                     min-width: 50px;
                     align-self: center;
+                }
+            }
+            .track{
+                input{
+                    margin: 0;
+                    align-self: center;
+                }
+                input#num{
+                    min-width: 5ch;
+                    width: 20px;
+                }
+                input[type="time"]{
+                    min-width: 8ch;
+                    width: 20px;
+                }
+                input[type="titre"]{
+                    min-width: 250px;
+                    width: 20px;
                 }
             }
         }
