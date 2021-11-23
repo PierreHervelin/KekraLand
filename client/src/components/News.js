@@ -26,14 +26,25 @@ const News = () => {
 
                 <div className='actu' ref={el=>ref.current['actu']=el}>
                     <div className='top observe'>
-                        <div className='insta'></div>
+                        <div className='left'>
+                            <div className='infos'>
+                                <h2>box kekra</h2>
+                                <button>voir plus</button>
+                            </div>
+                        </div>
                         <div className='right'>
                             <div></div>
                             <div></div>
                         </div>
                     </div>
                     <div className='bottom observe'>
-                        <div className='left'></div>
+                        <div className='left'>
+                            <div className='infos'>
+                                <h3>derniers articles</h3>
+                                <h4>jusqu'à -70%</h4>
+                                <button>shopper</button>
+                            </div>
+                        </div>
                         <div className='right'></div>
                     </div>
                 </div>

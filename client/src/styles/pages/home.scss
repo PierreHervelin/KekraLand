@@ -8,6 +8,8 @@
     justify-content: flex-start;
     align-items: center;
 
+    pointer-events: none;
+
     overflow-x: hidden;
     //margin-top: 50px;
 
@@ -100,11 +102,12 @@
         }
     }
     .new-cloth{
-        width: $contentWidth;
+        width: 100vw;
         height: 100vh;
         position: relative;
 
         overflow: hidden;
+        background: white;
 
         &.started{
             &>.title{
@@ -116,7 +119,7 @@
         &>.img{
             @extend %mid;
 
-            width: 100%;
+            width: $contentWidth;
             height: calc(100% - ($marginContent * 2));
 
             background-image: url('../../asset/img/nouvellecollection.jpg');

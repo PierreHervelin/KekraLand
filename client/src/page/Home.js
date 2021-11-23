@@ -3,9 +3,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import Video from '../asset/video/shophomevideo.mp4'
 import Navbar from '../components/Navbar';
 import NewCollection from '../components/NewCollection';
-
-import IMGnewCollection from '../asset/img/nouvellecollection.jpg'
 import News from '../components/News';
+import Footer from '../components/Footer';
 
 const Home = () => {
     const [newCollection,setNewCollection]=useState([])
@@ -90,6 +89,7 @@ const Home = () => {
                 </div>
             </div>
             <News/>
+            <Footer/>
         </main>
     );
 };

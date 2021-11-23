@@ -32,6 +32,7 @@
 
             h2{
                 font-family: 'montserrat medium';
+                font-weight: normal;
                 border-bottom: 1px solid black;
                 transition: border-bottom .5s;
                 cursor: default;
@@ -90,10 +91,8 @@
             position: relative;
 
             span{
-                -webkit-font-smoothing:antialiased;
-
                 font-family: 'montserrat';
-                font-weight: bold;
+                font-weight: normal;
                 cursor: default;
 
                 width: fit-content;
