@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Switch,Route,Redirect} from 'react-router-dom';
 import Vrealite from './page/Vrealite';
 import Inscription from './page/Inscription';
@@ -9,6 +9,24 @@ import Home from './page/Home';
 import Vetement from './page/Vetement';
 
 const App = () => {
+
+    useEffect(()=>{
+        const inViewport=(entries,observer)=>{
+            entries.forEach(item=>{
+                if(item.isIntersecting){
+                    item.target.classList.add('visible')
+                }
+            })
+        };
+
+        const Obs=new IntersectionObserver(inViewport);
+
+        const els=document.querySelectorAll('.observe')
+        els.forEach(item=>{
+            Obs.observe(item)
+        })
+    })
+
     return (
         <Switch>
             <Route exact path="/" component={Home}/>

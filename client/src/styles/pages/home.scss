@@ -100,7 +100,7 @@
         }
     }
     .new-cloth{
-        width: 100vw;
+        width: $contentWidth;
         height: 100vh;
         position: relative;
 
@@ -113,19 +113,24 @@
             }
         }
 
-        .back{
+        &>.img{
             @extend %mid;
 
-            height: 400px;
             width: 100%;
+            height: calc(100% - ($marginContent * 2));
 
-            background: black;
-        }
+            background-image: url('../../asset/img/nouvellecollection.jpg');
+            @extend %cover;
 
-        &>img{
-            @extend %mid;
+            transform: translate(-50%,20%);
+            opacity: 0;
 
-            width: 70%;
+            transition: all ease .5s;
+
+            &.visible{
+                transform: translate(-50%,-50%);
+                opacity: 1;
+            }
         }
 
         &>.title{
@@ -136,14 +141,13 @@
             &:hover{
                 p{
                     animation: blink 2s infinite ease;
-                    cursor: none;
                     pointer-events: none;
+                    opacity: 1;
                 }
                 h2{
                     transform: translate(-50%,-50%) scale(1);
                 }
                 h2:last-child{
-                    cursor: none;
                     opacity: 1;
                 }
             }
@@ -161,6 +165,7 @@
             }
 
             h2{
+                cursor: pointer;
                 font-family: 'montserrat bold';
                 color: white;
     
@@ -197,17 +202,6 @@
                         background: white;
                         transition: transform ease 2s .3s,opacity ease 2s .2s;
                     }
-                }
-    
-                &:last-child{
-                    cursor: none;
-                    opacity: 0;
-    
-                    color: orangered;
-    
-                    clip-path: circle(20% at 100px);
-    
-                    transition: opacity ease .2s;
                 }
             }
         }

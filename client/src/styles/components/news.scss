@@ -10,5 +10,224 @@
 
     position: relative;
 
-    
+    .title{
+        @extend %col;
+        justify-content: center;
+        align-items: center;
+
+        background: black;
+
+        padding: 20px;
+        width: 100vw;
+        height: 80px;
+
+        margin-bottom: $marginContent;
+
+        position: relative;
+
+        h2{
+            color: white;
+            font-size: 25px;
+            text-transform: uppercase;
+
+            font-family: 'montserrat semibold';
+        }
+    }
+
+    .content{
+        @extend %col;
+        justify-content: space-evenly;
+        align-items: center;
+
+        width: $contentWidth;
+
+        position: relative;
+
+        .concert{
+            @extend %row;
+            justify-content: center;
+            align-items: center;
+
+            width: 100%;
+            height: 500px;
+            position: relative;
+
+            margin-bottom: 50px;
+
+            overflow: hidden;
+
+            &.visible{
+                &>.img{
+                    opacity: 1;
+                    transform: translate(-50%,-50%);
+                }
+                &>h2{
+                    color: white;
+                }
+            }
+
+            &>.img{
+                @extend %mid;
+
+                width: 100%;
+                height: 100%;
+
+                background-image: url('../../asset/img/kekraconcert2.jpg');
+                @extend %cover;
+
+                opacity: 0;
+                transform: translate(50%,-50%);
+
+                transition: all ease .5s 1.5s;
+
+                .back{
+                    @extend %mid;
+
+                    width: 100%;
+                    height: 100%;
+
+                    background: rgba(black,.2);
+                    z-index: -1;
+                }
+                .infos{
+                    @extend %col;
+
+                    position: absolute;
+                    bottom: 50px;
+                    left: 30px;
+
+                    h3,h4,h5{
+                        color: white;
+                        text-transform: uppercase;
+                    }
+                    h3{
+                        font-size: 40px;
+                        font-family: 'montserrat semibold';
+                    }
+                    h4{
+                        font-size: 30px;
+                    }
+                    h5{
+                        font-size: 25px;
+                    }
+                    button{
+                        text-transform: uppercase;
+                    }
+                }
+            }
+            &>h2{
+                width: 30%;
+                font-size: 70px;
+                color: black;
+
+                font-family: 'montserrat bold';
+                font-weight: normal;
+
+                transition: color ease 1s .5s;
+            }
+        }
+        .actu{
+            @extend %col;
+            justify-content: flex-start;
+            align-items: center;
+
+            width: 100%;
+            position: relative;
+
+            .top{
+                @extend %row;
+                justify-content: space-evenly;
+                align-items: center;
+
+                width: 100%;
+                position: relative;
+                margin-bottom: 10px;
+
+                &.visible{
+                    .insta{
+                        opacity: 1;
+                    }
+                    .right{
+                        div{
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                .insta{
+                    width: 50%;
+                    height: 600px;
+                    background:black;
+                    margin-right: 5px;
+                    opacity: 0;
+
+                    transition: all ease .5s;
+                }
+                .right{
+                    @extend %col;
+                    justify-content: space-evenly;
+                    align-items: center;
+
+                    width: 50%;
+                    height: 600px;
+                    position: relative;
+
+                    margin-left: 5px;
+
+                    div{
+                        width: 100%;
+                        height: 50%;
+                        background:black;
+                        opacity: 0;
+
+                        &:first-child{
+                            margin-bottom: 5px;
+                            transition: all ease .5s .2s;
+                        }
+                        &:last-child{
+                            margin-top: 5px;
+                            transition: all ease .5s .3s;
+                        }
+                    }
+                }
+            }
+            .bottom{
+                @extend %row;
+                justify-content: space-evenly;
+                align-items: center;
+
+                width: 100%;
+                height: 400px;
+                position: relative;
+
+                &.visible{
+                    .left{
+                        opacity: 1;
+                    }
+                    .right{
+                        opacity: 1;
+                    }
+                }
+
+                .left{
+                    width: 70%;
+                    height: 100%;
+                    background: black;
+                    opacity: 0;
+
+                    margin-right: 5px;
+                    transition: all ease .5s;
+                }
+                .right{
+                    width: 30%;
+                    height: 100%;
+                    background: black;
+                    opacity: 0;
+
+                    margin-left: 5px;
+                    transition: all ease .5s .2s;
+                }
+            }
+        }
+    }
 }

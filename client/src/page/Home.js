@@ -55,8 +55,7 @@ const Home = () => {
                 </div>
             </div>
             <div ref={el=>ref.current['container_newCollection']=el} className='new-cloth'>
-                <div className='back'></div>
-                <img src={IMGnewCollection} alt=''/>
+                <div className='img observe'></div>
                 <div
                     className='title'
                     onMouseMove={
@@ -87,7 +86,6 @@ const Home = () => {
                 >
                     <h2>NOUVELLE COLLECTION</h2>
                     <p>clic pour voir</p>
-                    <h2>NOUVELLE COLLECTION</h2>
                     
                 </div>
             </div>
