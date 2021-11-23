@@ -19,9 +19,26 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+%underlineEffect{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -3px;
+    left: 0;
+    background-color: white;
+
+    transform: scale(0);
+    transform-origin: bottom right;
+    transition: transform ease .5s;
+}
 
 #root{
     scroll-behavior: auto;
+    pointer-events: none;
+}
+body{
+    pointer-events: none;
 }
 
 *,*::after,*::before{
@@ -49,6 +66,31 @@
     &.active{
         pointer-events: auto;
         opacity: 1;
+    }
+}
+
+button{
+    background: transparent;
+
+    margin-top: 20px;
+
+    overflow: hidden;
+
+    color: white;
+    font-family: 'montserrat medium';
+    font-size: 16px;
+
+    padding: 15px;
+    pointer-events: auto;
+
+    border: 2px solid white;
+
+    transition: all ease .5s;
+
+    &:hover{
+        background: white;
+        color: black;
+        cursor: pointer;
     }
 }
 

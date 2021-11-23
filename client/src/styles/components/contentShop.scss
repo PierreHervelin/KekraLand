@@ -46,17 +46,7 @@
                 margin: 0;
 
                 &::after{
-                    content: '';
-                    position: absolute;
-                    width: 100%;
-                    height: 1px;
-                    bottom: -3px;
-                    left: 0;
-                    background-color: white;
-
-                    transform: scale(0);
-                    transform-origin: bottom right;
-                    transition: transform ease .5s;
+                    @extend %underlineEffect;
                 }
     
                 &.active::after{

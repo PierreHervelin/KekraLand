@@ -21,6 +21,8 @@
         justify-content: center;
         align-items: center;
 
+        pointer-events: auto;
+
         .main{
             @extend %row;
             justify-content: center;
@@ -36,11 +38,17 @@
                 margin-inline: 50px;
 
                 li{
+                    font-size: 15px;
                     color: white;
                     list-style: none;
                     text-transform: capitalize;
 
+                    pointer-events: fill;
+
                     margin-block: 5px;
+
+                    transition: transform ease .5s;
+                    cursor: pointer;
                 }
             }
         }
@@ -56,15 +64,37 @@
             @extend %row;
 
             div{
+                font-size: 15px;
                 color: white;
                 text-transform: capitalize;
                 margin-inline: 20px;
+
+                position: relative;
+
+                cursor: pointer;
+
+                &::after{
+                    @extend %underlineEffect;
+                    bottom: -2px;
+                }
+
+                &:hover{
+                    &::after{
+                        transform: scaleX(1);
+                        transform-origin: bottom left;
+                    }
+                }
             }
         }
         .credits{
+            font-size: 15px;
             position: absolute;
             bottom: 10px;
             left: 10px;
+
+            cursor: default;
+
+            pointer-events: auto;
 
             color: white;
 

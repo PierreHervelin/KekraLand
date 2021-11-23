@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 const Footer = () => {
+    const ref=useRef({})
+
     return (
         <div className='footer-container'>
             <footer>
@@ -18,9 +20,21 @@ const Footer = () => {
                 </div>
                 <hr/>
                 <div className='reseaux'>
-                    <div>youtube</div>
-                    <div>instagram</div>
-                    <div>twitter</div>
+                    <div 
+                        onClick={()=>{
+                            ref.current.youtube.click()
+                        }}
+                    >youtube</div>
+                    <div
+                        onClick={()=>{
+                            ref.current.insta.click()
+                        }}
+                    >instagram</div>
+                    <div
+                        onClick={()=>{
+                            ref.current.twitter.click()
+                        }}
+                    >twitter</div>
                 </div>
                 <div className='credits'>
                     © Projet 0
@@ -30,6 +44,21 @@ const Footer = () => {
                     <div>Pierre</div>
                 </div>
             </footer>
+            <a 
+                href='https://www.youtube.com/channel/UC4GTJ6FB6KTdlbwjoV-7btA' 
+                target="_blank"
+                ref={el=>ref.current['youtube']=el}
+            />
+            <a 
+                href='https://www.instagram.com/kekraland/' 
+                target="_blank"
+                ref={el=>ref.current['insta']=el}
+            />
+            <a 
+                href='https://twitter.com/kekra_fc' 
+                target="_blank"
+                ref={el=>ref.current['twitter']=el}
+            />
         </div>
     );
 };

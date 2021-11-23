@@ -12,54 +12,7 @@
 
     overflow-x: hidden;
     //margin-top: 50px;
-
-    button{
-        background: transparent;
-        position: relative;
-
-        margin-top: 20px;
-
-        overflow: hidden;
-
-        color: white;
-        font-family: 'montserrat medium';
-        font-size: 15px;
-
-        padding: 15px;
-        pointer-events: auto;
-
-        border: 2px solid white;
-
-        transition: all ease .8s;
-
-        &:hover{
-            background: white;
-            color: black;
-            cursor: pointer;
-
-            &::after{
-                transform: translate(-50%,-50%) scale(1);
-            }
-        }
-
-        &::after{
-            content: '';
-            
-            @extend %mid;
-
-            width: 200%;
-            padding-top: 200%;
-
-            border-radius: 50%;
-
-            background: white;
-
-            transform: translate(-50%,-50%) scale(0);
-            transition: transform ease .8s;
-
-            z-index: -1;
-        }
-    }
+    
     .video{
         pointer-events: none;
         width: 100%;
