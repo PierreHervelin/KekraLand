@@ -6,6 +6,8 @@
     width: 100vw;
     height: 85vh;
 
+    pointer-events: auto;
+
     position: relative;
 
     &.init{
@@ -56,45 +58,16 @@
     }
     
     button{
-        margin-block: 30px;
-        background: transparent;
-
-        width: 100px;
-        height: 50px;
-
-        border: 2px solid black;
-
-        overflow: hidden;
-
-        position: relative;
-
-        transition: color ease .5s, opacity ease 1s 1s;
-
+        color: black;
+        border-color: black;
+        
         &:hover{
             color: white;
-            cursor: pointer;
-
-            &::after{
-                transform: translate(-50%,-50%) scale(1);
-            }
+            background: black;
         }
 
         &::after{
-            content: '';
-
-            @extend %mid;
-
             background: black;
-            width: 300px;
-            height: 300px;
-
-            border-radius: 50%;
-
-            transform: translate(-50%,-50%) scale(0);
-            transition: transform ease .8s;
-
-            z-index: -1;
         }
-
     }
 }
