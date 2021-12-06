@@ -36,6 +36,7 @@ const ContentShop = (props) => {
         for(let result of CategorieShop[indice].content){
             list.push(
                 <motion.div 
+                    className='link-container'
                     key={result}
                     initial={{opacity:0}}
                     animate={{opacity:1}}
@@ -43,6 +44,7 @@ const ContentShop = (props) => {
                         duration:0.5,
                         delay:i/10
                     }}
+                    onClick={contentOnClick}
                 ><span>{result}</span></motion.div>
             )
             i++
@@ -50,12 +52,14 @@ const ContentShop = (props) => {
         setContent(list)
     }
 
-    const contentLeave=()=>{
-        const content=document.querySelector('.ContentShop')
-        const navbar=document.querySelector('.Navbar')
-
-        content.classList.remove('active')
-        navbar.classList.remove('active')
+    const contentOnClick=(e)=>{
+        const el=e.target
+        const text=e.target.innerHTML.toLowerCase().replace(/ |,|\.|-/gm,'').replace(/é/gm,'e')
+        if(!el.classList.contains('link-container')&&!['hoodies','tshirts'].includes(text)){
+            const link=document.createElement('a')
+            link.href=`/product/${text.toLowerCase()}`
+            link.click()
+        }
     }
 
     for(let categorie of CategorieShop){
