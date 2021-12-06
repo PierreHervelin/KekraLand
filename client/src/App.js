@@ -7,6 +7,7 @@ import Land from './page/Land';
 import BackOffice from './page/BackOffice';
 import Home from './page/Home';
 import Vetement from './page/Vetement';
+import Album from './page/Album';
 
 const App = () => {
 
@@ -33,6 +34,7 @@ const App = () => {
             <Route exact path="/inscription" component={Inscription}/>
             <Route exact path="/shop" component={Vetement}/>
             <Route exact path="/admin" component={BackOffice}/>
+            <Route exact path="/album" component={Album}/>
 
             <Route exact path="/easteregg/vrealite" component={Vrealite}/>
             <Route exact path="/easteregg/vreel3" component={Vreel3}/>
