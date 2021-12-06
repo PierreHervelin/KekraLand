@@ -1,7 +1,9 @@
 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+
 
 const Vetement = () => {
 
@@ -31,7 +33,6 @@ const Vetement = () => {
             vetement.data,
             vetement.data,
             vetement.data,
-            vetement.data,
         ])
     }
 
@@ -45,23 +46,31 @@ const Vetement = () => {
 
 
     return (
-        <div className="Containers-vetements">
+        <div className="Containers-vetements" >
             <Navbar/>
             <div className="Container-vetement">
                 {content.map((item, i) =>
+                <div className="content-all" >
                     <div className='image' key={i}>
                         <img src={item[0].image} alt='' />
-                        <div className='content'>
-                           <h3>tee-shirt vreel</h3>
-                            <div>
-                                S M L XL  
-                            </div>
-                        </div>
-                        
+                        <a ></a>
                     </div>
+                    <div className='content'>
+                            <div>
+                                <h3>tee-shirt vreel</h3>
+                                <spans>{item[0].description}</spans> &nbsp; 
+                            </div>
+                            <div style={{display:'flex', flexDirection:'start'}} >
+                                {item[0].prix} €
+                            </div> 
+
+                    </div>
+                </div>
                 )}
             </div>
+            <Footer/>
         </div>
+        
     );
 };
 
