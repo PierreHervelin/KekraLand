@@ -8,6 +8,7 @@ import BackOffice from './page/BackOffice';
 import Home from './page/Home';
 import Vetement from './page/Vetement';
 import Product from './page/Product';
+import Album from './page/Album';
 
 const App = () => {
 
@@ -34,6 +35,7 @@ const App = () => {
             <Route exact path="/inscription" component={Inscription}/>
             <Route exact path="/shop" component={Vetement}/>
             <Route exact path="/admin" component={BackOffice}/>
+            <Route exact path="/album" component={Album}/>
 
             <Route path='/product/:name' component={Product}/>
 

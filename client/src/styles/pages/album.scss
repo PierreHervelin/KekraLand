@@ -1,0 +1,62 @@
+.wrapper{
+    display: flex;
+
+    .leftSide, .rightSide{
+        width: 50%;
+        height: 100vh;
+    }
+    .leftSide{
+        background-color:beige;
+    }
+    .rightSide{
+        position: relative;
+        background-color: #fff;
+    }
+
+    .albumContainer{
+        @extend %mid;
+        height: 40vh;
+
+        h2{
+            color: black;
+            font-family: 'montserrat';
+        }
+
+        .albumDesc{
+            margin-top: 20px;
+        }
+
+        hr{
+            width: 50vh;
+        }
+
+        .containerButton{
+            @extend %row;
+            align-items: baseline;
+            justify-content: space-between;
+            
+            button{
+                color: black;
+                border-color: black;
+                width: 25vh;
+                
+                &:hover{
+                    color: white;
+                    background: black;
+                }
+        
+                &::after{
+                    background: black;
+                }
+            }
+
+            p{
+                font-family: 'montserrat semibold';
+                font-size: 20px;
+            }    
+        }
+
+        
+    }
+    
+}
