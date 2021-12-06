@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import Album from '../components/Album';
 
 const Product = (props) => {
     const [productType,setProductType]=useState(null)
+    const product=props.match.params.name
 
     useEffect(()=>{
-        const product=props.match.params.name
 
         if(['kekra','freebasevol04','vrealite','land'].includes(product)){
             setProductType('album')
@@ -38,9 +39,7 @@ const Product = (props) => {
         case 'album':
             console.log('album')
             return (
-                <div>
-                    <h2>album</h2>
-                </div>
+                <Album album={product}/>
             )
         default:
             console.log('none')
