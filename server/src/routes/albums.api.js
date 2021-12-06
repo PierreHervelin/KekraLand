@@ -21,7 +21,6 @@ router.get('/', (req, res) => {
     });
 });
 
-
 router.get('/destroy', (req, res) => { 
   Albums.destroy()
   .then(albums => {
@@ -30,6 +29,31 @@ router.get('/destroy', (req, res) => {
   })
   .catch(err => console.log(err))
 });
+
+router.get('/byname/:name', async (req,res)=>{
+    console.log(req.params.name);
+    const album=await Albums.findOne({
+        where:{
+            nom:req.params.name
+        }
+    })
+    console.log(album);
+    const tracklist=await Tracklists.findAll({
+        where:{
+            ProduitId:album.ProduitId
+        }
+    })
+ 
+    if(album){
+        console.log(album)
+        res.json({
+            album,
+            tracklist
+        })
+    }else{
+        res.sendStatus(404)
+    }
+})
 
 router.post('/create', (req, res) => {
     console.log(req.body);

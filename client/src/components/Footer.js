@@ -4,7 +4,7 @@ const Footer = () => {
     const ref=useRef({})
 
     return (
-        <div className='footer-container'>
+        <div className='footer-container observe'>
             <footer>
                 <div className='main'>
                     <ul>
