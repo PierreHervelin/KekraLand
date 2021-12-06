@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import axios from 'axios';
+import { User } from '../data/data';
 
 const Album = (props) => {
     const [album, setAlbum] = useState(null)
@@ -67,7 +68,18 @@ const Album = (props) => {
                                 <hr />
                             </div>
                             <div className="containerButton">
-                                <button>Ajouter au panier</button>
+                                <button
+                                    onClick={()=>{
+                                        console.log(User.panier);
+                                        User.panier.addProduit({
+                                            id:album.album.ProduitId,
+                                            nom:album.album.nom,
+                                            prix:album.album.prix,
+                                            image:album.album.image,
+                                            quantite:1
+                                        })
+                                    }}
+                                >Ajouter au panier</button>
                                 <p>{album?.album.prix} €</p>
                             </div>
 

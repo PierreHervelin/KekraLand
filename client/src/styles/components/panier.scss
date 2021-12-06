@@ -142,7 +142,8 @@
             width: 80px;
             height: 80px;
 
-            background: black;
+
+            @extend %cover;
 
             border-radius: 50%;
         }

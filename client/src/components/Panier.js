@@ -19,7 +19,7 @@ const Panier=(props)=>{
         <div className={`Panier ${props.active?'active':''}`}>
             <h3>Panier</h3>
             <div className='content'>
-                {produits.map((produit,i)=>
+                {User.panier.produits.map((produit,i)=>
                     <ProduitCard 
                         key={produit.id?produit.id:i} 
                         produit={produit} 

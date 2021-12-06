@@ -22,7 +22,7 @@ const ProduitCard=(props)=>{
 
     return(
         <div className='ProduitCard'>
-            <span className='image'/>
+            <span className='image' style={{backgroundImage:`url(${props.produit.image})`}}/>
             <div>
                 <span>{props.produit.nom}</span>
                 <span>{`${props.produit.prix}€`}</span>
