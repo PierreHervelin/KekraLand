@@ -56,21 +56,18 @@ const Vetement = () => {
                         <a ></a>
                     </div>
                     <div className='content'>
-                            <div>
+                            <div >
                                 <h3>tee-shirt vreel</h3>
-                                <spans>{item[0].description}</spans> &nbsp; 
                             </div>
-                            <div style={{display:'flex', flexDirection:'start'}} >
+                            <div>
                                 {item[0].prix} €
                             </div> 
-
                     </div>
                 </div>
                 )}
             </div>
             <Footer/>
         </div>
-        
     );
 };
 
