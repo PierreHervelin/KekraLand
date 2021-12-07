@@ -74,8 +74,10 @@ const Product = (props) => {
             default:
                 break
         }
-        const concert=await request(id)
-        setProduct(concert)
+        if(id){
+            const concert=await request(id)
+            setProduct(concert)
+        }
     }
 
     const getClothe=async()=>{
@@ -91,10 +93,13 @@ const Product = (props) => {
         switch (productType) {
             case 'concert':
                 getConcert()
+                break
             case 'vetement':
                 getClothe()
+                break
             case 'album':
                 getAlbum()
+                break
             default:
                 console.log('none')
                 return (
