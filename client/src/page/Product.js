@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Album from '../components/Album';
+import Concert from '../components/Concert';
 import Loader from '../components/Loader';
 
 const Product = (props) => {
@@ -49,15 +50,38 @@ const Product = (props) => {
         setProduct(album)
     }
 
+    const getConcert=async()=>{
+        const request=async(id)=>{
+            const data=await axios.get(`http://localhost:3001/api/concert/${id}`)
+            return data.data
+        }
+        let id=null
+
+        switch (param) {
+            case 'ladefense':
+                id='29065aba-e0bd-41ae-b283-e6d7db6b01dc'
+                break
+            case 'nantes':
+                id='b23b65a8-a39d-41ee-b58a-e10c9aef90b6'
+                break
+            case 'bercy':
+                id='b5bef61c-d997-410b-96fb-62da32fef6fd'
+                break
+            case 'accorhotelsarena':
+                id='3ca7c23a-ee49-4509-80d0-fb03268fc098'
+                break
+            default:
+                break
+        }
+        const concert=await request(id)
+        setProduct(concert)
+    }
+
     useEffect(()=>{
         switch (productType) {
             case 'concert':
                 console.log('concert')
-                return (
-                    <div>
-                        <h2>concert</h2>
-                    </div>
-                )
+                getConcert()
             case 'vetement':
                 console.log('vetement')
                 return (
@@ -82,9 +106,7 @@ const Product = (props) => {
             case 'concert':
                 console.log('concert')
                 return (
-                    <div>
-                        <h2>concert</h2>
-                    </div>
+                    <Concert concert={product}/>
                 )
             case 'vetement':
                 console.log('vetement')
