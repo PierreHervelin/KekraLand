@@ -65,10 +65,10 @@ const Product = (props) => {
                 id='b23b65a8-a39d-41ee-b58a-e10c9aef90b6'
                 break
             case 'bercy':
-                id='b5bef61c-d997-410b-96fb-62da32fef6fd'
+                id='765508ca-50d5-4db3-b31e-a9df05455d18'
                 break
-            case 'accorhotelsarena':
-                id='3ca7c23a-ee49-4509-80d0-fb03268fc098'
+            case 'rouen':
+                id='a24957fd-9260-45a8-b899-3c66735b89e2'
                 break
             default:
                 break
