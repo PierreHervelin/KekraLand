@@ -44,8 +44,8 @@ export const CategorieShop=[
         content:[
             'La défense',
             'Nantes',
-            'Bercy',
-            'AccorHotels Arena'
+            'Rouen',
+            'Bercy'
         ]
     }
 ]
