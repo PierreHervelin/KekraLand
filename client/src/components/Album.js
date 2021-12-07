@@ -27,7 +27,6 @@ const Album = (props) => {
         })
     })
 
-    console.log(props.album);
     return (
         <div className='product-album'>
             <Navbar />
@@ -55,7 +54,7 @@ const Album = (props) => {
                     <div className={`rightSide ${isFixed?'fixed':''}`}>
                         <div className="albumContainer">
                             <h2>{props.album?.album.nom}</h2>
-                            <div className="albumDesc">
+                            <div className="albumHr">
                                 <hr />
                             </div>
                             <div className="containerButton">
@@ -83,6 +82,12 @@ const Album = (props) => {
                                 <p>{props.album?.album.prix} €</p>
                             </div>
 
+                            <div className="albumDesc">
+                                <h2>Description</h2>
+                                <br/>
+                                <p>{props.album?.album.description}</p>
+                            </div>
+  
                         </div>
                     </div>
                 </div>
