@@ -39,18 +39,16 @@ const Concert = (props) => {
                 <div className='sideContainer'>
                     <div className="leftSide">
                         <div className="concertImg">
-                            <div style={{backgroundImage: 'url(https://cdn.discordapp.com/attachments/889877593673854996/917373648917118997/kekraconcert2.jpg)'}}/>
+                            <div style={{backgroundImage: `url(${props.concert?.image})`}}/>
                         </div>
                         
                     </div>
 
                     <div className={`rightSide ${isFixed?'fixed':''}`}>
                         <div className="concertContainer">
-                            <h2>{props.album?.album.nom}</h2>
+                           
                             <div className="concertDesc">
-                            <h4>La Défense</h4>
-                            <p> 20h le 28/09 50, quai Rambaud 69002 Paris</p>
-                          
+                            <h2>{props.concert?.nom}</h2>
                                 <hr />
                             </div>
                             <div className="containerButton">
@@ -60,14 +58,14 @@ const Concert = (props) => {
                                     >Ajouté au panier</p>
                                     <button
                                        onClick={()=>{
-                                          /*   console.log(User.panier);
+                                             console.log(User.panier);
                                             User.panier.addProduit({
-                                                id:props.album.album.ProduitId,
-                                                nom:props.album.album.nom,
-                                                prix:props.album.album.prix,
-                                                image:props.album.album.image,
+                                                id:props.concert.ProduitId,
+                                                nom:props.concert.nom,
+                                                prix:props.concert.prix,
+                                                image:props.concert.image,
                                                 quantite:1
-                                            })*/
+                                            })
                                             ref.current.p.classList.add('active')
                                             setTimeout(() => {
                                                 ref.current.p.classList.remove('active')
@@ -75,8 +73,15 @@ const Concert = (props) => {
                                         }}
                                     >Ajouter au panier</button>
                                 </div>
-                                <p>20 €</p>
+                                <p>{props.concert?.prix} €</p>
                             </div>
+                            <div className="concertDesc">
+                                <h2>Description</h2>
+                                <br/>
+                                <div dangerouslySetInnerHTML={{__html: props.concert?.description}} />
+
+                            </div>
+  
 
                         </div>
                     </div>
