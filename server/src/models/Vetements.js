@@ -13,6 +13,11 @@ const Vetements=db.define('Vetements',{
         allowNull: false
     },
 
+    type:{
+        type:Sequelize.STRING,
+        allowNull: false
+    },
+
     prix:{
         type:Sequelize.FLOAT,
         allowNull: false
