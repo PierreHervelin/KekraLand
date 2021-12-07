@@ -13,6 +13,11 @@ const Albums=db.define('Albums',{
         allowNull: false
     },
 
+    description:{
+        type:Sequelize.TEXT,
+        allowNull: false
+    },
+
     prix:{
         type:Sequelize.FLOAT,
         allowNull: false

@@ -9,6 +9,8 @@ import Home from './page/Home';
 import Product from './page/Product';
 import Shop from './page/Shop';
 import Clothes from './components/Clothes';
+import Concert from './components/Concert';
+
 
 const App = () => {
     return (
@@ -18,6 +20,7 @@ const App = () => {
             <Route exact path="/shop" component={Shop}/>
             <Route exact path="/admin" component={BackOffice}/>
             <Route exact path="/clothes" component = { Clothes } />
+            <Route exact path="/concert" component={Concert}/>
 
             <Route path='/product/:name' component={Product}/>
 
