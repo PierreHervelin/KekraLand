@@ -1,5 +1,4 @@
-import { useAnimation } from 'framer-motion';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Video from '../asset/video/shophomevideo.mp4'
 import Navbar from '../components/Navbar';
 import NewCollection from '../components/NewCollection';
@@ -7,9 +6,6 @@ import News from '../components/News';
 import Footer from '../components/Footer';
 
 const Home = () => {
-    const [newCollection,setNewCollection]=useState([])
-    const controls=useAnimation()
-
     let prevScrollPos=window.scrollY
 
     const ref=useRef({})
@@ -41,6 +37,25 @@ const Home = () => {
         }
     },[])
 
+    // observer :
+
+    useEffect(()=>{
+        const inViewport=(entries,observer)=>{
+            entries.forEach(item=>{
+                if(item.isIntersecting){
+                    item.target.classList.add('visible')
+                }
+            })
+        };
+
+        const Obs=new IntersectionObserver(inViewport);
+
+        const els=document.querySelectorAll('.observe')
+        els.forEach(item=>{
+            Obs.observe(item)
+        })
+    })
+
     return (
         <main className='Shop'>
             <Navbar/>
@@ -55,37 +70,8 @@ const Home = () => {
             </div>
             <div ref={el=>ref.current['container_newCollection']=el} className='new-cloth'>
                 <div className='img observe'></div>
-                <div
-                    className='title'
-                    onMouseMove={
-                        (e)=>{
-                            const div=e.target.parentNode
-                            const h2=div.lastElementChild
-
-                            const pos=h2.getBoundingClientRect()
-
-                            h2.style.clipPath=`circle(10% at ${e.clientX-pos.left}px ${e.clientY-pos.top}px)`
-                        }
-                    } 
-                    onClick={
-                        (e)=>{
-                            ref.current['container_newCollection'].classList.add('started')
-                            window.scrollTo({
-                                top:window.innerHeight,
-                                behavior:'smooth'
-                            })
-                            setNewCollection(
-                                <NewCollection/>
-                            )
-                            setTimeout(() => {
-                                document.querySelector('.Navbar').dataset.active=false
-                            }, 200);
-                        }
-                    }         
-                >
+                <div className='title'>
                     <h2>NOUVELLE COLLECTION</h2>
-                    <p>clic pour voir</p>
-                    
                 </div>
             </div>
             <News/>

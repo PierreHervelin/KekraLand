@@ -48,6 +48,12 @@ const Navbar = () => {
         }
     }
 
+    const backHome=()=>{
+        const link=document.createElement('a')
+        link.href='/home'
+        link.click()
+    }
+
     useEffect(()=>{
         window.addEventListener('scroll',handleScroll)
         window.addEventListener('click',handleClick)
@@ -71,7 +77,7 @@ const Navbar = () => {
                 data-active={visible}
                 onMouseEnter={()=>setNavActive(true)}
             >
-                <img src={Logo} alt='KEKRA'/>
+                <img src={Logo} alt='KEKRA' onClick={backHome}/>
                 <div className='container'>
                     <div className='search-container'>
                         <input

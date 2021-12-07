@@ -1,21 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import axios from 'axios';
 import { User } from '../data/data';
 
 const Album = (props) => {
-    const [album, setAlbum] = useState(null)
     const [isFixed, setIsFixed] = useState(false)
-    useEffect(() => {
-        const getAlbum = async () => {
-            const album = await axios.get(`http://localhost:3001/api/album/byname/${props.album}`)
-            setAlbum(album.data)
-        }
-        if (props.album != null) {
-            getAlbum()
-        }
-    }, [])
+    const ref=useRef({})
 
     // observer :
     useEffect(()=>{
@@ -37,20 +27,21 @@ const Album = (props) => {
         })
     })
 
-    console.log(album);
+    console.log(props.album);
     return (
-        <div>
+        <div className='product-album'>
             <Navbar />
             <div className="wrapper">
                 <div className='sideContainer'>
                     <div className="leftSide">
                         <div className="albumImg">
                             <div>
-                                <img src={album?.album.image} alt='' />
+                                <img src={props.album?.album.image} alt='' />
                             </div>
                         </div>
                         <div className="albumTracklist">
-                            {album?.tracklist.map((item, i)=>
+                            <h2>Tracklist</h2>
+                            {props.album?.tracklist.map((item, i)=>
                                 <div key={i}>
                                     <span>{item.numero}</span>
                                     <span>{item.titre}</span>
@@ -63,24 +54,33 @@ const Album = (props) => {
 
                     <div className={`rightSide ${isFixed?'fixed':''}`}>
                         <div className="albumContainer">
-                            <h2>{album?.album.nom}</h2>
+                            <h2>{props.album?.album.nom}</h2>
                             <div className="albumDesc">
                                 <hr />
                             </div>
                             <div className="containerButton">
-                                <button
-                                    onClick={()=>{
-                                        console.log(User.panier);
-                                        User.panier.addProduit({
-                                            id:album.album.ProduitId,
-                                            nom:album.album.nom,
-                                            prix:album.album.prix,
-                                            image:album.album.image,
-                                            quantite:1
-                                        })
-                                    }}
-                                >Ajouter au panier</button>
-                                <p>{album?.album.prix} €</p>
+                                <div>
+                                    <p 
+                                        ref={el=>ref.current.p=el}
+                                    >Ajouté au panier</p>
+                                    <button
+                                        onClick={()=>{
+                                            console.log(User.panier);
+                                            User.panier.addProduit({
+                                                id:props.album.album.ProduitId,
+                                                nom:props.album.album.nom,
+                                                prix:props.album.album.prix,
+                                                image:props.album.album.image,
+                                                quantite:1
+                                            })
+                                            ref.current.p.classList.add('active')
+                                            setTimeout(() => {
+                                                ref.current.p.classList.remove('active')
+                                            }, 2000);
+                                        }}
+                                    >Ajouter au panier</button>
+                                </div>
+                                <p>{props.album?.album.prix} €</p>
                             </div>
 
                         </div>

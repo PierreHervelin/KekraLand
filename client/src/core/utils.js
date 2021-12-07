@@ -4,3 +4,6 @@ export const uuid=()=>{
       return v.toString(16);
     });
 }
+export const generateKey = (pre) => {
+  return `${ pre }_${ new Date().getTime() }`;
+}

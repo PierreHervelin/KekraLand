@@ -55,9 +55,14 @@ const ContentShop = (props) => {
     const contentOnClick=(e)=>{
         const el=e.target
         const text=e.target.innerHTML.toLowerCase().replace(/ |,|\.|-/gm,'').replace(/é/gm,'e')
-        if(!el.classList.contains('link-container')&&!['hoodies','tshirts'].includes(text)){
-            const link=document.createElement('a')
+        const condition1=!el.classList.contains('link-container')
+        const link=document.createElement('a')
+
+        if(condition1&&!['hoodies','tshirts'].includes(text)){
             link.href=`/product/${text.toLowerCase()}`
+            link.click()
+        }else if(condition1&&['hoodies','tshirts'].includes(text)){
+            link.href='/shop'
             link.click()
         }
     }

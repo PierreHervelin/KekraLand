@@ -45,4 +45,20 @@ export class UserPanier{
     save(){
         localStorage.setItem('panier',JSON.stringify(this.produits))
     }
+
+    getProduits(){
+        if(this.produits.length){
+            return this.produits
+        }else{
+            return ['Le panier est vide.']
+        }
+    }
+    getOneProduit(id){
+        for(let produit of this.produits){
+            if(produit.id===id){
+                return produit
+            }
+        }
+        return null
+    }
 }

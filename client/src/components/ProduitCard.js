@@ -14,9 +14,15 @@ const ProduitCard=(props)=>{
         }
     },[quantity])
 
-    if(props.produit==='Le panier est vide'){
+    useEffect(()=>{
+        if(User.panier.getOneProduit(props.produit.id)){
+            setQuantity(User.panier.getOneProduit(props.produit.id).quantite)
+        }
+    },[props])
+
+    if(props.produit==='Le panier est vide.'){
         return (
-            <div>Le panier est vide</div>
+            <div>Le panier est vide.</div>
         )
     }
 

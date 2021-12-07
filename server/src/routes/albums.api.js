@@ -30,14 +30,12 @@ router.get('/destroy', (req, res) => {
   .catch(err => console.log(err))
 });
 
-router.get('/byname/:name', async (req,res)=>{
-    console.log(req.params.name);
+router.get('/:id', async (req,res)=>{
     const album=await Albums.findOne({
         where:{
-            nom:req.params.name
+            ProduitId:req.params.id
         }
     })
-    console.log(album);
     const tracklist=await Tracklists.findAll({
         where:{
             ProduitId:album.ProduitId
@@ -45,7 +43,6 @@ router.get('/byname/:name', async (req,res)=>{
     })
  
     if(album){
-        console.log(album)
         res.json({
             album,
             tracklist

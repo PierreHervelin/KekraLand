@@ -10,24 +10,6 @@ import Vetement from './page/Vetement';
 import Product from './page/Product';
 
 const App = () => {
-
-    useEffect(()=>{
-        const inViewport=(entries,observer)=>{
-            entries.forEach(item=>{
-                if(item.isIntersecting){
-                    item.target.classList.add('visible')
-                }
-            })
-        };
-
-        const Obs=new IntersectionObserver(inViewport);
-
-        const els=document.querySelectorAll('.observe')
-        els.forEach(item=>{
-            Obs.observe(item)
-        })
-    })
-
     return (
         <Switch>
             <Route exact path="/" component={Home}/>

@@ -15,11 +15,13 @@ const Panier=(props)=>{
         }
     },[produits])
 
+    console.log('test',User.panier.getProduits());
+
     return(
         <div className={`Panier ${props.active?'active':''}`}>
             <h3>Panier</h3>
             <div className='content'>
-                {User.panier.produits.map((produit,i)=>
+                {User.panier.getProduits().map((produit,i)=>
                     <ProduitCard 
                         key={produit.id?produit.id:i} 
                         produit={produit} 
