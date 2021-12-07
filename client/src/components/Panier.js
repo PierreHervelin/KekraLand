@@ -38,11 +38,7 @@ const Panier = (props) => {
         ))}
       </div>
       <div className="total">{`Total : ${User.panier.getTotalPrice()}€`}</div>
- 
-      <button onClick={clickOnValid}>
-       Valider
-      </button>
-
+      <button onClick={clickOnValid}>Valider</button>
       <div
         className="cross"
         fill="white"
