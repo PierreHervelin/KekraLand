@@ -28,7 +28,7 @@ const Clothe = (props) => {
     })
     
     return (
-        <div className='product-album'>
+        <div className='product-clothe'>
             <Navbar />
             <div className="wrapper">
                 <div className='sideContainer'>
@@ -42,6 +42,10 @@ const Clothe = (props) => {
                     <div className={`rightSide ${isFixed?'fixed':''}`}>
                         <div className="colthesContainer">
                             <h2>{props.vetement[0]?.nom}</h2>
+                            {props.vetement.map ((item, i) =>
+                                <button key={i} > {item.taille} </button>
+                            
+                            )}
                             <div className="clothesDesc">
                                 <hr />
                             </div>

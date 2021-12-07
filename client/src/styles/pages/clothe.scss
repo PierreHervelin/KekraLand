@@ -1,4 +1,4 @@
-.product-album{
+.product-clothe{
     width: 100%;
     height: fit-content;
     position: relative;
@@ -83,7 +83,21 @@
         
             .colthesContainer{
                 @extend %mid;
-                height: 30vh;
+                //height: 30vh;
+                button{
+                    color: black;
+                    border-color: black;
+                    width: 25vh;
+                    
+                    &:hover{
+                        color: white;
+                        background: black;
+                    }
+            
+                    &::after{
+                        background: black;
+                    }
+                }
 
                 .clothesDesc{
                     margin-top: 30px;
