@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Album from '../components/Album';
+import Clothes from '../components/Clothes';
 import Concert from '../components/Concert';
 import Loader from '../components/Loader';
 
@@ -111,9 +112,7 @@ const Product = (props) => {
             case 'vetement':
                 console.log('vetement')
                 return (
-                    <div>
-                        <h2>vetement</h2>
-                    </div>
+                    <Clothes clothes={product}/>
                 )
             case 'album':
                 return (
