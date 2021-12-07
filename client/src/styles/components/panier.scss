@@ -45,13 +45,16 @@
 
     .total{
         position: absolute;
-        bottom: 130px;
+        bottom: 100px;
 
         color: white;
         font-family: 'montserrat';
         
         width: 100%;
         text-align: center;
+    }
+    &>button{
+        margin-top: 50px;
     }
 
     .cross{
