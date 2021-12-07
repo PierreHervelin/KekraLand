@@ -87,7 +87,7 @@
                 button{
                     color: black;
                     border-color: black;
-                    width: 25vh;
+                    
                     
                     &:hover{
                         color: white;
@@ -98,7 +98,17 @@
                         background: black;
                     }
                 }
-
+                .taille-content{
+                    @extend %row;
+                    &>button{
+                        margin-inline: 15px;
+                        &.active{
+                            background-color: black;
+                            color: white;
+                        }
+                    }
+                    
+                }
                 .clothesDesc{
                     margin-top: 30px;
                     p{
@@ -137,6 +147,9 @@
                             color: black;
                             border-color: black;
                             width: 25vh;
+                            &.active{
+                                
+                            }
                             
                             &:hover{
                                 color: white;

@@ -5,7 +5,25 @@ import { User } from '../data/data';
 
 const Clothe = (props) => {
     const [isFixed, setIsFixed] = useState(false)
+    const [size,setSize] = useState(null)
     const ref=useRef({})
+
+
+    useEffect(() =>{
+        if (size) {
+            ref.current.buyButton.classList.add('active')
+        }
+    },[size])
+
+    const clickOnSize = (e) =>{
+        const button = e.target
+        const children = ref.current.parentSizeButton.children;
+        for(var child of children){
+            child.classList.remove('active')
+        }
+        button.classList.add('active')
+        setSize(button.innerHTML)
+    }
 
     // observer :
     useEffect(()=>{
@@ -42,10 +60,11 @@ const Clothe = (props) => {
                     <div className={`rightSide ${isFixed?'fixed':''}`}>
                         <div className="colthesContainer">
                             <h2>{props.vetement[0]?.nom}</h2>
-                            {props.vetement.map ((item, i) =>
-                                <button key={i} > {item.taille} </button>
-                            
-                            )}
+                            <div ref={el=>ref.current.parentSizeButton=el} className='taille-content'>
+                                {props.vetement.map ((item, i) =>
+                                    <button onClick={clickOnSize} key={i}  > {item.taille} </button>
+                                )}
+                            </div>
                             <div className="clothesDesc">
                                 <hr />
                             </div>
@@ -54,12 +73,14 @@ const Clothe = (props) => {
                                     <p 
                                         ref={el=>ref.current.p=el}
                                     >Ajouté au panier</p>
-                                    <button
+                                    <button 
+                                        ref = {el=>ref.current.buyButton=el}
                                         onClick={()=>{
                                             console.log(User.panier);
                                             User.panier.addProduit({
                                                 id:props.vetement[0].ProduitId,
                                                 nom:props.vetement[0].nom,
+                                                taille:props.vetement[0].taille,
                                                 prix:props.vetement[0].prix,
                                                 image:props.vetement[0].image,
                                                 quantite:1
@@ -74,6 +95,7 @@ const Clothe = (props) => {
                                 <p>{props.vetement[0]?.prix} €</p>
                             </div>
                             <div className="albumDesc">
+                            <br/>
                             <br/>
                                 <h2>Description</h2>
                                 <br/>
