@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
 
-const Vetement = () => {
+const Shop = () => {
 
     const [content, setContent] = useState([])
 
@@ -36,6 +36,15 @@ const Vetement = () => {
         ])
     }
 
+    const clickOnProd=(e)=>{
+        const item = e.target;
+        const index = item.dataset.index;
+        const link=document.createElement('a')
+        //console.log(content[index][0]);
+        link.href=`/product/${content[index][0].ProduitId}`
+        link.click()
+      }
+
     useEffect(() => {
         console.log(content);
     }, [content])
@@ -52,8 +61,7 @@ const Vetement = () => {
                 {content.map((item, i) =>
                 <div className="content-all" >
                     <div className='image' key={i}>
-                        <img src={item[0].image} alt='' />
-                        <a ></a>
+                       <img src={item[0].image} alt='' data-index={i} onClick={clickOnProd} />  
                     </div>
                     <div className='content'>
                             <div >
@@ -71,4 +79,4 @@ const Vetement = () => {
     );
 };
 
-export default Vetement;
+export default Shop;

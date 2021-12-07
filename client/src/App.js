@@ -6,16 +6,18 @@ import Vreel3 from './page/Vreel3';
 import Land from './page/Land';
 import BackOffice from './page/BackOffice';
 import Home from './page/Home';
-import Vetement from './page/Vetement';
 import Product from './page/Product';
+import Shop from './page/Shop';
+import Clothes from './components/Clothes';
 
 const App = () => {
     return (
         <Switch>
             <Route exact path="/" component={Home}/>
             <Route exact path="/inscription" component={Inscription}/>
-            <Route exact path="/shop" component={Vetement}/>
+            <Route exact path="/shop" component={Shop}/>
             <Route exact path="/admin" component={BackOffice}/>
+            <Route exact path="/clothes" component = { Clothes } />
 
             <Route path='/product/:name' component={Product}/>
 
