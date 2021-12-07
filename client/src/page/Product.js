@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Album from '../components/Album';
-import Clothes from '../components/Clothes';
+import Clothe from '../components/Clothe';
 import Concert from '../components/Concert';
 import Loader from '../components/Loader';
 
@@ -17,8 +17,8 @@ const Product = (props) => {
         'ladefense',
         'nantes',
         'bercy',
-        'accorhotelsarena'
-    ]){
+        'rouen'
+    ].includes(param)){
         productType='concert'
     }else{
         productType='vetement'
@@ -78,18 +78,21 @@ const Product = (props) => {
         setProduct(concert)
     }
 
+    const getClothe=async()=>{
+        const request=async(id)=>{
+            const data=await axios.get(`http://localhost:3001/api/vetement/${id}`)
+            return data.data
+        }
+        const clothe=await request(param)
+        setProduct(clothe)
+    }
+
     useEffect(()=>{
         switch (productType) {
             case 'concert':
-                console.log('concert')
                 getConcert()
             case 'vetement':
-                console.log('vetement')
-                return (
-                    <div>
-                        <h2>vetement</h2>
-                    </div>
-                )
+                getClothe()
             case 'album':
                 getAlbum()
             default:
@@ -112,7 +115,7 @@ const Product = (props) => {
             case 'vetement':
                 console.log('vetement')
                 return (
-                    <Clothes clothes={product}/>
+                    <Clothe vetement={product}/>
                 )
             case 'album':
                 return (

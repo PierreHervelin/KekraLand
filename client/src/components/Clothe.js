@@ -1,9 +1,9 @@
-import  {react , useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState} from 'react';
 import Footer from './Footer';
 import Navbar from './Navbar';
 import { User } from '../data/data';
 
-const Clothes = (props) => {
+const Clothe = (props) => {
     const [isFixed, setIsFixed] = useState(false)
     const ref=useRef({})
 
@@ -79,4 +79,4 @@ const Clothes = (props) => {
     );
 };
 
-export default Clothes;
+export default Clothe;
