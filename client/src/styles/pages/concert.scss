@@ -1,44 +1,122 @@
-.Containers-concert{
+.product-concert{
     width: 100%;
-    height: 100%;
-    .Container-concert{
+    height: fit-content;
+    position: relative;
+    overflow-x: hidden;
 
-        @extend %row;
-        justify-content: space-around;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-        margin-top: 50px ;
-        flex-wrap: wrap;
-
-        .image{
-            width: 25%;
-            overflow: hidden;
+    .wrapper{
+        .sideContainer{
             position: relative;
-            display: flex;
-            justify-content: center;
-            &:hover{
-               .content{
-                   opacity: 1;
-               }
-            }
-            .content{
-                opacity: 0;
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background: transparent;
-                backdrop-filter: blur(3px);
-                transition: opacity ease .5s;
-                color: black;
+            width: 100%;
+            height: 100vh;
+            background-color:#fff;
 
+            .leftSide, .rightSide{
+                width: 50%;
+                height: 100vh;
+                position: absolute;
             }
-            &>img {
-                object-fit: cover;
-                object-position: center;
+            .leftSide{
+                left: 0;
+                height: 100vh;
+                top: 0;
+                .concertImg{
+                    height: 100vh;
+                    width: 100%;
+                    position: relative;
+                    div{
+                        width: 100%;
+                        height: 100%;
+                        @extend %cover;
+                        @extend %mid;
+                    }
+                }
+            }
+            .rightSide{
+                right: 0;
+                bottom: 0;
+        
+                &.fixed{
+                    position: fixed;
+                }
+            }
+        
+            .concertContainer{
+                @extend %mid;
+                height: 30vh;
+        
+                h2{
+                    color: black;
+                    font-family: 'montserrat';
+                    text-transform: capitalize;
+                }
+        
+                .concertDesc{
+                    margin-top: 50px;
+                    &>p{
+                        margin-block: 10px;
+                    }
+                }
+        
+                hr{
+                    opacity: 0.5;
+                    width: 50vh;
+                    border: none;
+                    height: 1px;
+                    background-color:black;
+                }
+        
+                .containerButton{
+                    @extend %row;
+                    align-items: baseline;
+                    justify-content: space-between;
+
+                    &>div{
+                        position: relative;
+                        button{
+                            color: black;
+                            border-color: black;
+                            width: 25vh;
+                            
+                            &:hover{
+                                color: white;
+                                background: black;
+                            }
+                    
+                            &::after{
+                                background: black;
+                            }
+                        }
+                        p{
+                            color: rgb(0, 209, 0);
+                            text-align: center;
+                            font-family: 'montserrat medium';
+                            font-size: 18px;
+                            z-index: -1;
+                            position: absolute;
+                            bottom: 0;
+                            left: 50%;
+                            transform: translate(-50%,0%);
+                            opacity: 0;
+                            width: 100%;
+
+                            transition: all ease .5s;
+
+                            &.active{
+                                transform: translate(-50%,130%);
+                                opacity: 1;
+                            }
+                        }
+                    }
+        
+                    p{
+                        font-family: 'montserrat semibold';
+                        font-size: 20px;
+                    }    
+                }
+        
                 
             }
-        }
-        
+        }    
     }
 }
