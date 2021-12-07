@@ -12,6 +12,7 @@ const ProduitCard=(props)=>{
             )
             props.update()
         }
+        
     },[quantity])
 
     useEffect(()=>{
@@ -34,6 +35,7 @@ const ProduitCard=(props)=>{
                 <span>{`${props.produit.prix}€`}</span>
                 <input
                     type='number'
+                    min="1"
                     onChange={(e)=>
                         setQuantity(
                             parseInt(e.target.value)?parseInt(e.target.value):''
