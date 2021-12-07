@@ -77,7 +77,6 @@ const Album = (props) => {
                                 </div>
                             )}
                         </div>
-                        
                     </div>
 
                     <div className={`rightSide ${isFixed?'fixed':''}`}>

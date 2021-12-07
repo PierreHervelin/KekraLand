@@ -8,6 +8,7 @@ import BackOffice from './page/BackOffice';
 import Home from './page/Home';
 import Product from './page/Product';
 import Shop from './page/Shop';
+import Paiement from './page/Paiement';
 
 const App = () => {
     return (
@@ -16,6 +17,7 @@ const App = () => {
             <Route exact path="/inscription" component={Inscription}/>
             <Route exact path="/shop" component={Shop}/>
             <Route exact path="/admin" component={BackOffice}/>
+            <Route exact path="/paiement" component={Paiement}/>
 
             <Route path='/product/:name' component={Product}/>
 
