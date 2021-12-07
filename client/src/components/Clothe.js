@@ -35,13 +35,13 @@ const Clothe = (props) => {
                     <div className="leftSide">
                         <div className="clothes">
                             <div>
-                                <img src={props.vetement?.image} alt='' />
+                                <img src={props.vetement[0]?.image} alt='' />
                             </div>
                         </div>  
                     </div>
                     <div className={`rightSide ${isFixed?'fixed':''}`}>
                         <div className="colthesContainer">
-                            <h2>{props.vetement?.nom}</h2>
+                            <h2>{props.vetement[0]?.nom}</h2>
                             <div className="clothesDesc">
                                 <hr />
                             </div>
@@ -54,10 +54,10 @@ const Clothe = (props) => {
                                         onClick={()=>{
                                             console.log(User.panier);
                                             User.panier.addProduit({
-                                                id:props.vetement.ProduitId,
-                                                nom:props.vetement.nom,
-                                                prix:props.vetement.prix,
-                                                image:props.vetement.image,
+                                                id:props.vetement[0].ProduitId,
+                                                nom:props.vetement[0].nom,
+                                                prix:props.vetement[0].prix,
+                                                image:props.vetement[0].image,
                                                 quantite:1
                                             })
                                             ref.current.p.classList.add('active')
@@ -67,7 +67,13 @@ const Clothe = (props) => {
                                         }}
                                     >Ajouter au panier</button>
                                 </div>
-                                <p>{props.vetement?.prix} €</p>
+                                <p>{props.vetement[0]?.prix} €</p>
+                            </div>
+                            <div className="albumDesc">
+                            <br/>
+                                <h2>Description</h2>
+                                <br/>
+                                <p>{props.vetement[0]?.description}</p>
                             </div>
 
                         </div>
