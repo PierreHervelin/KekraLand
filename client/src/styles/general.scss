@@ -146,6 +146,21 @@ button{
         scrollbar-width: auto;
     }
 }
+.Panier{
+    ::-webkit-scrollbar-track{
+        background: black;
+    }
+    ::-webkit-scrollbar-thumb{
+        background: white;
+        border-radius: 3px;
+    }
+    @supports (scrollbar-color: #777 blue){
+        *{
+            scrollbar-color: white black;
+            scrollbar-width: auto;
+        }
+    }
+}
 
 // ---- Variables :
 
