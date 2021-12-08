@@ -104,6 +104,20 @@
 
                 z-index: -1;
 
+                .errorMessage{
+                    color: red;
+                    width: 100px;
+                }
+
+                .eyeIcon{
+                    color: white;
+                    cursor: pointer;
+                    font-size: 18px;
+                    position: absolute;
+                    bottom: 155px;
+                    right: 30px;
+                }
+
                 &.login{
                     width: 169px;
                     text-align: center;
@@ -152,6 +166,7 @@
                     button{
                         width: 150px;
                     }
+
                 }
 
                 &.active{

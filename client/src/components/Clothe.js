@@ -8,6 +8,7 @@ const Clothe = (props) => {
     const [isFixed, setIsFixed] = useState(false)
     const [size,setSize] = useState(null)
     const [note,setNote] = useState(props.vetement[0].note)
+    const [noteChange,setNoteChange] = useState(false)
     const ref=useRef({})
 
     useEffect(() =>{
@@ -38,16 +39,25 @@ const Clothe = (props) => {
     }
 
     const rateClick=async()=>{
-        const tempNote=note
-        await axios.get(
-            `http://localhost:3001/api/vetement/addNote/${props.vetement[0].ProduitId}`,
-            {
-                params:{
-                    note
+        if(User.login && !noteChange){
+            await axios.get(
+                `http://localhost:3001/api/vetement/addNote/${props.vetement[0].ProduitId}`,
+                {
+                    params:{
+                        note
+                    }
                 }
-            }
-        )
-        setNote(tempNote)
+            )
+            ref.current.noteMess.classList.add('active')
+            setTimeout(() => {
+                ref.current.noteMess.classList.remove('active')
+            }, 2500);
+            setNoteChange(true)
+        }else if(noteChange){
+            window.alert('Vous avez déjà noté')
+        }else{
+            window.alert('Veuillez vous connecter')
+        }
     }
 
     // observer :
@@ -81,6 +91,10 @@ const Clothe = (props) => {
                         </div>
                     </div>
                     <div className={`rightSide ${isFixed?'fixed':''}`}>
+                        <p 
+                            className='noteMess'
+                            ref={el=>ref.current.noteMess=el}
+                        >La note à bien été pris en compte</p>
                         <div className="colthesContainer">
                             <div className='title-stars'>
                                 <h2>{props.vetement[0]?.nom}</h2>
@@ -139,7 +153,6 @@ const Clothe = (props) => {
                                 <br/>
                                 <p>{props.vetement[0]?.description}</p>
                             </div>
-
                         </div>
                     </div>
                 </div>

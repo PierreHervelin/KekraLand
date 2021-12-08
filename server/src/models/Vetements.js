@@ -45,6 +45,10 @@ const Vetements=db.define('Vetements',{
     note:{
         type:Sequelize.INTEGER,
         allowNull: false
+    },
+    historicNote:{
+        type:Sequelize.JSON,
+        allowNull:true
     }
 })
 

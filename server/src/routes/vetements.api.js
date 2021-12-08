@@ -60,8 +60,13 @@ router.get('/addNote/:id',async(req,res)=>{
                 ProduitId:id
             }
         })
+        const historic=vetements[0].historicNote?JSON.parse(JSON.parse(vetements[0].historicNote)):[]
+        historic.push(note)
+        let newNote=Math.round(historic.reduce((a,b)=>a+b,0)/historic.length)
+
         for(let vetement of vetements){
-            vetement.note=note
+            vetement.note=newNote
+            vetement.historicNote=JSON.stringify(historic)
             await vetement.save()
         }
         res.sendStatus(200)

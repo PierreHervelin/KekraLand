@@ -80,6 +80,20 @@
                     position: fixed;
                 }
             }
+
+            .noteMess{
+                margin-top: 70px;
+                color: black;
+                position: absolute;
+                top: 0;
+                right: 20px;
+                opacity: 0;
+                transition: opacity ease .5s;
+
+                &.active{
+                    opacity: 1;
+                }
+            }
         
             .colthesContainer{
                 @extend %mid;
