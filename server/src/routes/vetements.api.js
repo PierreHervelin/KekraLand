@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { Op } = require("sequelize");
 
 const db = require('../../config/database');
 const {Vetements} = require('../models');
@@ -29,6 +30,24 @@ router.post('/create', (req, res) => {
             res.sendStatus(200)
         })
         .catch(err=>console.log(err))
+})
+
+router.get('/bytype/:type', async (req,res)=>{
+    if(!['tshirt','hoodie'].includes(req.params.type)){
+        res.sendStatus(404)
+    }
+    const vetements=await Vetements.findAll({
+        where:{
+            type:req.params.type
+        },
+        offset:req.query.offset?req.query.offset:0,
+        limit:req.query.limit?req.query.limit:20
+    })
+    if(vetements){
+        res.send(vetements)
+    }else{
+        res.sendStatus(403)
+    }
 })
 
 router.get('/:id',(req,res)=>{

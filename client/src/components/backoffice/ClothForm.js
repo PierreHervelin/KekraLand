@@ -8,6 +8,7 @@ const ClothForm = () => {
     const [name,setName]=useState('')
     const [image,setImage]=useState('')
     const [price,setPrice]=useState('')
+    const [type,setType]=useState('tshirt')
     const [description,setDescription]=useState('')
 
     const [fields,setFields]=useState([])
@@ -54,6 +55,10 @@ const ClothForm = () => {
     }
 
     useEffect(()=>{
+        console.log(type);
+    },[type])
+
+    useEffect(()=>{
         const putData=async()=>{
             await axios.post('http://localhost:3001/api/produits/create',{id,categorie:'vetement'})
             for(let field of fields){
@@ -61,6 +66,7 @@ const ClothForm = () => {
                     ProduitId: id,
                     description,
                     prix:price,
+                    type,
                     stock:field.stock,
                     taille:field.size,
                     nom:name,
@@ -101,6 +107,10 @@ const ClothForm = () => {
                 onChange={(e)=>setImage(e.target.value)}
                 value={image}
             />
+            <select name='type' onChange={(e)=>{setType(e.target.value.toLowerCase().replace(/ |,|\.|-/gm,''))}}>
+                <option id='tshirt'>T-shirt</option>
+                <option id='hoodie'>Hoodie</option>
+            </select>
             <input
                 type='number'
                 placeholder='Prix'

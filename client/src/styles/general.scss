@@ -133,16 +133,16 @@ button{
     width: 6px;
 }
 ::-webkit-scrollbar-track{
-    background: black;
+    background: white;
 }
 ::-webkit-scrollbar-thumb{
-    background: #777;
+    background: black;
     border-radius: 3px;
 }
 
 @supports (scrollbar-color: #777 blue){
     *{
-        scrollbar-color: #777 black;
+        scrollbar-color: black white;
         scrollbar-width: auto;
     }
 }

@@ -51,9 +51,7 @@ const Clothe = (props) => {
                 <div className='sideContainer'>
                     <div className="leftSide">
                         <div className="clothes">
-                            <div>
-                                <img src={props.vetement[0]?.image} alt='' />
-                            </div>
+                            <img src={props.vetement[0]?.image} alt='' />
                         </div>  
                     </div>
                     <div className={`rightSide ${isFixed?'fixed':''}`}>

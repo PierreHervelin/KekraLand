@@ -62,7 +62,16 @@ const ContentShop = (props) => {
             link.href=`/product/${text.toLowerCase()}`
             link.click()
         }else if(condition1&&['hoodies','tshirts'].includes(text)){
-            link.href='/shop'
+            switch (text) {
+                case 'hoodies':
+                    link.href='/shop/hoodie'
+                    break
+                case 'tshirts':
+                    link.href='/shop/tshirt'
+                    break
+                default:
+                    break
+            }
             link.click()
         }
     }

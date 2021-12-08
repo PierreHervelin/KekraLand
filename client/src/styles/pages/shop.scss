@@ -1,20 +1,25 @@
 .Containers-vetements{
     width: 100%;
-    .Container-vetement{
+    overflow-x: hidden;
 
+    .Container-vetement{
         @extend %row;
         background-color: white;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
         height: fit-content;
         position: relative;
         overflow: hidden;
-        margin-top: 100px ;
-        padding-left: 250px;
-        padding-right: 250px;
+        margin-top: 100px;
         flex-wrap: wrap;
+
+        padding-inline: 300px;
+        padding-bottom: 100px;
+
         .content-all{
-            width: 32%;
+            width: 350px;
+            margin-inline: 10px;
+
             .content{
                 @extend %col;
                 width: 100%;
@@ -23,23 +28,28 @@
                 backdrop-filter: blur(3px);
                 transition: opacity ease .5s;
                 color: black;
-                margin-bottom: 90px;
-                text-align: center;
-                margin-top: 30px;
+                text-align: start;
+                margin-bottom: 50px;
+
+                h3{
+                    font-weight: normal;
+                    font-family: 'montserrat';
+                    font-size: 16px;
+                    margin-block: 5px;
+                }
+                p{
+                    font-family: 'montserrat semibold';
+                }
             }
             .image{
                 height: 400px;
+                width: 350px;
                 overflow: hidden;
                 position: relative;
-                display: flex;
-                pointer-events: auto;
-                justify-content: center;
                 cursor: pointer;
-                &>img {
-                    object-fit: cover;
-                    object-position: center;
-                    
-                }
+                pointer-events: auto;
+
+                @extend %cover;
             }
             
         } 

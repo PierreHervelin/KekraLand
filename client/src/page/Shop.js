@@ -1,39 +1,34 @@
-
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
 
-const Shop = () => {
+const Shop = (props) => {
 
     const [content, setContent] = useState([])
 
-    const getImages = async () => {
-        const produit = await axios.get(
-            'http://localhost:3001/api/produits/byCategorie',
-            {
-                params: {
-                    categorie: 'vetement'
-                }
-            })
-        const vetement = await axios.get(
-            `http://localhost:3001/api/vetement/${produit.data[0].id}`
-        )
+    const getClothes = async () => {
         
-        setContent([
-            vetement.data,
-            vetement.data,
-            vetement.data,
-            vetement.data,
-            vetement.data,
-            vetement.data,
-            vetement.data,
-            vetement.data,
-            vetement.data,
-            vetement.data,
-            vetement.data,
-        ])
+        const response = await axios.get(
+            `http://localhost:3001/api/vetement/bytype/${props.match.params.type}`
+        )
+        const clothes=response.data
+        const array=[]
+        for(let i in clothes){
+            if(Number(i)===0){
+                array.push([clothes[i]])
+                continue
+            }
+            if(clothes[i].ProduitId===clothes[i-1].ProduitId){
+                array[array.length-1].push(clothes[i])
+            }else{
+                array.push([clothes[i]])
+            }
+        }
+        console.log(array);
+        
+        setContent(array)
     }
 
     const clickOnProd=(e)=>{
@@ -50,7 +45,7 @@ const Shop = () => {
     }, [content])
 
     useEffect(() => {
-        getImages()
+        getClothes()
     }, [])
 
 
@@ -59,19 +54,18 @@ const Shop = () => {
             <Navbar/>
             <div className="Container-vetement">
                 {content.map((item, i) =>
-                <div className="content-all" >
-                    <div className='image' key={i}>
-                       <img src={item[0].image} alt='' data-index={i} onClick={clickOnProd} />  
+                    <div className="content-all" key={i}>
+                        <div 
+                            className='image' 
+                            style={{backgroundImage:`url(${item[0].image})`}}
+                            data-index={i} 
+                            onClick={clickOnProd}
+                        />
+                        <div className='content'>
+                            <h3>{item[0].nom}</h3>
+                            <p>{item[0].prix} €</p>
+                        </div>
                     </div>
-                    <div className='content'>
-                            <div >
-                                <h3>tee-shirt vreel</h3>
-                            </div>
-                            <div>
-                                {item[0].prix} €
-                            </div> 
-                    </div>
-                </div>
                 )}
             </div>
             <Footer/>
