@@ -13,7 +13,7 @@ db.authenticate()
     .then(()=>console.log('Database connected...'))
     .catch(err=>console.log('Error: '+err))
 const {Users, Themes, Produits, LigneCommandes, Commandes, Commentaires, Albums, Concerts, Vetements, Tracklists}=require('./models/index')
-const {UsersAPI, CommandesAPI, LigneCommandesAPI, ProduitsAPI, CommentairesAPI, ThemesAPI, AlbumsAPI, ConcertsAPI, VetementsAPI, TracklistsAPI}=require('./routes/index')
+const {UsersAPI, CommandesAPI, LigneCommandesAPI, ProduitsAPI, CommentairesAPI, ThemesAPI, AlbumsAPI, ConcertsAPI, VetementsAPI, TracklistsAPI, BoxAPI}=require('./routes/index')
 db.sync()
 
 Users.hasOne(Commentaires)
@@ -37,6 +37,7 @@ app.use('/api/album', AlbumsAPI)
 app.use('/api/concert', ConcertsAPI)
 app.use('/api/vetement', VetementsAPI)
 app.use('/api/tracklist', TracklistsAPI)
+app.use('/api/box', BoxAPI)
 
 
 app.listen(port, () => {

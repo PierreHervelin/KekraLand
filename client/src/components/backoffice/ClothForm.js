@@ -70,7 +70,8 @@ const ClothForm = () => {
                     stock:field.stock,
                     taille:field.size,
                     nom:name,
-                    image
+                    image,
+                    note:0
                 }
                 const reponse=await axios.post('http://localhost:3001/api/vetement/create',data)
                 console.log(reponse.data);

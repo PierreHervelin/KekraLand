@@ -27,7 +27,8 @@ const ConcertForm = () => {
                     prix:price,
                     quantite,
                     nom:name,
-                    image
+                    image,
+                    note:0
                 }
                 const reponse=await axios.post('http://localhost:3001/api/concert/create',data)
                 console.log(reponse.data);

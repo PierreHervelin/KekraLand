@@ -9,6 +9,7 @@ const AlbumForm = () => {
     const [image,setImage]=useState('')
     const [price,setPrice]=useState('')
     const [stock,setStock]=useState('')
+    const [description,setDescription]=useState('')
 
     const [fields,setFields]=useState([])
 
@@ -57,14 +58,16 @@ const AlbumForm = () => {
                 prix:price,
                 quantite:stock,
                 nom:name,
-                image
+                image,
+                description,
+                note:0
             })
             for(let field of fields){
                 const data={
                     ProduitId:id,
                     numero:field.num,
                     titre:field.title,
-                    temps:field.time
+                    temps:field.time,
                 }
                 await axios.post('http://localhost:3001/api/tracklist/create',data)
             }
@@ -112,6 +115,12 @@ const AlbumForm = () => {
                 placeholder='Quantite'
                 onChange={(e)=>setStock(e.target.value)}
                 value={stock}
+                required
+            />
+             <textarea
+                placeholder='Description'
+                onChange={(e)=>setDescription(e.target.value)}
+                value={description}
                 required
             />
             <div>

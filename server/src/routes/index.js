@@ -9,4 +9,5 @@ module.exports = {
     AlbumsAPI: require('./albums.api'),
     VetementsAPI: require('./vetements.api'),
     TracklistsAPI: require('./tracklists.api'),
+    BoxAPI: require('./box.api'),
   }
