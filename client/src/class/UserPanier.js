@@ -9,6 +9,7 @@ export class UserPanier{
         const isIn=this.isProduitIn(produit.id)
         if(isIn[0]){
             this.produits[isIn[1]].quantite+=produit.quantite
+            this.save()
             return
         }
         this.produits.push(produit)
@@ -37,7 +38,7 @@ export class UserPanier{
 
     isProduitIn(idProduit){
         for(let i in this.produits){
-            if(this.produits[i].id===idProduit) return [true,i]
+            if(this.produits[i].id===idProduit) return [true,Number(i)]
         }
         return [false,-1]
     }

@@ -4,7 +4,7 @@ const Paiement = () => {
     return (
         <div className="paiement">
             <h1>
-            Les paiements sont indisponible pour le moment
+            Les paiements sont indisponibles pour le moment
             </h1>
         </div>
     );

@@ -8,7 +8,6 @@ const Clothe = (props) => {
     const [size,setSize] = useState(null)
     const ref=useRef({})
 
-
     useEffect(() =>{
         if (size) {
             ref.current.buyButton.classList.add('active')
@@ -62,7 +61,7 @@ const Clothe = (props) => {
                             <h2>{props.vetement[0]?.nom}</h2>
                             <div ref={el=>ref.current.parentSizeButton=el} className='taille-content'>
                                 {props.vetement.map ((item, i) =>
-                                    <button onClick={clickOnSize} key={i}  > {item.taille} </button>
+                                    <button onClick={clickOnSize} key={i}>{item.taille}</button>
                                 )}
                             </div>
                             <div className="clothesDesc">
@@ -78,9 +77,9 @@ const Clothe = (props) => {
                                         onClick={()=>{
                                             console.log(User.panier);
                                             User.panier.addProduit({
-                                                id:props.vetement[0].ProduitId,
+                                                id:props.vetement[0].ProduitId+size,
                                                 nom:props.vetement[0].nom,
-                                                taille:props.vetement[0].taille,
+                                                taille:size,
                                                 prix:props.vetement[0].prix,
                                                 image:props.vetement[0].image,
                                                 quantite:1
