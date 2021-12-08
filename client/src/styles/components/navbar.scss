@@ -104,6 +104,11 @@
 
                 z-index: -1;
 
+                .errorMessage{
+                    color: red;
+                    width: 100px;
+                }
+
                 .eyeIcon{
                     color: white;
                     cursor: pointer;

@@ -36,10 +36,12 @@ const FormConnexion = (props) => {
         const reponse=await userExist()
 
         if(!reponse.exist){
-            console.log('erreur')
+            let text = ref.current.errorMessage;
+            text.textContent = "Mot de passe ou login incorrect"
         }else{
             console.log(reponse);
             setUser(reponse.user)
+
         }
     }
     const logoutFunction=()=>{
@@ -96,6 +98,7 @@ const FormConnexion = (props) => {
         return (
             <form className={`formConnexion ${props.active?'active':''}`}> 
                 <h3>Connexion</h3>
+                <p ref={el=>ref.current.errorMessage=el} className="errorMessage"></p>
                 <input 
                     type="text"
                     placeholder="Login" 
