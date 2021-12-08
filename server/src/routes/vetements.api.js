@@ -36,12 +36,13 @@ router.get('/bytype/:type', async (req,res)=>{
     if(!['tshirt','hoodie'].includes(req.params.type)){
         res.sendStatus(404)
     }
+    console.log(req.query);
     const vetements=await Vetements.findAll({
         where:{
             type:req.params.type
         },
-        offset:req.query.offset?req.query.offset:0,
-        limit:req.query.limit?req.query.limit:20
+        offset:req.query.offset?Number(req.query.offset):0,
+        limit:req.query.limit?Number(req.query.limit):20
     })
     if(vetements){
         res.send(vetements)

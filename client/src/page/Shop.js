@@ -11,7 +11,12 @@ const Shop = (props) => {
     const getClothes = async () => {
         
         const response = await axios.get(
-            `http://localhost:3001/api/vetement/bytype/${props.match.params.type}`
+            `http://localhost:3001/api/vetement/bytype/${props.match.params.type}`,
+            {
+                params:{
+                    limit:50
+                }
+            }
         )
         const clothes=response.data
         const array=[]
