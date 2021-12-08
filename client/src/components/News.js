@@ -26,7 +26,17 @@ const News = () => {
             clearInterval(interval2)
         }
     },[])
-
+    const clickPlace = () => {
+        const link = document.createElement('a')
+        link.href = `/product/ladefense`
+        link.click()
+    }
+    const clickShopTshirt = () => {
+        const link = document.createElement('a')
+        link.href = `/shop/tshirt`
+        link.click()
+    }
+    
     return (
         <div className='news'>
             <div className='title'>
@@ -50,7 +60,7 @@ const News = () => {
                             <h4>la défense, paris</h4>
                             <h4>22h</h4>
                             <h5>30 mars 2022</h5>
-                            <button>prends ta place</button>
+                            <button onClick={clickPlace}>prends ta place</button>
                         </div>
                     </div>
                 </div>
@@ -94,7 +104,7 @@ const News = () => {
                             <div className='infos'>
                                 <h3>derniers articles</h3>
                                 <h4>jusqu'à -70%</h4>
-                                <button>shopper</button>
+                                <button  onClick={clickShopTshirt} >shopper</button>
                             </div>
                         </div>
                         <div className='right'></div>

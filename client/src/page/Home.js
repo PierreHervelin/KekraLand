@@ -55,6 +55,16 @@ const Home = () => {
             Obs.observe(item)
         })
     })
+    const clickShopHoodies = () => {
+        const link = document.createElement('a')
+        link.href = `/shop/hoodie`
+        link.click()
+    }
+    const clickAlbum = () => {
+        const link = document.createElement('a')
+        link.href = `/product/vrealite`
+        link.click()
+    }
 
     return (
         <main className='Shop'>
@@ -65,13 +75,13 @@ const Home = () => {
                 </video>
                 <div className='content'>
                     <h2>NOUVEL ALBUM DISPONIBLE</h2>
-                    <button>ACHETER MAINTENANT</button>
+                    <button onClick={clickAlbum}>ACHETER MAINTENANT</button>
                 </div>
             </div>
             <div ref={el=>ref.current['container_newCollection']=el} className='new-cloth'>
                 <div className='img observe'></div>
                 <div className='title'>
-                    <h2>NOUVELLE COLLECTION</h2>
+                    <h2 onClick={clickShopHoodies}>NOUVELLE COLLECTION</h2>
                 </div>
             </div>
             <News/>
