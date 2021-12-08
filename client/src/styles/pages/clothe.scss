@@ -88,7 +88,6 @@
                     color: black;
                     border-color: black;
                     
-                    
                     &:hover{
                         color: white;
                         background: black;
@@ -97,6 +96,20 @@
                     &::after{
                         background: black;
                     }
+                }
+                .title-stars{
+                    @extend %row;
+                    justify-content: space-between;
+                    align-items: baseline;
+
+                    .stars{
+                        pointer-events: auto;
+
+                        span{
+                            cursor: pointer;
+                        }
+                    }
+
                 }
                 .taille-content{
                     @extend %row;

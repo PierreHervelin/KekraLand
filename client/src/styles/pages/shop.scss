@@ -31,11 +31,25 @@
                 text-align: start;
                 margin-bottom: 50px;
 
-                h3{
-                    font-weight: normal;
-                    font-family: 'montserrat';
-                    font-size: 16px;
-                    margin-block: 5px;
+
+                .title-stars{
+                    @extend %row;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    h3{
+                        font-weight: normal;
+                        font-family: 'montserrat';
+                        font-size: 16px;
+                        margin-block: 5px;
+                    }
+
+                    .stars{
+                        span{
+                            font-size: 18px;
+                        }
+                    }
+
                 }
                 p{
                     font-family: 'montserrat semibold';

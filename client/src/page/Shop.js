@@ -67,7 +67,16 @@ const Shop = (props) => {
                             onClick={clickOnProd}
                         />
                         <div className='content'>
-                            <h3>{item[0].nom}</h3>
+                            <div className='title-stars'>
+                                <h3>{item[0].nom}</h3>
+                                <div className='stars'>
+                                    <span id='0' className='material-icons'>{1<=item[0].note?'star':'star_border'}</span>
+                                    <span id='1' className='material-icons'>{2<=item[0].note?'star':'star_border'}</span>
+                                    <span id='2' className='material-icons'>{3<=item[0].note?'star':'star_border'}</span>
+                                    <span id='3' className='material-icons'>{4<=item[0].note?'star':'star_border'}</span>
+                                    <span id='4' className='material-icons'>{5<=item[0].note?'star':'star_border'}</span>
+                                </div>
+                            </div>
                             <p>{item[0].prix} €</p>
                         </div>
                     </div>

@@ -51,6 +51,25 @@ router.get('/bytype/:type', async (req,res)=>{
     }
 })
 
+router.get('/addNote/:id',async(req,res)=>{
+    const note=Number(req.query.note)
+    const id=req.params.id
+    if(note>=0&&note<=5){
+        const vetements=await Vetements.findAll({
+            where:{
+                ProduitId:id
+            }
+        })
+        for(let vetement of vetements){
+            vetement.note=note
+            await vetement.save()
+        }
+        res.sendStatus(200)
+    }else{
+        res.sendStatus(403)
+    }
+})
+
 router.get('/:id',(req,res)=>{
     Vetements.findAll({
         where:{
