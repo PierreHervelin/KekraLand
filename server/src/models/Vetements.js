@@ -42,6 +42,10 @@ const Vetements=db.define('Vetements',{
         type:Sequelize.STRING,
         allowNull: false
     },
+    note:{
+        type:Sequelize.INTEGER,
+        allowNull: false
+    }
 })
 
 module.exports=Vetements

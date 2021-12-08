@@ -32,6 +32,10 @@ const Concerts=db.define('Concerts',{
         type:Sequelize.STRING,
         allowNull: false
     },
+    note:{
+        type:Sequelize.INTEGER,
+        allowNull: false
+    }
 
 
 })

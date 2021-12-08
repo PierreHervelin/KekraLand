@@ -32,6 +32,10 @@ const Albums=db.define('Albums',{
         type:Sequelize.STRING,
         allowNull: false
     },
+    note:{
+        type:Sequelize.INTEGER,
+        allowNull: false
+    }
 
 
 })
