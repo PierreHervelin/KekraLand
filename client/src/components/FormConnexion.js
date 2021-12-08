@@ -14,7 +14,7 @@ const FormConnexion = (props) => {
     const ref=useRef({})
 
     const getUser=async()=>{
-        const user=await axios.get(`http://localhost:3001/api/users/${login}`)
+        const user=await axios.get(`http://localhost:3001/api/users/${login?login:User.login}`)
         setUser(user.data)
     }
 
