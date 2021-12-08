@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Album from '../components/Album';
+import Box from '../components/Box';
 import Clothe from '../components/Clothe';
 import Concert from '../components/Concert';
 import Loader from '../components/Loader';
@@ -20,6 +21,8 @@ const Product = (props) => {
         'rouen'
     ].includes(param)){
         productType='concert'
+    }else if(param==='box'){
+        productType='box'
     }else{
         productType='vetement'
     }
@@ -100,6 +103,9 @@ const Product = (props) => {
             case 'album':
                 getAlbum()
                 break
+            case 'box':
+                setProduct('box')
+                break
             default:
                 console.log('none')
                 return (
@@ -125,6 +131,10 @@ const Product = (props) => {
             case 'album':
                 return (
                     <Album album={product}/>
+                )
+            case 'box':
+                return(
+                    <Box/>
                 )
             default:
                 console.log('none')

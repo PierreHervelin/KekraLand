@@ -7,32 +7,28 @@ const Album = (props) => {
     const [isFixed, setIsFixed] = useState(false)
     const ref=useRef({})
 
-    let prevScrollPos=window.scrollY
+    let scrollPos=0
 
-    const handleScroll=()=>{
-        if(window.scrollY&&window.scrollY<window.innerHeight){
-            const currentScrollPos=window.scrollY
-
-            let down=false
-            if(currentScrollPos>prevScrollPos) down=true
-
-            prevScrollPos=currentScrollPos
-            setTimeout(() => {
-                if(down && currentScrollPos===window.scrollY){
-                    const config={
-                        top:(down)?window.innerHeight:0,
-                        behavior:'smooth'
-                    }
-                    window.scrollTo(config)
-                }
-            }, 300);
+    const scrollEvent=(e)=>{
+        e.preventDefault()
+        console.log(e);
+        if(e.deltaY<0){
+            console.log('haut');
+            scrollPos=scrollPos<=0?scrollPos:scrollPos-1
+        }else{
+            console.log('bas');
+            scrollPos=scrollPos>=2?scrollPos:scrollPos+1
         }
+        window.scrollTo({
+            top:scrollPos*window.innerHeight,
+            behavior:'smooth'
+        })
     }
 
     useEffect(()=>{
-        window.addEventListener('scroll',handleScroll)
+        window.addEventListener('wheel',scrollEvent,{passive:false})
         return ()=>{
-            window.removeEventListener('scroll',handleScroll)
+            window.removeEventListener('wheel',scrollEvent,{passive:false})
         }
     },[])
 

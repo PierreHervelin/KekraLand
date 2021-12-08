@@ -36,6 +36,11 @@ const News = () => {
         link.href = `/shop/tshirt`
         link.click()
     }
+    const clickBox=()=>{
+        const link=document.createElement('a')
+        link.href='/product/box'
+        link.click()
+    }
     
     return (
         <div className='news'>
@@ -77,7 +82,7 @@ const News = () => {
                             </div>
                             <div className='infos'>
                                 <h2>box kekra</h2>
-                                <button>voir plus</button>
+                                <button onClick={clickBox}>voir plus</button>
                             </div>
                         </div>
                         <div className='right'>

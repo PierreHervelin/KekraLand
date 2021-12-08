@@ -43,6 +43,8 @@
                     width: 100%;
                     position: relative;
 
+                    pointer-events: auto;
+
                     @extend %col;
                     justify-content: center;
                     align-items: center;
@@ -94,26 +96,40 @@
                 @extend %mid;
                 height: 30vh;
 
+                .title-box{
+                    @extend %row;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
                 .boxChoice-container{
                     @extend %row;
                     justify-content: space-between;
                     align-items: center;
 
-                    width:50px;
+                    width:40px;
                     pointer-events:auto;
 
                     &>div{
-                        width:20px;
-                        height:20px;
+                        width:15px;
+                        height:15px;
                         border-radius: 50%;
                         border: 1px solid black;
                         cursor: pointer;
 
+                        transition: all ease .2s;
+
                         &.box1{
                             background-color: white;
+                            &:hover{
+                                box-shadow:0px 0px 10px rgba(grey,.5);
+                            }
                         }
                         &.box2{
-                            background-color: red;
+                            background-color: crimson;
+                            &:hover{
+                                box-shadow:0px 0px 10px rgba(crimson,.5);
+                            }
                         }
                     }
                 }
