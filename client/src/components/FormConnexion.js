@@ -6,9 +6,12 @@ import { UserPanier } from '../class/UserPanier';
 
 const FormConnexion = (props) => {
     const [login,setLogin]=useState('')
-    const [password,setPassword]=useState('')
+    const [password,setPassword]=useState()
+    const [passwordShown, setPasswordShown] = useState(false);
     const [isLogin,setIsLogin]=useState(false)
     const [user,setUser]=useState(null)
+
+    const ref=useRef({})
 
     const getUser=async()=>{
         const user=await axios.get(`http://localhost:3001/api/users/${login}`)
@@ -63,6 +66,20 @@ const FormConnexion = (props) => {
         }
     },[user])
 
+    const togglePassword = () => {
+        let eyeLogo = ref.current.span;
+        if(passwordShown === false){
+            eyeLogo.classList.remove("material-icons-outlined");
+            eyeLogo.classList.add("material-icons");
+            setPasswordShown(!passwordShown);
+        }
+        else{
+            eyeLogo.classList.remove("material-icons");
+            eyeLogo.classList.add("material-icons-outlined");
+            setPasswordShown(!passwordShown);
+        }
+    }
+
 
     if(user){
         return (
@@ -80,19 +97,21 @@ const FormConnexion = (props) => {
             <form className={`formConnexion ${props.active?'active':''}`}> 
                 <h3>Connexion</h3>
                 <input 
-                    type="text" 
+                    type="text"
                     placeholder="Login" 
                     required
                     onChange={(e)=>setLogin(e.target.value)}
                     value={login}
                 />
                 <input 
-                    type="password" 
+                    type={passwordShown? "text" : "password"}  
                     placeholder="Mot de passe"
                     onChange={(e)=>setPassword(e.target.value)}
                     value={password}
                     required
                 />
+                <span ref={el=>ref.current.span=el} onClick={togglePassword} className="material-icons-outlined eyeIcon">remove_red_eye</span> 
+
                 <button onClick={loginFunction}>Valider</button>
                 <p>Tu n'as pas de compte ? 
                     <Link to="/Inscription">inscris toi</Link>
