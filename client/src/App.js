@@ -9,6 +9,7 @@ import Home from './page/Home';
 import Product from './page/Product';
 import Shop from './page/Shop';
 import Paiement from './page/Paiement';
+import Compte from './page/Compte';
 
 const App = () => {
     return (
@@ -18,6 +19,7 @@ const App = () => {
             <Route exact path="/shop/:type" component={Shop}/>
             <Route exact path="/admin" component={BackOffice}/>
             <Route exact path="/paiement" component={Paiement}/>
+            <Route exact path="/compte" component={Compte}/>
 
             <Route path='/product/:name' component={Product}/>
 

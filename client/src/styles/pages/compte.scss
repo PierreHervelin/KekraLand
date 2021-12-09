@@ -1,0 +1,41 @@
+.compte{
+    @extend %col;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+
+    .pvalid{
+        color: green;
+        position: absolute;
+        top: 20vh;
+        z-index: 5;
+        opacity: 0;
+        transition: opacity ease .5s;
+
+        &.active{
+            opacity: 1;
+        }
+    }
+
+    .formContainer{
+        @extend %col;
+        justify-content: center;
+        align-items: center;
+
+        width: 100vw;
+        height: 100vh;
+        margin-top: 15px;
+
+        pointer-events: auto;
+
+        position: relative;
+        background-color: white;
+
+        h2{
+            font-family: 'montserrat semibold';
+            font-weight: normal;
+        }
+    } 
+}

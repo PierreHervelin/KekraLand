@@ -88,7 +88,7 @@ const FormConnexion = (props) => {
             <div className={`formConnexion login ${props.active?'active':''}`}>
                 <h3>Bonjour {user?.login}</h3>
                 <div className='options'>
-                    <a>Mon compte</a>
+                    <a href='/compte'>Mon compte</a>
                     <a>Paramètres</a>
                 </div>
                 <button onClick={logoutFunction}>Déconnexion</button>

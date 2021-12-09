@@ -1,0 +1,72 @@
+.formCompte{
+    @extend %col;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: fit-content;
+
+    pointer-events: auto;
+
+    position: relative;
+
+    &.init{
+        input,button,h1{
+            opacity: 0;
+        }
+    }
+
+    h2{
+        margin-block: 30px;
+
+        font-family: 'montserrat medium';
+        font-weight: normal;
+        font-size: 25px;
+
+        transition: all ease 1s;
+
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+
+    input{
+        margin-block: 20px;
+
+        width: 350px;
+        height: 25px;
+
+        border: none;
+        border-bottom: 1px solid #aaa;
+        font-size: 15px;
+
+        transition: border-color ease .5s, opacity ease 1s .5s;
+
+        &:hover{
+            border-bottom: 1px solid black;
+        }
+
+        &:focus-visible{
+            border-bottom: 1px solid black;
+            outline: none;
+        }
+
+        &.error{
+            border-bottom: 1px solid red;
+        }
+    }
+    
+    button{
+        color: black;
+        border-color: black;
+        
+        &:hover{
+            color: white;
+            background: black;
+        }
+
+        &::after{
+            background: black;
+        }
+    }
+}

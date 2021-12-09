@@ -52,6 +52,23 @@ router.post('/create', (req, res) => {
         .catch(err => console.log(err))
 })
 
+router.post('/update', async(req, res) => {
+    const user=req.body
+
+    const findUser = await Users.findOne({
+        where:{
+            login:user.login
+        }
+    })
+
+    for(let property in user){
+        findUser[property] = user[property]
+    }
+    findUser.save()
+    res.sendStatus(200)
+
+})
+
 router.post('/checkLogin', async (req, res) => {
     const user = await Users.findOne({where: req.body });
 

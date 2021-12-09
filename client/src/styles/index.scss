@@ -17,10 +17,10 @@
 @import './pages/home.scss';
 @import './pages/backoffice.scss';
 @import './pages/shop.scss';
-@import './pages/album.scss';
 @import './pages/clothe.scss';
 @import './pages/concert.scss';
 @import './pages/paiement.scss';
+@import './pages/compte.scss';
 
 // ---- Components :
 
@@ -34,3 +34,5 @@
 @import './components/footer.scss';
 @import './components/loader.scss';
 @import './components/box.scss';
+@import './components/album.scss';
+@import './components/formCompte.scss';
