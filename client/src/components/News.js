@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import clip from '../asset/video/kekra_video2.mp4'
+import clipSalaire from '../asset/video/kekra_salaire.mp4'
 import concert from '../asset/video/kekraconcert.mp4'
 
 const News = () => {
@@ -39,6 +40,12 @@ const News = () => {
     const clickBox=()=>{
         const link=document.createElement('a')
         link.href='/product/box'
+        link.click()
+    }
+    const clickInstagram = () => {
+        const link = document.createElement('a')
+        link.href = `https://www.instagram.com/kekraland/?hl=fr`
+        link.target = '_blank'
         link.click()
     }
     
@@ -100,8 +107,23 @@ const News = () => {
                                 >
                                     <p>voir le clip</p>
                                 </div>
+                      
                             </div>
-                            <div></div>
+                            <div>
+                                <video autoPlay muted loop>
+                                    <source src={clipSalaire}/>
+                                </video>
+                                <div 
+                                    className='back'
+                                    onClick={
+                                        ()=>{
+                                            ref.current.clipSalaire.click()
+                                        }
+                                    }
+                                >
+                                    <p>voir le clip</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className='bottom observe'>
@@ -112,7 +134,14 @@ const News = () => {
                                 <button  onClick={clickShopTshirt} >shopper</button>
                             </div>
                         </div>
-                        <div className='right'></div>
+                        <div className='right'>
+                            <img src='https://cdn.discordapp.com/attachments/889877094711046216/918458679936835634/kekra-intermission.jpg'/>
+                            <div 
+                            className='back' onClick={clickInstagram}>
+                                    <p>Instagram</p>
+                            </div>       
+                        </div>
+        
                     </div>
                 </div>
             </div>
@@ -120,6 +149,11 @@ const News = () => {
                 href='https://www.youtube.com/watch?v=G9BwHA13jJc'
                 target="_blank"
                 ref={el=>ref.current.clip=el}
+            />
+             <a 
+                href='https://www.youtube.com/watch?v=nqOTVuG1GPI'
+                target="_blank"
+                ref={el=>ref.current.clipSalaire=el}
             />
         </div>
     );
