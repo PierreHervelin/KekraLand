@@ -11,11 +11,20 @@ const Clothe = (props) => {
     const [noteChange,setNoteChange] = useState(false)
     const ref=useRef({})
 
+    let scrollPos=0
+
     useEffect(() =>{
         if (size) {
             ref.current.buyButton.classList.add('active')
         }
     },[size])
+
+    useEffect(()=>{
+        window.addEventListener('wheel',scrollEvent,{passive:false})
+        return ()=>{
+            window.removeEventListener('wheel',scrollEvent,{passive:false})
+        } 
+    },[])
 
     const clickOnSize = (e) =>{
         const button = e.target
@@ -58,6 +67,22 @@ const Clothe = (props) => {
         }else{
             window.alert('Veuillez vous connecter')
         }
+    }
+
+    const scrollEvent=(e)=>{
+        e.preventDefault()
+        console.log(e);
+        if(e.deltaY<0){
+            console.log('haut');
+            scrollPos=scrollPos<=0?scrollPos:scrollPos-1
+        }else{
+            console.log('bas');
+            scrollPos=scrollPos>=1?scrollPos:scrollPos+1
+        }
+        window.scrollTo({
+            top:scrollPos*window.innerHeight,
+            behavior:'smooth'
+        })
     }
 
     // observer :
