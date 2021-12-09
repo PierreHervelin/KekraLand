@@ -96,7 +96,7 @@ const FormConnexion = (props) => {
         )
     }else{
         return (
-            <form className={`formConnexion ${props.active?'active':''}`}> 
+            <form className={`formConnexion ${props.active?'active':''}`} onMouseEnter={props.closeNavBar}> 
                 <h3>Connexion</h3>
                 <p ref={el=>ref.current.errorMessage=el} className="errorMessage"></p>
                 <input 

@@ -25,6 +25,10 @@ const Navbar = () => {
         ref.current['blackbottom'].classList.remove('active')
     }
 
+    const closeNavBar=()=>{
+        setNavActive(false)
+    }
+
     const handleScroll=()=>{
         const currentScrollPos=window.scrollY
     
@@ -95,7 +99,7 @@ const Navbar = () => {
                                 setUserActive(!userActive)
                             }}
                         />
-                        <FormConnexion active={userActive}/>
+                        <FormConnexion closeNavBar={closeNavBar} active={userActive}/>
                     </div>
                     <LogoShop 
                         className='icon'
